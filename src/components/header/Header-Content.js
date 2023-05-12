@@ -7,15 +7,16 @@ const HeaderContent = () => {
   return (
     <div className={styles["headerContent"]}>
       <h1 className={styles["header__heading"]}>
-        Empowering Future Leaders, <br />
-        One Step at a Time.
+        empowering future leaders, <br />
+
+        <span>one step at a time.</span>
       </h1>
 
       <Link
         to='/oppurtunities'
         className={styles["header__button"]}
       >
-        Oppurtunities
+        oppurtunities :)
       </Link>
     </div>
   );

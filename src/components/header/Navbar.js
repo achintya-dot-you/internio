@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div className={styles["navbar"]}>
       <h2 className={styles["navbar__header"]}>
-        <Link to='/'>Internio.</Link>
+        <Link to='/'>internio.</Link>
       </h2>
       <ul className={styles["navbar__list"]}>
         <li className={styles["navbar__list__item"]}>
