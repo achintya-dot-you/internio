@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@600&display=swap');
 .navbar {
   background-color: var(--color-white);
   color: var(--color-smoky-black);
@@ -23,6 +24,7 @@
         line-height: 5.8rem;
         letter-spacing: 0em;
         text-align: left;
+        font-family: var(--logo-font);
       }
     }
   }
