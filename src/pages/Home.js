@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
+import Header from "../components/header/Header";
 
 const Home = () => {
   return (
     <Fragment>
-      <h1>e</h1>
+      <Header />
     </Fragment>
   );
 };

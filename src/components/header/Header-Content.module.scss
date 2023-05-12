@@ -1,0 +1,28 @@
+.headerContent {
+  width: 60%;
+  height: clac(100vh - var(--navbar-height));
+  padding-left: var(--header-padding-left);
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--header-button-gap);
+
+  text-align: left;
+  font-style: normal;
+  font-size: var(--header-font-size);
+  line-height: var(--header-line-height);
+
+  color: var(--color-pure-white);
+}
+
+.header__button {
+  outline: none;
+  border: none;
+  border-radius: var(--header-button-border-radius);
+
+  padding: var(--header-button-padding-horizontal) var(--header-button-padding-vertical);
+  // margin-left: var(--header-button-margin-left);
+  font-size: var(--header-button-font-size);
+}

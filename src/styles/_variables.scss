@@ -43,4 +43,22 @@
   //   rgba(237, 236, 214, 1) 99%
   // );
   --background-color: var(--color-smoky-black);
+
+  // ** Navbar **
+  --navbar-horizontal-padding: 6rem;
+  --navbar-height: 10vh;
+  --navbar-box-shadow-spread: 7rem;
+
+  // ** Header **
+  --header-button-gap: 4rem;
+  --header-font-size: 3.7rem;
+  --header-line-height: 8rem;
+  --header-padding-left: 4vw;
+
+  // Header Button
+  --header-button-font-size: 2.4rem;
+  --header-button-padding-horizontal: 2rem;
+  --header-button-padding-vertical: 4rem;
+  --header-button-border-radius: 50vw;
+  --header-button-margin-left: 4rem;
 }

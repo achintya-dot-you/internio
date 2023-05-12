@@ -5,18 +5,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 6rem;
+  padding: 0 var(--navbar-horizontal-padding);
 
-  height: 7.5rem;
+  height: var(--navbar-height);
 
   // Drop Shadow
-  box-shadow: 0 0 7rem var(--color-gray);
+  box-shadow: 0 0 var(--navbar-box-shadow-spread) var(--color-gray);
 
   &__header {
     a {
       font-size: 4.8rem;
       color: var(--color-smoky-black);
       text-decoration: none;
+      font-weight: 700;
+      line-height: 58px;
+      letter-spacing: 0em;
+      text-align: left;
     }
   }
 
