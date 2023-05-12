@@ -1,9 +1,4 @@
-:root {
-  --background-gradient: linear-gradient(45deg, rgba(186, 199, 197, 0.742734593837535) 0%, rgba(237, 236, 214, 1) 99%)
-}
-
 body {
   // Setting a main background.
-    background: rgb(186, 199, 197);
-    background: var(--background-gradient);
+  background-color: var(--background-color);
 }

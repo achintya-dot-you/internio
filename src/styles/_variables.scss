@@ -1,0 +1,46 @@
+:root {
+  // ** Color Theme **
+  // Shades of Black and White
+  --color-smoky-black: #12100e;
+  --color-pure-black: #0c0404;
+  --color-white: #edecd6;
+  --color-pure-white: #f7fff7;
+  --color-light-gray: #bac7c5;
+  --color-gray: #5e5e5e;
+  --color-dark-gray: #2a3439;
+  --color-bone-gray: #413e3a;
+
+  // Primary and important colors
+  --color-beaver: #9d816c;
+  --color-beaver-light: #baa798;
+  --color-beaver-dark: darken(#8d7461, 20%);
+  --color-vanilla: #eee3ab;
+  --color-vanilla-light: #f7f1d5;
+  --color-vanilla-dark: #8f8867;
+  --color-bone: #d9cfc1;
+  --color-bone-dark: #aea69a;
+  --color-bone-light: #e4ddd4;
+
+  // Secondary Color
+  --color-secondary: #f8333c;
+  --color-secondary-light: #fb858a;
+  --color-secondary-dark: #4a0f12;
+
+  // Tertiary Color
+  --color-tertiary: #80a1c1;
+  --color-tertiary-dark: #4d6174;
+  --color-tertiary-light: #a6bdd4;
+
+  // Contrast Color
+  --color-contrast: #4ecdc4;
+  --color-contrast-dark: #1f524e;
+  --color-contrast-light: #95e1dc;
+
+  // ** Background **
+  // --background-gradient: linear-gradient(
+  //   45deg,
+  //   rgba(186, 199, 197, 0.742734593837535) 0%,
+  //   rgba(237, 236, 214, 1) 99%
+  // );
+  --background-color: var(--color-smoky-black);
+}
