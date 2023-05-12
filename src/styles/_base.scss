@@ -25,9 +25,10 @@ html {
 
 body {
   box-sizing: border-box;
+  overflow: hidden;
 }
 
-::selection {
-  background-color: var(--color-aqua);
-  color: lighten(pink, 8%);
-}
+// ::selection {
+// background-color: var(--color-aqua);
+// background-color: lighten(pink, 8%);
+// }

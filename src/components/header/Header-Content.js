@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./Header-Content.module.scss";
 
@@ -9,7 +10,13 @@ const HeaderContent = () => {
         Empowering Future Leaders, <br />
         One Step at a Time.
       </h1>
-      <button className={styles["header__button"]}>Check out our Oppurtunities</button>
+
+      <Link
+        to='/oppurtunities'
+        className={styles["header__button"]}
+      >
+        Oppurtunities
+      </Link>
     </div>
   );
 };

@@ -7,7 +7,7 @@
   --color-pure-white: #f7fff7;
   --color-light-gray: #bac7c5;
   --color-gray: #5e5e5e;
-  --color-dark-gray: #2a3439;
+  --color-dark-gray: #1f1f1f;
   --color-bone-gray: #413e3a;
 
   // Primary and important colors
@@ -57,8 +57,17 @@
 
   // Header Button
   --header-button-font-size: 2.4rem;
-  --header-button-padding-horizontal: 2rem;
-  --header-button-padding-vertical: 4rem;
+  --header-button-font-weight: 700;
+  --header-button-hover-animation-timing: 0.2s;
+  --header-button-animation-timing: 0.4s;
+  --header-button-padding-horizontal: 7rem;
+  --header-button-padding-vertical: 0;
   --header-button-border-radius: 50vw;
   --header-button-margin-left: 4rem;
+  --header-button-hover-box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+  --header-button-active-box-shadow: 0 10px 10px rgba(255, 255, 255, 0.2);
+  --header-button-hover-movement-distance: -3px;
+  --header-button-active-movement-distance: -1px;
+  --header-button-hover-animation-horizontal-scaling: 1.2;
+  --header-button-hover-animation-vertical-scaling: 1.6;
 }
