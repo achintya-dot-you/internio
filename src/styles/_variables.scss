@@ -48,12 +48,12 @@
   --navbar-horizontal-padding: 6rem;
   --navbar-height: 10vh;
   --navbar-box-shadow-spread: 7rem;
+  --navbar-header-font-size: 4.8rem;
 
   // ** Header **
   --header-button-gap: 4rem;
   --header-font-size: 3.7rem;
   --header-line-height: 8rem;
-  --header-padding-left: 4vw;
 
   // Header Button
   --header-button-font-size: 2.4rem;
@@ -62,16 +62,15 @@
   --header-button-animation-timing: 0.4s;
   --header-button-padding-horizontal: 7rem;
   --header-button-padding-vertical: 0;
-  --header-button-border-radius: 50vw;
+  --header-button-border-radius: 1vw;
   --header-button-margin-left: 4rem;
-  --header-button-hover-box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
-  --header-button-active-box-shadow: 0 10px 10px rgba(255, 255, 255, 0.2);
+  --header-button-hover-box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.2);
+  --header-button-active-box-shadow: 0 1rem 1rem rgba(255, 255, 255, 0.2);
   --header-button-hover-movement-distance: -3px;
   --header-button-active-movement-distance: -1px;
   --header-button-hover-animation-horizontal-scaling: 1.2;
   --header-button-hover-animation-vertical-scaling: 1.6;
 
-
   //Fonts
-  --logo-font: 'Chivo', sans-serif;
+  --logo-font: "Chivo", sans-serif;
 }
