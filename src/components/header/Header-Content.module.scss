@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 .header__heading {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--logo-font);
   align-self: center;
   text-align: center;
 }
@@ -76,7 +76,7 @@
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: var(--header-button-border-radius);
     position: absolute;
     top: 0;
     left: 0;

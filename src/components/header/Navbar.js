@@ -11,7 +11,7 @@ const Navbar = () => {
       </h2>
       <ul className={styles["navbar__list"]}>
         <li className={styles["navbar__list__item"]}>
-          <Link to='/oppurtunities'>Oppurtunities</Link>
+          <Link to='/oppurtunities'>oppurtunities</Link>
         </li>
       </ul>
     </div>
