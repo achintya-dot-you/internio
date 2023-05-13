@@ -8,18 +8,16 @@ const HeaderContent = () => {
     <div className={styles["headerContent"]}>
       <h1 className={styles["header__heading"]}>
         empowering future leaders, <br />
-
-        <span>one step at a time.</span>
+        one step at a time.
       </h1>
 
       <Link
         to='/oppurtunities'
         className={styles["header__button"]}
       >
-        oppurtunities :)
+        view oppurtunities :)
       </Link>
     </div>
   );
 };
-
 export default HeaderContent;
