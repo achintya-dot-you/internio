@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Oppurtunities from "./pages/Oppurtunities";
+import Opportunities from "./pages/Opportunities";
 import NotFound from "./pages/NotFound";
 
 import "./styles/initialization.scss";
@@ -22,8 +22,8 @@ function App() {
             element={<Home />}
           />
           <Route
-            path='/oppurtunities'
-            element={<Oppurtunities />}
+            path='/opportunities'
+            element={<Opportunities />}
           />
           <Route
             path='/*'

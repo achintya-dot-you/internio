@@ -8,14 +8,14 @@ const HeaderContent = () => {
     <div className={styles["headerContent"]}>
       <h1 className={styles["header__heading"]}>
         empowering future leaders, <br />
-        one step at a time.
+        <span className='callback'>one step at a time.</span>
       </h1>
 
       <Link
-        to='/oppurtunities'
+        to='/opportunities'
         className={styles["header__button"]}
       >
-        view oppurtunities :)
+        view opportunities :)
       </Link>
     </div>
   );

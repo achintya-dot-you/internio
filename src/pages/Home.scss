@@ -1,7 +1,8 @@
 #home {
   overflow: hidden;
 
-    background: #7E499D;
-    background: radial-gradient(at center, #7E499D, #12100E);
-
+  background: rgb(18, 16, 14);
+  background: radial-gradient(at right, rgb(106, 147, 241) 0%, rgb(18, 16, 14) 100%),
+    radial-gradient(at left, rgb(106, 147, 241) 0%, rgb(18, 16, 14) 60%);
+  //background-image: "https://uploads-ssl.webflow.com/62909cbd1d1a8e706926609e/62909cbd1d1a8e34a52660cc_bg-header.png";
 }

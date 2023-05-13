@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <div id='home'>
-        <Navbar />
+        <Navbar type='gradient' />
         <Header />
       </div>
     </>
