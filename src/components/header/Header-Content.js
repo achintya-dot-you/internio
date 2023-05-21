@@ -7,8 +7,8 @@ const HeaderContent = () => {
   return (
     <div className={styles["headerContent"]}>
       <h1 className={styles["header__heading"]}>
-        empowering future leaders, <br />
-        <span className='callback'>one step at a time.</span>
+        empowering future leaders
+        <br />
       </h1>
 
       <Link
