@@ -1,4 +1,9 @@
 .carousel {
-  height: 10rem;
-  background-color: red;
+  width: 80%;
+  overflow: hidden;
+}
+
+.carouselContainer {
+  display: flex;
+  justify-content: center;
 }

@@ -1,4 +1,14 @@
 .card {
   background-color: var(--color-smoky-black);
-  height: 10rem;
+  height: 40rem;
+  width: 30%;
+  margin: 0 2.5%;
+  top: 10%;
+}
+
+.active {
+  background-color: red;
+  height: 50rem;
+  top: 0;
+  transform: scale(1.666);
 }
