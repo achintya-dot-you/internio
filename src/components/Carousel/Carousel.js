@@ -16,8 +16,7 @@ const flickityOptions = {
   accessibility: false,
   prevNextButtons: true,
   pageDots: false,
-  adaptiveHeight: false,
-  inititalIndex: 2,
+  adaptiveHieght: true,
 };
 
 console.log(
@@ -33,7 +32,7 @@ console.log(
 
 const Carousel = () => {
   const flickityRef = useRef(null);
-  const [currentSlide, setCurrentSlide] = useState(2);
+  const [currentSlide, setCurrentSlide] = useState(1);
   const [carouselData, setCarouselData] = useState(
     opportunities.map((data) => {
       return (
