@@ -4,6 +4,16 @@
   width: 30%;
   margin: 0 2.5%;
   top: 10%;
+  border-radius: 3rem;
+  overflow: hidden;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
 }
 
 .active {
