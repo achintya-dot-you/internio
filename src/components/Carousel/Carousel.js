@@ -11,12 +11,13 @@ import opportunities from "../../data/opportunities.json";
 const flickityOptions = {
   draggable: false,
   contain: true,
-  wrapAround: true,
-  autoPlay: false,
+  autoPlay: 4099,
   accessibility: false,
   prevNextButtons: true,
   pageDots: false,
-  adaptiveHieght: true,
+  adaptiveHeight: false,
+  initialIndex: Math.floor(opportunities.length / 2),
+  wrapAround: true,
 };
 
 console.log(
@@ -32,7 +33,7 @@ console.log(
 
 const Carousel = () => {
   const flickityRef = useRef(null);
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState(Math.floor(opportunities.length / 2) + 1);
   const [carouselData, setCarouselData] = useState(
     opportunities.map((data) => {
       return (
@@ -66,21 +67,78 @@ const Carousel = () => {
           <CarouselCard
             key={data.id}
             title={data.title}
-            styles={
+            active={
               (data.id === opportunities.length + 1 ? 1 : data.id) === currentSlide ? "active" : ""
             }
+            display='show'
           />
         );
       })
     );
+    const timeout = setTimeout(() => {
+      setCarouselData(
+        opportunities.map((data) => {
+          var shouldShow = "show";
+          if (
+            (data.id === opportunities.length + 1 ? 1 : data.id) === currentSlide ||
+            (data.id === opportunities.length + 1 ? 1 : data.id) ===
+              (currentSlide === 1 ? opportunities.length : currentSlide - 1) ||
+            (data.id === opportunities.length + 1 ? 1 : data.id) ===
+              (currentSlide === opportunities.length ? 1 : currentSlide + 1)
+          ) {
+            shouldShow = "show";
+          }
+
+          return (
+            <CarouselCard
+              key={data.id}
+              title={data.title}
+              active={
+                (data.id === opportunities.length + 1 ? 1 : data.id) === currentSlide
+                  ? "active"
+                  : ""
+              }
+              display={shouldShow}
+            />
+          );
+        })
+      );
+    }, 1000); // 1 second timeout
+
+    // Clean up the timeout on component unmount
+    return () => clearTimeout(timeout);
   }, [currentSlide]);
 
   return (
     <>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div className={styles["carouselContainer"]}>
         <div
           ref={flickityRef}
-          className={styles["carousel"]}
+          className={styles["carousel"] + " carousel"}
         >
           {carouselData}
         </div>
@@ -91,7 +149,24 @@ const Carousel = () => {
       <br />
       <br />
       <br />
-      <div>Current Slide: {currentSlide}</div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };

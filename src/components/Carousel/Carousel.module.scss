@@ -1,9 +1,10 @@
 .carousel {
   width: 80%;
-  overflow: hidden;
 }
 
 .carouselContainer {
   display: flex;
   justify-content: center;
+  overflow: hidden;
+  height: 50rem;
 }
