@@ -11,9 +11,9 @@ import opportunities from "../../data/opportunities.json";
 const flickityOptions = {
   draggable: false,
   contain: true,
-  autoPlay: 4099,
+  autoPlay: 4000,
   accessibility: false,
-  prevNextButtons: true,
+  prevNextButtons: false,
   pageDots: false,
   adaptiveHeight: false,
   initialIndex: Math.floor(opportunities.length / 2),
@@ -78,7 +78,7 @@ const Carousel = () => {
     const timeout = setTimeout(() => {
       setCarouselData(
         opportunities.map((data) => {
-          var shouldShow = "show";
+          var shouldShow = "hide";
           if (
             (data.id === opportunities.length + 1 ? 1 : data.id) === currentSlide ||
             (data.id === opportunities.length + 1 ? 1 : data.id) ===
@@ -103,7 +103,7 @@ const Carousel = () => {
           );
         })
       );
-    }, 1000); // 1 second timeout
+    }, 1); // 1 second timeout
 
     // Clean up the timeout on component unmount
     return () => clearTimeout(timeout);

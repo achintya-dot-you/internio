@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
+import Landing from "./pages/Landing";
 import Opportunities from "./pages/Opportunities";
 import NotFound from "./pages/NotFound";
 import Title from "./components/General/Title";
@@ -15,14 +16,18 @@ function App() {
       <Router>
         <Title />
         <Routes>
-          <Route
+          {/* <Route
             path='/'
             element={<Home />}
-          />
+          /> */}
           <Route
+            path='/'
+            element={<Landing />}
+          />
+          {/* <Route
             path='/home'
             element={<Home />}
-          />
+          /> */}
           <Route
             path='/opportunities'
             element={<Opportunities />}

@@ -35,11 +35,12 @@
   --color-contrast: #4ecdc4;
   --color-contrast-dark: #1f524e;
   --color-contrast-light: #95e1dc;
+  --color-contrast-blue: #2200ff;
 
   // ** Background **
-  --background-gradient: radial-gradient(at right, rgb(106, 147, 241) 0%, rgb(18, 16, 14) 100%),
-    radial-gradient(at left, rgb(106, 147, 241) 0%, rgb(18, 16, 14) 60%);
-  --background-solid: rgb(18, 16, 14);
+  --background-gradient: radial-gradient(at right, #6a93f1 0%, #12100e 100%),
+    radial-gradient(at left, #6a93f1 0%, #12100e 60%);
+  --background-solid: #6a93f1;
 
   // ** Navbar **
   --navbar-horizontal-padding: 6rem;

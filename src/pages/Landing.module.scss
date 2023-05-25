@@ -1,0 +1,60 @@
+#landing {
+  background: var(--background-solid);
+  background: var(--background-gradient);
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-pure-white);
+
+  form {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    input {
+      padding: 1rem;
+      width: 53rem;
+      height: 6rem;
+      // border-radius: 10rem;
+      outline: none;
+      border: none;
+      overflow: hidden;
+      font-size: 3.3rem;
+    }
+
+    button {
+      height: 6rem;
+      // border-top-right-radius: 10rem;
+      // border-bottom-right-radius: 10rem;
+      position: absolute;
+      right: 0;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      background-color: var(--color-contrast-blue);
+    }
+  }
+}
+
+.button-submit {
+  padding: 0.7rem 1.5rem; /* Increase padding to adjust size */
+  font-size: 1.2rem; /* Increase font size */
+  background-color: var(--your-button-color);
+  color: var(--your-button-text-color);
+  border: none;
+  cursor: pointer;
+}
+
+.error-text {
+  color: var(--color-secondary-dark);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.hidden {
+  opacity: 0;
+}
