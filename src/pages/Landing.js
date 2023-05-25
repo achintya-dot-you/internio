@@ -6,57 +6,60 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "./Landing.module.scss";
 
 const Landing = () => {
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
-  const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(false);
+  const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
 
   useEffect(() => {
-    if (enteredNameIsValid) {
-      console.log("Name Input is valid!");
+    if (enteredEmailIsValid) {
+      console.log("Email Input is valid!");
     }
-  }, [enteredNameIsValid]);
+  }, [enteredEmailIsValid]);
 
-  const nameInputChangeHandler = (event) => {
-    setEnteredName(event.target.value);
+  const EmailInputChangeHandler = (event) => {
+    setEnteredEmail(event.target.value);
 
-    if (enteredName.trim() !== "") {
-      setEnteredNameIsValid(true);
+    if (enteredEmail.trim() !== "" && enteredEmail.indexOf("@") > -1) {
+      setEnteredEmailIsValid(true);
     }
   };
 
-  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+  const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
 
   const formSubmissionHandler = (event) => {
     event.preventDefault();
 
-    setEnteredNameTouched(true);
+    setEnteredEmailTouched(true);
 
-    if (enteredName.trim() === "") {
-      setEnteredNameIsValid(false);
+    if (enteredEmail.trim() === "" || !(enteredEmail.indexOf("@") > -1)) {
+      setEnteredEmailIsValid(false);
     } else {
-      setEnteredNameIsValid(true);
+      setEnteredEmailIsValid(true);
+
+      setEnteredEmail("");
     }
 
-    console.log(enteredName);
-
-    setEnteredName("");
+    console.log("Entered Email: " + enteredEmail);
   };
 
-  const nameInputBlurHandler = (event) => {
-    setEnteredNameTouched(true);
+  const EmailInputBlurHandler = (event) => {
+    setEnteredEmailTouched(true);
 
-    if (enteredName.trim() === "") {
-      setEnteredNameIsValid(false);
+    if (enteredEmail.trim() === "" || !(enteredEmail.indexOf("@") > -1)) {
+      setEnteredEmailIsValid(false);
       return;
     }
   };
 
   return (
     <div id={styles["landing"]}>
-      <form onSubmit={formSubmissionHandler}>
+      <form
+        autocomplete='off'
+        onSubmit={formSubmissionHandler}
+      >
         <div
-          className={
-            nameInputIsInvalid
+          classEmail={
+            emailInputIsInvalid
               ? styles["form-control"] + " " + styles["invalid"]
               : styles["form-control"]
           }
@@ -71,13 +74,13 @@ const Landing = () => {
             placeholder='Enter Your Email'
             className={styles["form-input"]}
             type='text'
-            id='name'
-            onChange={nameInputChangeHandler}
-            onBlur={nameInputBlurHandler}
-            value={enteredName}
+            id='Email'
+            onChange={EmailInputChangeHandler}
+            onBlur={EmailInputBlurHandler}
+            value={enteredEmail}
           />
-          {nameInputIsInvalid ? (
-            <p className={styles["error-text"]}>Field must not be empty!</p>
+          {emailInputIsInvalid ? (
+            <p className={styles["error-text"]}>Invalid Email Entered</p>
           ) : (
             <p className={styles["hidden"] + " " + styles["error-text"]}>asdfasdf</p>
           )}
