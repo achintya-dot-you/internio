@@ -7,7 +7,7 @@ const Navbar = (props) => {
   return (
     <div className={`${styles["navbar"]} ${styles[`navbar__${props.type}`]}`}>
       <h2 className={`${styles["navbar__header"]} ${styles[`navbar__${props.type}__header`]}`}>
-        <Link to='/'>internio.</Link>
+        <Link to='/home'>internio.</Link>
       </h2>
       <ul className={`${styles["navbar__list"]} ${styles[`navbar__${props.type}__list`]}`}>
         <li

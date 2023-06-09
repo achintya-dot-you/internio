@@ -1,0 +1,50 @@
+.card {
+  background-color: red;
+
+  border-radius: var(--opportunity-card-border-radius);
+  padding: var(--opportunity-card-padding);
+  box-shadow: 0 var(--opportunity-card-box-shadow-y-offset) var(--opportunity-card-box-shadow-blur)
+    var(--opportunity-card-box-shadow-spread) var(--color-tertiary-very-dark);
+
+  transition: all var(--opportunity-card-hover-animation-time);
+
+  &:hover {
+    transform: translateY(var(--opportunity-card-hover-distance));
+  }
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-around;
+
+  height: fit-content;
+}
+
+.title {
+  color: var(--color-smoky-black);
+  font-size: 3.5rem;
+}
+
+.subject {
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.image {
+  border-radius: 100vw;
+  overflow: hidden;
+  transition: all 1s cubic-bezier(0.06, 0.41, 0.43, 0.93);
+  height: 100%;
+  max-width: 15rem;
+
+  &:hover {
+    transform: scale(1.2);
+    overflow: hidden;
+  }
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+}

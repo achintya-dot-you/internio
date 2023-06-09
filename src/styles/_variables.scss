@@ -6,6 +6,7 @@
   --color-white: #edecd6;
   --color-pure-white: #f7fff7;
   --color-light-gray: #bac7c5;
+  --color-slightly-light-gray: #a0a0a0;
   --color-gray: #5e5e5e;
   --color-dark-gray: #1f1f1f;
   --color-bone-gray: #413e3a;
@@ -29,6 +30,7 @@
   // Tertiary Color
   --color-tertiary: #80a1c1;
   --color-tertiary-dark: #4d6174;
+  --color-tertiary-very-dark: #1e272f;
   --color-tertiary-light: #a6bdd4;
 
   // Contrast Color
@@ -70,6 +72,19 @@
   --header-button-hover-animation-horizontal-scaling: 1.2;
   --header-button-hover-animation-vertical-scaling: 1.6;
 
-  //Fonts
+  // Fonts
   --logo-font: "Montserrat", sans-serif;
+
+  // **OPPORTUNITIES PAGE**
+  --opportunities-container-gap: 6rem;
+  --opportunities-container-margin: 4rem;
+
+  // Opportunity Cards
+  --opportunity-card-padding: 3rem;
+  --opportunity-card-hover-animation-time: 0.4s;
+  --opportunity-card-hover-distance: -1rem;
+  --opportunity-card-border-radius: 1.6rem;
+  --opportunity-card-box-shadow-spread: 0.3rem;
+  --opportunity-card-box-shadow-blur: 1.5rem;
+  --opportunity-card-box-shadow-y-offset: 0.8rem;
 }

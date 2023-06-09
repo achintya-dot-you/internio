@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from "../components/header/Header";
 import Navbar from "../components/header/Navbar";
-import Carousel from "../components/Carousel/Carousel";
+// import Carousel from "../components/Carousel/Carousel";
 import "./Home.scss";
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
         <Header />
       </main>
 
-      <Carousel />
+      {/* <Carousel /> */}
     </>
   );
 };

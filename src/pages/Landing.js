@@ -1,9 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 // import Header from "../components/header/Header";
 // import Navbar from "../components/header/Navbar";
 
 import styles from "./Landing.module.scss";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
 const Landing = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -26,7 +29,7 @@ const Landing = () => {
 
   const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
 
-  const formSubmissionHandler = (event) => {
+  const formSubmissionHandler = async (event) => {
     event.preventDefault();
 
     setEnteredEmailTouched(true);
@@ -35,6 +38,14 @@ const Landing = () => {
       setEnteredEmailIsValid(false);
     } else {
       setEnteredEmailIsValid(true);
+
+      await fetch(process.env.REACT_APP_dbLink + "/Emails.json", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(enteredEmail),
+      });
 
       setEnteredEmail("");
     }
@@ -86,7 +97,12 @@ const Landing = () => {
           )}
         </div>
         <div className={styles["form-actions"]}>
-          <button className={styles["button-submit"]}>Submit</button>
+          <button className={styles["button-submit"]}>
+            <FontAwesomeIcon
+              icon={faRightToBracket}
+              size='2x'
+            />
+          </button>
         </div>
       </form>
     </div>

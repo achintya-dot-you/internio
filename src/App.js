@@ -24,10 +24,10 @@ function App() {
             path='/'
             element={<Landing />}
           />
-          {/* <Route
+          <Route
             path='/home'
             element={<Home />}
-          /> */}
+          />
           <Route
             path='/opportunities'
             element={<Opportunities />}
