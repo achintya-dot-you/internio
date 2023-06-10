@@ -66,7 +66,7 @@ const Landing = () => {
   return (
     <div id={styles["landing"]}>
       <form
-        autocomplete='off'
+        autoComplete='off'
         onSubmit={formSubmissionHandler}
       >
         <div
