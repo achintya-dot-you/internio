@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-// import Header from "../components/header/Header";
-// import Navbar from "../components/header/Navbar";
+import { db } from "../firebase_setup/firebase-config";
+import { collection, addDoc } from "firebase/firestore";
 
 import styles from "./Landing.module.scss";
 
@@ -39,13 +39,9 @@ const Landing = () => {
     } else {
       setEnteredEmailIsValid(true);
 
-      await fetch(process.env.REACT_APP_dbLink + "/Emails.json", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(enteredEmail),
-      });
+      const postsCollectionRef = collection(db, "Emails");
+
+      await addDoc(postsCollectionRef, { email: enteredEmail });
 
       setEnteredEmail("");
     }
