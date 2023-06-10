@@ -33,8 +33,10 @@ const Landing = () => {
     event.preventDefault();
 
     setEnteredEmailTouched(true);
+    const enteredEmailTrimmed = enteredEmail.trim();
+    var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-    if (enteredEmail.trim() === "" || !(enteredEmail.indexOf("@") > -1)) {
+    if (enteredEmailTrimmed === "" || !enteredEmailTrimmed.match(pattern)) {
       setEnteredEmailIsValid(false);
     } else {
       setEnteredEmailIsValid(true);
