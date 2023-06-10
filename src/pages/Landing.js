@@ -42,8 +42,11 @@ const Landing = () => {
       setEnteredEmailIsValid(true);
 
       const postsCollectionRef = collection(db, "Emails");
-
-      await addDoc(postsCollectionRef, { email: enteredEmail });
+      try {
+        await addDoc(postsCollectionRef, { email: enteredEmail });
+      } catch (e) {
+        console.log(e);
+      }
 
       setEnteredEmail("");
     }
