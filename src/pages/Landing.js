@@ -8,6 +8,8 @@ import styles from "./Landing.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
+import landingBackgroundPictureDesktop from "../assets/images/landing-background/landing_background_desktop.png";
+
 const Landing = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(false);
@@ -65,47 +67,58 @@ const Landing = () => {
 
   return (
     <div id={styles["landing"]}>
-      <form
-        autoComplete='off'
-        onSubmit={formSubmissionHandler}
-      >
-        <div
-          classEmail={
-            emailInputIsInvalid
-              ? styles["form-control"] + " " + styles["invalid"]
-              : styles["form-control"]
-          }
-        >
-          {/* <label
-            htmlFor='name'
-            className={styles["form-label"]}
-          >
-            Enter Your Email
-          </label> */}
-          <input
-            placeholder='Enter Your Email'
-            className={styles["form-input"]}
-            type='text'
-            id='Email'
-            onChange={EmailInputChangeHandler}
-            onBlur={EmailInputBlurHandler}
-            value={enteredEmail}
+      <div className={styles["landing-background"]}>
+        <picture className={styles["landing_background_picture"]}>
+          <img
+            srcSet={landingBackgroundPictureDesktop}
+            alt=''
+            className={styles["landing_background_picture_desktop"]}
           />
-          {emailInputIsInvalid ? (
-            <p className={styles["error-text"]}>Invalid Email Entered</p>
-          ) : (
-            <p className={styles["hidden"] + " " + styles["error-text"]}>asdfasdf</p>
-          )}
-        </div>
-        <div className={styles["form-actions"]}>
-          <button className={styles["button-submit"]}>
-            <FontAwesomeIcon
-              icon={faRightToBracket}
-              size='2x'
+        </picture>
+      </div>
+      <div className={styles["landing-content"]}>
+        <h1 className={styles["heading"]}>
+          <span className={styles["heading-top"]}>internio</span>
+          <span className={styles["heading-bottom"]}>empowering future leaders!</span>
+        </h1>
+        <h2 className={styles["sub-header"]}>
+          We're passionate about empowering high school students through internship opportunities.
+        </h2>
+        <form
+          autoComplete='off'
+          onSubmit={formSubmissionHandler}
+        >
+          <div
+            classEmail={
+              emailInputIsInvalid
+                ? styles["form-control"] + " " + styles["invalid"]
+                : styles["form-control"]
+            }
+          >
+            <input
+              className={styles["form-input"]}
+              type='text'
+              id='Email'
+              onChange={EmailInputChangeHandler}
+              onBlur={EmailInputBlurHandler}
+              value={enteredEmail}
             />
-          </button>
-        </div>
-      </form>
+            {emailInputIsInvalid ? (
+              <p className={styles["error-text"]}>Invalid Email Entered</p>
+            ) : (
+              <p className={styles["hidden"] + " " + styles["error-text"]}>asdfasdf</p>
+            )}
+          </div>
+          <div className={styles["form-actions"]}>
+            <button className={styles["button-submit"]}>
+              <FontAwesomeIcon
+                icon={faRightToBracket}
+                size='2x'
+              />
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
