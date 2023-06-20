@@ -8,7 +8,8 @@ import styles from "./Landing.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
-import landingBackgroundPictureDesktop from "../assets/images/landing-background/landing_background_desktop.png";
+import landingImagePictureDesktop from "../assets/images/landing-image/landing_image_desktop.svg";
+import iconImage from "../assets/images/icon.png";
 
 const Landing = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -67,22 +68,22 @@ const Landing = () => {
 
   return (
     <div id={styles["landing"]}>
-      <div className={styles["landing-background"]}>
-        <picture className={styles["landing_background_picture"]}>
-          <img
-            srcSet={landingBackgroundPictureDesktop}
-            alt=''
-            className={styles["landing_background_picture_desktop"]}
-          />
-        </picture>
-      </div>
       <div className={styles["landing-content"]}>
         <h1 className={styles["heading"]}>
-          <span className={styles["heading-top"]}>internio</span>
+          <span className={styles["heading-top"]}>
+            interni
+            <img
+              srcSet={iconImage}
+              alt=''
+            ></img>
+          </span>
           <span className={styles["heading-bottom"]}>empowering future leaders!</span>
         </h1>
         <h2 className={styles["sub-header"]}>
-          We're passionate about empowering high school students through internship opportunities.
+          Join our waitlist today and be the first to know when we go live. Unlock your potential,
+          gain real-world experience, and set yourself up for future success. <br />
+          <br />
+          Sign up now and secure your spot!
         </h2>
         <form
           autoComplete='off'
@@ -104,7 +105,7 @@ const Landing = () => {
               value={enteredEmail}
             />
             {emailInputIsInvalid ? (
-              <p className={styles["error-text"]}>Invalid Email Entered</p>
+              <p className={styles["error-text"]}>Invalid email entered!</p>
             ) : (
               <p className={styles["hidden"] + " " + styles["error-text"]}>asdfasdf</p>
             )}
@@ -114,10 +115,20 @@ const Landing = () => {
               <FontAwesomeIcon
                 icon={faRightToBracket}
                 size='2x'
+                className={styles["button-submit-icon"]}
               />
             </button>
           </div>
         </form>
+      </div>
+      <div className={styles["landing-image"]}>
+        <picture className={styles["landing_image_picture"]}>
+          <img
+            srcSet={landingImagePictureDesktop}
+            alt=''
+            className={styles["landing_image_picture_desktop"]}
+          />
+        </picture>
       </div>
     </div>
   );
