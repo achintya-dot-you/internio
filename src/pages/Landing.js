@@ -80,15 +80,13 @@ const Landing = () => {
           <span className={styles["heading-bottom"]}>empowering future leaders!</span>
         </h1>
         <h2 className={styles["sub-header"]}>
-          Are you a high school student looking for internships? <br />
-          Look no further!
-
-
-
+          Are you a high school student looking for internships?<strong> Look no further!</strong>
           <br /> <br />
-          We work with various companies to provide you with the practical and hands-on experience that you need!
-  
-          <br /><br /><b>Sign up now to get notified once we go live!</b>
+          We work with various companies to provide you with the practical and hands-on experience
+          that you need!
+          <br />
+          <br />
+          <b>Sign up now to get notified once we go live!</b>
         </h2>
         <form
           autoComplete='off'
@@ -100,6 +98,7 @@ const Landing = () => {
                 ? styles["form-control"] + " " + styles["invalid"]
                 : styles["form-control"]
             }
+            className={styles["input-container"]}
           >
             <input
               className={styles["form-input"]}

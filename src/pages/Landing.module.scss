@@ -1,3 +1,5 @@
+@import "../styles/mixins";
+
 #landing {
   background-size: 100% 100%;
   height: 100vh;
@@ -13,7 +15,7 @@
   form {
     display: flex;
     flex-direction: row;
-    position: relative;
+    align-items: flex-start;
 
     input {
       padding: 1rem;
@@ -31,12 +33,10 @@
       height: 6rem;
       // border-top-right-radius: 10rem;
       // border-bottom-right-radius: 10rem;
-      position: absolute;
-      right: 0;
       outline: none;
       border: none;
       cursor: pointer;
-      background-color: transparent;
+      background-color: #d9d9d9;
     }
   }
 }
@@ -59,7 +59,6 @@
 .hidden {
   opacity: 0;
 }
-
 
 .heading {
   color: var(--color-smoky-black);
@@ -98,8 +97,47 @@
   margin-top: 4.5rem;
 }
 
-
-
 .landing-content {
   margin-left: 10rem;
+}
+
+.landing-image {
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 83.125em) {
+  .landing-image {
+    display: none;
+  }
+
+  #landing {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-content {
+    margin-right: 10rem;
+    text-align: center;
+  }
+
+  .heading-top {
+    display: flex;
+    justify-content: center;
+  }
+
+  #landing {
+    form {
+      justify-content: center;
+    }
+  }
+
+  .error-text {
+    text-align: left;
+  }
+} // 1330px
+
+@media only screen and (max-width: 40.625em) {
+  .landing-content {
+    margin: 0;
+  }
 }
