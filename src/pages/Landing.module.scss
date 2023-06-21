@@ -60,6 +60,7 @@
   opacity: 0;
 }
 
+
 .heading {
   color: var(--color-smoky-black);
   line-height: 1;
@@ -91,22 +92,13 @@
 
 .sub-header {
   font-size: 2.7rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--color-smoky-black);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   margin-top: 4.5rem;
 }
 
-.landing-background {
-  background-color: #12100e;
-  z-index: -100;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-}
+
 
 .landing-content {
   margin-left: 10rem;

@@ -80,10 +80,15 @@ const Landing = () => {
           <span className={styles["heading-bottom"]}>empowering future leaders!</span>
         </h1>
         <h2 className={styles["sub-header"]}>
-          Join our waitlist today and be the first to know when we go live. Unlock your potential,
-          gain real-world experience, and set yourself up for future success. <br />
-          <br />
-          Sign up now and secure your spot!
+          Are you a high school student looking for internships? <br />
+          Look no further!
+
+
+
+          <br /> <br />
+          We work with various companies to provide you with the practical and hands-on experience that you need!
+  
+          <br /><br /><b>Sign up now to get notified once we go live!</b>
         </h2>
         <form
           autoComplete='off'
