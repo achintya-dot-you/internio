@@ -1,5 +1,5 @@
 :root {
-  // ** Color Theme **
+  // ** COLOR THEME **
   // Shades of Black and White
   --color-smoky-black: #12100e;
   --color-pure-black: #0c0404;
@@ -21,6 +21,7 @@
   --color-bone: #d9cfc1;
   --color-bone-dark: #aea69a;
   --color-bone-light: #e4ddd4;
+  --color-form-input: #d9d9d9;
 
   // Secondary Color
   --color-secondary: #f8333c;
@@ -39,18 +40,18 @@
   --color-contrast-light: #95e1dc;
   --color-contrast-blue: #2200ff;
 
-  // ** Background **
+  // ** BACKGROUND **
   --background-gradient: radial-gradient(at right, #6a93f1 0%, #12100e 100%),
     radial-gradient(at left, #6a93f1 0%, #12100e 60%);
   --background-solid: #6a93f1;
 
-  // ** Navbar **
+  // ** NAVBAR **
   --navbar-horizontal-padding: 6rem;
   --navbar-height: 10vh;
   --navbar-box-shadow-spread: 3rem;
   --navbar-header-font-size: 4.8rem;
 
-  // ** Header **
+  // ** HEADER **
   --header-button-gap: 4rem;
   --header-font-size: 3.7rem;
   --header-line-height: 8rem;
@@ -87,4 +88,31 @@
   --opportunity-card-box-shadow-spread: 0.3rem;
   --opportunity-card-box-shadow-blur: 1.5rem;
   --opportunity-card-box-shadow-y-offset: 0.8rem;
+
+  // ** LANDING PAGE **
+  // Content
+  --landing-error-text-font-size: 2rem;
+  --landing-error-text-font-weight: 600;
+  --landing-heading-line-height: 1;
+  --landing-heading-top-font-size: 7.5rem;
+  --landing-heading-top-font-family: Montserrat, sans-serif;
+  --landing-heading-logo-height: 7rem;
+  --landing-heading-bottom-font-size: 3.7rem;
+  --landing-heading-bottom-font-family: Syne, sans-serif;
+  --landing-heading-bottom-font-weight: 700;
+  --landing-sub-header-font-size: 2.7rem;
+  --landing-sub-header-font-weight: 400;
+  --landing-sub-header-margin-bottom: 1rem;
+  --landing-sub-header-margin-top: 4.5rem;
+  --landing-content-margin-left: 10rem;
+  --landing-content-tab-margin-right: 10rem;
+
+  // Form / Input
+  --landing-input-padding: 1rem;
+  --landing-input-height: 6rem;
+  --landing-input-font-size: 3.3rem;
+  --landing-button-padding: 0.7rem 1.5rem;
+  --landing-button-font-size: 1.2rem;
+  --landing-phone-input-border-radius: 0.5rem 0 0 0.5rem;
+  --landing-phone-button-border-radius: 0 0.5rem 0.5rem 0;
 }
