@@ -82,8 +82,8 @@ const Landing = () => {
         <h2 className={styles["sub-header"]}>
           Are you a high school student looking for internships?<strong> Look no further!</strong>
           <br /> <br />
-          We work with various companies to provide you with the practical and hands-on experience
-          that you need!
+          We actively collaborate with diverse companies and organizations to deliver the practical,
+          hands-on experience you need!
           <br />
           <br />
           <b>Sign up now to get notified once we go live!</b>
