@@ -6,13 +6,13 @@ const Title = () => {
 
   useEffect(() => {
     const pathname = location.pathname; // Get the current pathname
-    let title = "Internio || Page Not Found"; // Set your default title here
+    let title = "internio | Page Not Found"; // Set your default title here
 
     // Map the pathname to the desired title for each route
     if (pathname === "/") {
-      title = "Internio || Home";
+      title = "internio | Home";
     } else if (pathname === "/opportunities") {
-      title = "Internio || Opportunities";
+      title = "internio | Opportunities";
     }
 
     document.title = title; // Set the document title

@@ -49,6 +49,7 @@ const Landing = () => {
       const postsCollectionRef = collection(db, "Emails");
       try {
         await addDoc(postsCollectionRef, { email: enteredEmail });
+        console.log("ty");
       } catch (e) {
         console.log(e);
       }
@@ -105,6 +106,7 @@ const Landing = () => {
             <input
               className={styles["form-input"]}
               type='text'
+              placeholder="achintya@internio.app"
               id='Email'
               onChange={EmailInputChangeHandler}
               onBlur={EmailInputBlurHandler}
@@ -136,7 +138,7 @@ const Landing = () => {
           />
         </picture>
       </div>
-      {/* <LandingFooter /> */}
+      { <LandingFooter /> }
     </div>
   );
 };

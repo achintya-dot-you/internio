@@ -7,16 +7,16 @@ const LandingFooter = () => {
     <div className={styles["footer"]}>
       <ul className={styles["social-links-list"]}>
         <li>
-          <a href='https://www.linkedin.com/company/internio/'>LinkedIn</a>
+          <a href='https://www.linkedin.com/company/internio/'>linkedin</a>
         </li>
         <li>
-          <a href='https://github.com/internio/internio-main'>Instagram</a>
+          <a href='https://www.instagram.com/internio.app/'>instagram</a>
         </li>
         <li>
-          <a href='https://github.com/internio/internio-main'>Twitter</a>
+          <a href='https://twitter.com/internio_app'>twitter</a>
         </li>
         <li>
-          <a href='https://github.com/internio/internio-main'>GitHub</a>
+          <a href='https://github.com/achintya-dot-you/internio'>github</a>
         </li>
       </ul>
     </div>

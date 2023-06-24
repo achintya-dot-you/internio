@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
 .footer {
   height: 100%;
   width: 100%;
   grid-column: 1/-1;
 
-  background: var(--color-smoky-black);
+  border-top: 2px solid black;
+  border-radius: 2px;
 }
 
 .social-links-list {
@@ -17,10 +20,16 @@
   li {
     font-size: 2rem;
 
-    color: var(--color-pure-white);
+    color: rgb(80, 80, 80);
 
     a {
-      color: var(--color-pure-white);
+      color: rgb(80, 80, 80);
+      font-family: Comfortaa, sans-serif;
+      text-decoration: none;
+    }
+    a:hover{
+      color: var(--color-smoky-black);
+      text-decoration: underline;
     }
   }
 }
