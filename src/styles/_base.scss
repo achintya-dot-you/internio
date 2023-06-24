@@ -29,7 +29,7 @@ body {
   box-sizing: border-box;
 }
 
-// ::selection {
-// background-color: var(--color-aqua);
-// background-color: lighten(pink, 8%);
-// }
+::selection {
+  background-color: var(--color-smoky-black);
+  color: var(--color-pure-white);
+}

@@ -1,5 +1,5 @@
 @import "../styles/mixins";
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
 
 #landing {
   background-size: 100% 100%;
@@ -31,6 +31,22 @@
       font-size: var(--landing-input-font-size);
       background: var(--color-form-input);
       border-radius: var(--landing-input-border-radius);
+
+      &::-webkit-input-placeholder {
+        font-size: var(--landing-input-placeholder-font-size);
+      }
+
+      &:-moz-placeholder {
+        font-size: var(--landing-input-placeholder-font-size);
+      }
+
+      &::-moz-placeholder {
+        font-size: var(--landing-input-placeholder-font-size);
+      }
+
+      &:-ms-input-placeholder {
+        font-size: var(--landing-input-placeholder-font-size);
+      }
     }
 
     // input:focus {

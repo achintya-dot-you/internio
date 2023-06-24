@@ -17,6 +17,7 @@ const Landing = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(false);
   const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (enteredEmailIsValid) {
@@ -27,6 +28,8 @@ const Landing = () => {
   const EmailInputChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
 
+    setEnteredEmailIsValid(true);
+
     if (enteredEmail.trim() !== "" && enteredEmail.indexOf("@") > -1) {
       setEnteredEmailIsValid(true);
     }
@@ -36,6 +39,8 @@ const Landing = () => {
 
   const formSubmissionHandler = async (event) => {
     event.preventDefault();
+
+    setIsLoading(true);
 
     setEnteredEmailTouched(true);
     const enteredEmailTrimmed = enteredEmail.trim();
@@ -49,7 +54,6 @@ const Landing = () => {
       const postsCollectionRef = collection(db, "Emails");
       try {
         await addDoc(postsCollectionRef, { email: enteredEmail });
-        console.log("ty");
       } catch (e) {
         console.log(e);
       }
@@ -58,6 +62,7 @@ const Landing = () => {
     }
 
     console.log("Entered Email: " + enteredEmail);
+    setIsLoading(false);
   };
 
   const EmailInputBlurHandler = (event) => {
@@ -92,7 +97,7 @@ const Landing = () => {
           <b>Sign up now to get notified once we go live!</b>
         </h2>
         <form
-          autoComplete='off'
+          autoComplete='on'
           onSubmit={formSubmissionHandler}
         >
           <div
@@ -106,7 +111,7 @@ const Landing = () => {
             <input
               className={styles["form-input"]}
               type='text'
-              placeholder="achintya@internio.app"
+              placeholder='achintya@internio.app'
               id='Email'
               onChange={EmailInputChangeHandler}
               onBlur={EmailInputBlurHandler}
@@ -119,13 +124,15 @@ const Landing = () => {
             )}
           </div>
           <div className={styles["form-actions"]}>
-            <button className={styles["button-submit"]}>
-              <FontAwesomeIcon
-                icon={faRightToBracket}
-                size='2x'
-                className={styles["button-submit-icon"]}
-              />
-            </button>
+            {!isLoading && (
+              <button className={styles["button-submit"]}>
+                <FontAwesomeIcon
+                  icon={faRightToBracket}
+                  size='2x'
+                  className={styles["button-submit-icon"]}
+                />
+              </button>
+            )}
           </div>
         </form>
       </div>
@@ -138,7 +145,7 @@ const Landing = () => {
           />
         </picture>
       </div>
-      { <LandingFooter /> }
+      <LandingFooter />
     </div>
   );
 };
