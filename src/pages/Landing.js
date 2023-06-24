@@ -136,7 +136,7 @@ const Landing = () => {
           />
         </picture>
       </div>
-      <LandingFooter />
+      {/* <LandingFooter /> */}
     </div>
   );
 };
