@@ -11,6 +11,8 @@ import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import landingImagePictureDesktop from "../assets/images/landing-image/landing_image_desktop.svg";
 import iconImage from "../assets/images/icon.png";
 
+import LandingFooter from "../components/Landing/LandingFooter";
+
 const Landing = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(false);
@@ -134,6 +136,7 @@ const Landing = () => {
           />
         </picture>
       </div>
+      <LandingFooter />
     </div>
   );
 };

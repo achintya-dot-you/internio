@@ -1,0 +1,26 @@
+.footer {
+  height: 100%;
+  width: 100%;
+  grid-column: 1/-1;
+
+  background: var(--color-smoky-black);
+}
+
+.social-links-list {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+
+  li {
+    font-size: 2rem;
+
+    color: var(--color-pure-white);
+
+    a {
+      color: var(--color-pure-white);
+    }
+  }
+}
