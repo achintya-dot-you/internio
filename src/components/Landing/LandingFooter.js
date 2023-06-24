@@ -13,7 +13,7 @@ const LandingFooter = () => {
           <a href='https://www.instagram.com/internio.app/'>instagram</a>
         </li>
         <li>
-          <a href='https://github.com/internio/internio-main'>twitter</a>
+          <a href='https://twitter.com/internio_app'>twitter</a>
         </li>
         <li>
           <a href='https://github.com/achintya-dot-you/internio'>github</a>
