@@ -1,6 +1,27 @@
 @import "../styles/mixins";
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
 
+.spin {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 5px solid var(--color-gray);
+  border-radius: 50%;
+  border-top-color: var(--color-smoky-black);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 #landing {
   background-size: 100% 100%;
   height: 100vh;
@@ -178,3 +199,19 @@
     }
   }
 } // 650px;
+
+// .spin::before {
+//   animation: 1.5s linear infinite spinner;
+//   animation-play-state: inherit;
+//   border: solid 5px #cfd0d1;
+//   border-bottom-color: var(--color-smoky-black);
+//   border-radius: 50%;
+//   content: "";
+//   height: 40px;
+//   width: 40px;
+//   position: absolute;
+//   top: 10%;
+//   left: 10%;
+//   transform: translate3d(-50%, -50%, 0);
+//   will-change: transform;
+// }

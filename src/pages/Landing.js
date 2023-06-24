@@ -6,7 +6,7 @@ import { collection, addDoc } from "firebase/firestore";
 import styles from "./Landing.module.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import { faRightToBracket, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 import landingImagePictureDesktop from "../assets/images/landing-image/landing_image_desktop.svg";
 import iconImage from "../assets/images/icon.png";
@@ -17,7 +17,9 @@ const Landing = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(false);
   const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
+  const [showNormal, setShowNormal] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     if (enteredEmailIsValid) {
@@ -41,6 +43,7 @@ const Landing = () => {
     event.preventDefault();
 
     setIsLoading(true);
+    setShowNormal(false);
 
     setEnteredEmailTouched(true);
     const enteredEmailTrimmed = enteredEmail.trim();
@@ -48,12 +51,23 @@ const Landing = () => {
 
     if (enteredEmailTrimmed === "" || !enteredEmailTrimmed.match(pattern)) {
       setEnteredEmailIsValid(false);
+
+      setIsLoading(false);
+      setShowNormal(true);
     } else {
       setEnteredEmailIsValid(true);
 
       const postsCollectionRef = collection(db, "Emails");
       try {
         await addDoc(postsCollectionRef, { email: enteredEmail });
+
+        setIsLoading(false);
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+
+          setShowNormal(true);
+        }, 1500);
       } catch (e) {
         console.log(e);
       }
@@ -62,7 +76,6 @@ const Landing = () => {
     }
 
     console.log("Entered Email: " + enteredEmail);
-    setIsLoading(false);
   };
 
   const EmailInputBlurHandler = (event) => {
@@ -111,7 +124,7 @@ const Landing = () => {
             <input
               className={styles["form-input"]}
               type='text'
-              placeholder='achintya@internio.app'
+              placeholder='team@internio.app'
               id='Email'
               onChange={EmailInputChangeHandler}
               onBlur={EmailInputBlurHandler}
@@ -124,13 +137,28 @@ const Landing = () => {
             )}
           </div>
           <div className={styles["form-actions"]}>
-            {!isLoading && (
+            {showNormal && (
               <button className={styles["button-submit"]}>
                 <FontAwesomeIcon
                   icon={faRightToBracket}
                   size='2x'
                   className={styles["button-submit-icon"]}
                 />
+              </button>
+            )}
+            {success && (
+              <button className={styles["button-submit"]}>
+                <FontAwesomeIcon
+                  icon={faCheck}
+                  size='2x'
+                  className={styles["button-submit-icon"]}
+                />
+              </button>
+            )}
+
+            {isLoading && (
+              <button className={styles["button-submit"]}>
+                <div className={styles["spin"]}></div>
               </button>
             )}
           </div>
