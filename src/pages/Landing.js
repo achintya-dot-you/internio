@@ -49,6 +49,7 @@ const Landing = () => {
       const postsCollectionRef = collection(db, "Emails");
       try {
         await addDoc(postsCollectionRef, { email: enteredEmail });
+        console.log("ty");
       } catch (e) {
         console.log(e);
       }
@@ -136,7 +137,7 @@ const Landing = () => {
           />
         </picture>
       </div>
-      {/* <LandingFooter /> */}
+      { <LandingFooter /> }
     </div>
   );
 };
