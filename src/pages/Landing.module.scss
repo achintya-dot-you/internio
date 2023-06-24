@@ -1,4 +1,5 @@
 @import "../styles/mixins";
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
 #landing {
   background-size: 100% 100%;
@@ -21,6 +22,7 @@
     input {
       padding: var(--landing-input-padding);
       width: 100%;
+      font-family: Comfortaa;
       height: var(--landing-input-height);
       // border-radius: 10rem;
       outline: none;

@@ -106,6 +106,7 @@ const Landing = () => {
             <input
               className={styles["form-input"]}
               type='text'
+              placeholder="achintya@internio.app"
               id='Email'
               onChange={EmailInputChangeHandler}
               onBlur={EmailInputBlurHandler}
