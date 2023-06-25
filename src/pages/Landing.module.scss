@@ -27,7 +27,6 @@
   height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 50%);
   grid-template-rows: 90% 10%;
   align-items: center;
 
@@ -82,6 +81,9 @@
       border-radius: var(--landing-button-border-radius);
     }
   }
+}
+
+.landing-page {
 }
 
 .button-submit {
@@ -163,10 +165,6 @@
     padding-left: var(--landing-phone-tab-padding);
   }
 
-  #landing {
-    grid-template-columns: 1fr;
-  }
-
   .landing-content {
     margin-right: var(--landing-content-tab-margin-right);
     text-align: center;
@@ -191,6 +189,10 @@
 @media only screen and (max-width: 40.625em) {
   .landing-content {
     margin: 0;
+  }
+
+  #landing {
+    grid-template-columns: 1fr;
   }
 
   #landing form {
