@@ -28,9 +28,9 @@ const LandingFooter = () => {
           <a
             target='_blank'
             rel='noreferrer'
-            href='https://twitter.com/internio_app'
+            href='mailto:team@internio.app'
           >
-            twitter
+            gmail
           </a>
         </li>
         <li>
