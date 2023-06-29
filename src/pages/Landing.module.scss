@@ -184,13 +184,14 @@
     display: none;
   }
 
-  #landing-content {
+  .landing-content {
     padding-right: var(--landing-phone-tab-padding);
     padding-left: var(--landing-phone-tab-padding);
   }
 
   #landing {
     grid-template-columns: 1fr;
+    grid-template-rows: 92% 0 8%;
   }
 
   .landing-content {
