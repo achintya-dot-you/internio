@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 import { db } from "../firebase_setup/firebase-config";
 import { collection, addDoc } from "firebase/firestore";
@@ -164,13 +163,14 @@ const Landing = () => {
             )}
           </div>
         </form>
-      </div>
-      <div className={styles["landing-right"]}>
+
         <button className={styles["btn"]}>
           <a href='https://internio.notion.site/internio/Job-Board-f02cf790ddc944f1ab233c22cf44157e'>
             we're hiring!
           </a>
         </button>
+      </div>
+      <div className={styles["landing-right"]}>
         <div className={styles["landing-image"]}>
           <picture className={styles["landing_image_picture"]}>
             <img
