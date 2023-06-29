@@ -163,15 +163,23 @@ const Landing = () => {
             )}
           </div>
         </form>
+
+        <button className={styles["btn"]}>
+          <a href='https://internio.notion.site/internio/Job-Board-f02cf790ddc944f1ab233c22cf44157e'>
+            we're hiring!
+          </a>
+        </button>
       </div>
-      <div className={styles["landing-image"]}>
-        <picture className={styles["landing_image_picture"]}>
-          <img
-            srcSet={landingImagePictureDesktop}
-            alt=''
-            className={styles["landing_image_picture_desktop"]}
-          />
-        </picture>
+      <div className={styles["landing-right"]}>
+        <div className={styles["landing-image"]}>
+          <picture className={styles["landing_image_picture"]}>
+            <img
+              srcSet={landingImagePictureDesktop}
+              alt=''
+              className={styles["landing_image_picture_desktop"]}
+            />
+          </picture>
+        </div>
       </div>
       <LandingFooter />
     </div>

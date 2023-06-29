@@ -42,7 +42,7 @@
 
     input {
       padding: var(--landing-input-padding);
-      width: 100%;
+      width: 37vw;
       height: var(--landing-input-height);
       // border-radius: 10rem;
       outline: none;
@@ -146,11 +146,36 @@
 
 .landing-image {
   display: flex;
-  justify-content: center;
+  justify-content: right;
 }
 
 .landing_image_picture_desktop {
   max-width: 40vw;
+}
+.landing-right {
+  padding-right: 10%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  background-color: var(--color-smoky-black);
+  justify-self: right;
+  margin-top: 1rem;
+  padding: 1.5rem 4rem;
+  border-radius: 20px;
+  font-size: 2.5rem;
+
+  a {
+    color: var(--color-pure-white);
+    text-decoration: none;
+  }
 }
 
 @media only screen and (max-width: 83.125em) {
@@ -197,5 +222,9 @@
     input {
       width: 100%;
     }
+  }
+
+  .btn {
+    margin-top: 3rem;
   }
 } // 650px;
