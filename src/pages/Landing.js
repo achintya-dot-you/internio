@@ -89,96 +89,98 @@ const Landing = () => {
 
   return (
     <div id={styles["landing"]}>
-      <div className={styles["landing-content"]}>
-        <h1 className={styles["heading"]}>
-          <span className={styles["heading-top"]}>
-            interni
-            <img
-              srcSet={iconImage}
-              alt=''
-            ></img>
-          </span>
-          <span className={styles["heading-bottom"]}>empowering future leaders!</span>
-        </h1>
-        <h2 className={styles["sub-header"]}>
-          Are you a high school student looking for internships?<strong> Look no further!</strong>
-          <br /> <br />
-          We actively collaborate with diverse companies and organizations to deliver the practical,
-          hands-on experience you need!
-          <br />
-          <br />
-          <b>Sign up now to get notified once we go live!</b>
-        </h2>
-        <form
-          autoComplete='on'
-          onSubmit={formSubmissionHandler}
-        >
-          <div
-            classEmail={
-              emailInputIsInvalid
-                ? styles["form-control"] + " " + styles["invalid"]
-                : styles["form-control"]
-            }
-            className={styles["input-container"]}
+      <div className={styles["landing-page"]}>
+        <div className={styles["landing-content"]}>
+          <h1 className={styles["heading"]}>
+            <span className={styles["heading-top"]}>
+              interni
+              <img
+                srcSet={iconImage}
+                alt=''
+              ></img>
+            </span>
+            <span className={styles["heading-bottom"]}>empowering future leaders!</span>
+          </h1>
+          <h2 className={styles["sub-header"]}>
+            Are you a high school student looking for internships?<strong> Look no further!</strong>
+            <br /> <br />
+            We actively collaborate with diverse companies and organizations to deliver the
+            practical, hands-on experience you need!
+            <br />
+            <br />
+            <b>Sign up now to get notified once we go live!</b>
+          </h2>
+          <form
+            autoComplete='on'
+            onSubmit={formSubmissionHandler}
           >
-            <input
-              className={styles["form-input"]}
-              type='text'
-              placeholder='team@internio.app'
-              id='Email'
-              onChange={EmailInputChangeHandler}
-              onBlur={EmailInputBlurHandler}
-              value={enteredEmail}
-            />
-            {emailInputIsInvalid ? (
-              <p className={styles["error-text"]}>Invalid email entered!</p>
-            ) : (
-              <p className={styles["hidden"] + " " + styles["error-text"]}>asdfasdf</p>
-            )}
-          </div>
-          <div className={styles["form-actions"]}>
-            {showNormal && (
-              <button className={styles["button-submit"]}>
-                <FontAwesomeIcon
-                  icon={faRightToBracket}
-                  size='2x'
-                  className={styles["button-submit-icon"]}
-                />
-              </button>
-            )}
-            {success && (
-              <button className={styles["button-submit"]}>
-                <FontAwesomeIcon
-                  icon={faCheck}
-                  size='2x'
-                  className={styles["button-submit-icon"]}
-                />
-              </button>
-            )}
+            <div
+              classEmail={
+                emailInputIsInvalid
+                  ? styles["form-control"] + " " + styles["invalid"]
+                  : styles["form-control"]
+              }
+              className={styles["input-container"]}
+            >
+              <input
+                className={styles["form-input"]}
+                type='text'
+                placeholder='team@internio.app'
+                id='Email'
+                onChange={EmailInputChangeHandler}
+                onBlur={EmailInputBlurHandler}
+                value={enteredEmail}
+              />
+              {emailInputIsInvalid ? (
+                <p className={styles["error-text"]}>Invalid email entered!</p>
+              ) : (
+                <p className={styles["hidden"] + " " + styles["error-text"]}>asdfasdf</p>
+              )}
+            </div>
+            <div className={styles["form-actions"]}>
+              {showNormal && (
+                <button className={styles["button-submit"]}>
+                  <FontAwesomeIcon
+                    icon={faRightToBracket}
+                    size='2x'
+                    className={styles["button-submit-icon"]}
+                  />
+                </button>
+              )}
+              {success && (
+                <button className={styles["button-submit"]}>
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    size='2x'
+                    className={styles["button-submit-icon"]}
+                  />
+                </button>
+              )}
 
-            {isLoading && (
-              <button className={styles["button-submit"]}>
-                <div className={styles["spin"]}></div>
-              </button>
-            )}
-          </div>
-        </form>
+              {isLoading && (
+                <button className={styles["button-submit"]}>
+                  <div className={styles["spin"]}></div>
+                </button>
+              )}
+            </div>
+          </form>
 
-        <button className={styles["btn"]}>
-          <a href='https://internio.notion.site/internio/Job-Board-f02cf790ddc944f1ab233c22cf44157e'>
-            we're hiring!
-          </a>
-        </button>
-      </div>
-      <div className={styles["landing-right"]}>
-        <div className={styles["landing-image"]}>
-          <picture className={styles["landing_image_picture"]}>
-            <img
-              srcSet={landingImagePictureDesktop}
-              alt=''
-              className={styles["landing_image_picture_desktop"]}
-            />
-          </picture>
+          <button className={styles["btn"]}>
+            <a href='https://internio.notion.site/internio/Job-Board-f02cf790ddc944f1ab233c22cf44157e'>
+              we're hiring!
+            </a>
+          </button>
+        </div>
+        <div className={styles["landing-right"]}>
+          <div className={styles["landing-image"]}>
+            <picture className={styles["landing_image_picture"]}>
+              <img
+                srcSet={landingImagePictureDesktop}
+                alt=''
+                className={styles["landing_image_picture_desktop"]}
+              />
+            </picture>
+          </div>
         </div>
       </div>
       <LandingFooter />

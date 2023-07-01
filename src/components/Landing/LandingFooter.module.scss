@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
 
 .footer {
-  height: 100%;
+  height: 10vh;
   width: 100%;
   grid-column: 1/-1;
 
@@ -31,5 +31,13 @@
       color: var(--color-smoky-black);
       text-decoration: underline;
     }
+  }
+}
+
+@media only screen and (max-width: 40.625em) {
+  .footer {
+    height: 10vh;
+
+    margin-top: 2rem;
   }
 }
