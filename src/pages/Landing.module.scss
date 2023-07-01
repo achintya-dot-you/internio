@@ -44,7 +44,6 @@
       padding: var(--landing-input-padding);
       width: 35vw;
       height: var(--landing-input-height);
-      // border-radius: 10rem;
       outline: none;
       border: none;
       overflow: hidden;
@@ -68,10 +67,6 @@
         font-size: var(--landing-input-placeholder-font-size);
       }
     }
-
-    // input:focus {
-    //   background: var(--color-form-input);
-    // }
 
     button {
       height: var(--landing-input-height);
@@ -191,7 +186,6 @@
 
   #landing {
     grid-template-columns: 1fr;
-    grid-template-rows: 92% 0 8%;
   }
 
   .landing-content {
@@ -217,7 +211,7 @@
   .btn {
     margin-top: 3rem;
   }
-} // 1330px
+}
 
 @media only screen and (max-width: 40.625em) {
   .landing-content {
@@ -233,4 +227,8 @@
   .btn {
     margin-top: 0.02rem;
   }
-} // 650px;
+
+  #landing {
+    overflow: scroll;
+  }
+}
