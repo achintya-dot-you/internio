@@ -30,7 +30,7 @@ const LandingFooter = () => {
             rel='noreferrer'
             href='mailto:team@internio.app'
           >
-            gmail
+            email
           </a>
         </li>
         <li>
