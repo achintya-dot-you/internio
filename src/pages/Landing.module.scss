@@ -238,6 +238,10 @@
   .error-text {
     text-align: left;
   }
+
+  .btn {
+    margin-top: 3rem;
+  }
 } // 1330px
 
 @media only screen and (max-width: 40.625em) {
@@ -252,6 +256,6 @@
   }
 
   .btn {
-    margin-top: 3rem;
+    margin-top: 0.02rem;
   }
 } // 650px;
