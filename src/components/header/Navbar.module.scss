@@ -1,68 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
-
-.navbar__gradient {
-  color: var(--color-white);
-  // background: rgb(18, 16, 14);
-  // background-image: radial-gradient(at top, rgba(73, 98, 157, 1) 0%, rgb(18, 16, 14) 100%);
-  // background-size: 100vh;
-
-  // Drop Shadow
-  box-shadow: 0 0 var(--navbar-box-shadow-spread) var(--color-smoky-black);
-
-  &__header {
-    a {
-      &:link,
-      &:visited {
-        color: var(--color-pure-white);
-      }
-    }
-  }
-
-  &__list {
-    &__item {
-      a {
-        text-decoration: none;
-        color: var(--color-pure-white);
-        font-weight: 500;
-      }
-    }
-  }
-}
-
-.navbar__black {
-  background-color: var(--color-smoky-black);
-  color: var(--color-white);
-
-  // Drop Shadow
-  box-shadow: 0 0 var(--navbar-box-shadow-spread) var(--color-smoky-black);
-
-  &__header {
-    a {
-      &:link,
-      &:visited {
-        color: var(--color-pure-white);
-      }
-    }
-  }
-
-  &__list {
-    &__item {
-      a {
-        text-decoration: none;
-        color: var(--color-pure-white);
-        font-weight: 500;
-      }
-    }
-  }
-}
+@import "../../styles/initialization.scss";
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 var(--navbar-horizontal-padding);
+  color: var(--color-smoky-black);
+  background-color: transparent;
 
-  height: var(--navbar-height);
+  // Drop Shadow
+  box-shadow: 0 0 var(--navbar-box-shadow-spread) var(--color-smoky-black);
 
   &__header {
     a {
@@ -70,11 +14,13 @@
       &:visited {
         font-size: var(--navbar-header-font-size);
         text-decoration: none;
-        font-weight: 700;
-        line-height: 5.8rem;
+        font-weight: var(--navbar-header-font-weight);
+        line-height: var(--navbar-header-line-height);
         letter-spacing: 0em;
         text-align: left;
         font-family: "Montserrat", sans-serif;
+
+        color: var(--color-smoky-black);
       }
     }
   }
@@ -84,11 +30,21 @@
     display: flex;
 
     &__item {
+      animation: moveInRight var(--navbar-animation-time) ease-out;
+      animation-fill-mode: backwards;
       a {
-        font-size: 3rem;
+        font-size: var(--navbar-navling-font-size);
         text-decoration: none;
-        font-weight: 500;
+        color: var(--color-smoky-black);
+        font-weight: var(--navbar-navlink-font-weight);
       }
     }
   }
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--navbar-horizontal-padding);
+
+  height: var(--navbar-height);
 }

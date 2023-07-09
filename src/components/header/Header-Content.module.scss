@@ -1,20 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "../../styles/initialization.scss";
+
 .header__heading {
+  font-family: var(--logo-font);
+  justify-self: center;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  font-size: var(--header-heading-font-size);
+  font-weight: var(--header-heading-font-weight);
+
+  img {
+    height: var(--heading-logo-height);
+  }
+}
+
+.header__subheading {
   font-family: var(--logo-font);
   align-self: center;
   text-align: center;
 
-  font-weight: 300;
+  font-size: var(--header-subheading-font-size);
+  font-weight: var(--header-subheading-font-weight);
 }
-.callback {
-  background-color: var(--color-white);
-  // color: ;
-}
+
 .headerContent {
   width: 100%;
   height: 90vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: var(--header-button-gap);
@@ -24,13 +37,13 @@
   font-size: var(--header-font-size);
   line-height: var(--header-line-height);
 
-  color: var(--color-pure-white);
-  animation: moveInBottom 2s ease-out;
+  color: var(--color-smoky-black);
+  animation: moveInBottom var(--header-animation-time) ease-out;
   animation-fill-mode: backwards;
 }
 
 .header__button {
-  animation: moveInBottom 2s ease-out;
+  animation: moveInBottom var(--header-animation-time) ease-out;
   animation-fill-mode: backwards;
 
   align-self: center;
@@ -45,8 +58,8 @@
     // margin-left: var(--header-button-margin-left);
     font-size: var(--header-button-font-size);
 
-    color: var(--color-dark-gray);
-    background-color: var(--color-pure-white);
+    color: var(--color-pure-white);
+    background-color: var(--color-dark-gray);
     font-weight: var(--header-button-font-weight);
     text-decoration: none;
     font-size: inherit;
@@ -84,18 +97,6 @@
     left: 0;
     z-index: -1;
     transition: all var(--header-button-animation-timing);
-    background-color: var(--color-pure-white);
-  }
-}
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+    background-color: var(--color-dark-gray);
   }
 }
