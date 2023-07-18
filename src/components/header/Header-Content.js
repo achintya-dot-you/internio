@@ -13,6 +13,7 @@ const HeaderContent = () => {
         <img
           srcSet={iconImage}
           alt=''
+          loading='lazy'
         ></img>
       </h1>
 

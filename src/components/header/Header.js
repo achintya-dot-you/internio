@@ -12,6 +12,7 @@ const Header = () => {
         <img
           srcSet={headerImageDesktop}
           alt=''
+          loading='lazy'
           className={styles["landing_image_picture_desktop"]}
         />
       </picture>

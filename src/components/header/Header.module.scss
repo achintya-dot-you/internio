@@ -12,6 +12,9 @@
   height: 100%;
   width: 100%;
 
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 98%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 98%);
+
   img {
     height: 100%;
     width: 100%;

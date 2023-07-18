@@ -97,6 +97,7 @@ const Landing = () => {
               <img
                 srcSet={iconImage}
                 alt=''
+                loading='lazy'
               ></img>
             </span>
             <span className={styles["heading-bottom"]}>empowering future leaders!</span>
@@ -177,6 +178,7 @@ const Landing = () => {
               <img
                 srcSet={landingImagePictureDesktop}
                 alt=''
+                loading='lazy'
                 className={styles["landing_image_picture_desktop"]}
               />
             </picture>

@@ -9,6 +9,9 @@
   box-shadow: 0 0 var(--navbar-box-shadow-spread) var(--color-smoky-black);
 
   &__header {
+    animation: moveInLeft var(--navbar-animation-time) ease-out;
+    animation-fill-mode: backwards;
+
     a {
       &:link,
       &:visited {
