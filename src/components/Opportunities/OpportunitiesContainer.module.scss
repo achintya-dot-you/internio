@@ -1,3 +1,5 @@
+@import "../../styles/initialization.scss";
+
 .container {
   padding: var(--opportunities-container-margin) var(--opportunities-container-gap);
   display: grid;

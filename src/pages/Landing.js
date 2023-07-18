@@ -8,7 +8,7 @@ import styles from "./Landing.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightToBracket, faCheck } from "@fortawesome/free-solid-svg-icons";
 
-import landingImagePictureDesktop from "../assets/images/landing-image/landing_image_desktop.svg";
+import landingImagePictureDesktop from "../assets/images/landing_image_desktop.svg";
 import iconImage from "../assets/images/icon.png";
 
 import LandingFooter from "../components/Landing/LandingFooter";
@@ -97,6 +97,7 @@ const Landing = () => {
               <img
                 srcSet={iconImage}
                 alt=''
+                loading='lazy'
               ></img>
             </span>
             <span className={styles["heading-bottom"]}>empowering future leaders!</span>
@@ -177,6 +178,7 @@ const Landing = () => {
               <img
                 srcSet={landingImagePictureDesktop}
                 alt=''
+                loading='lazy'
                 className={styles["landing_image_picture_desktop"]}
               />
             </picture>

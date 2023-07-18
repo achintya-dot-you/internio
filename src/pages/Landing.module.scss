@@ -1,5 +1,5 @@
 @import "../styles/mixins";
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
+@import "../styles/initialization.scss";
 
 .spin {
   display: inline-block;
@@ -121,7 +121,7 @@
   font-size: var(--landing-heading-top-font-size);
   font-family: var(--landing-heading-top-font-family);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 
   color: var(--color-smoky-black);
 
