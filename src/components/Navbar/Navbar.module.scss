@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import "../../styles/initialization.scss";
+
+.navbar {
+  color: var(--color-smoky-black);
+  background-color: transparent;
+  height: var(--navbar-height);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--navbar-horizontal-padding);
+
+  // Drop Shadow
+  box-shadow: 0 0 2rem var(--color-smoky-black);
+
+  &__header {
+    animation: moveInLeft var(--navbar-animation-time) ease-out;
+    animation-fill-mode: backwards;
+
+    a {
+      &:link,
+      &:visited {
+        font-size: var(--navbar-header-font-size);
+        text-decoration: none;
+        font-weight: var(--navbar-header-font-weight);
+        line-height: var(--navbar-header-line-height);
+        letter-spacing: 0em;
+        text-align: left;
+        font-family: "Montserrat", sans-serif;
+
+        color: var(--color-smoky-black);
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    height: var(--navbar-height);
+    align-items: center;
+  }
+}
+
+.link-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 4rem;
+  align-items: center;
+}
+
+.navbar__header__image {
+  height: var(--navbar-header-icon-size);
+}
+
+.navbar__header__container {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  background-color: var(--color-smoky-black);
+  border: none;
+  color: var(--color-pure-white);
+  padding: var(--navbar-button-padding);
+  font-size: var(--navbar-button-font-size);
+  font-family: "Montserrat", sans-serif;
+  border-radius: 13px;
+  max-width: 13rem;
+  max-height: 5.2rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.action-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.sign-in {
+  background-color: transparent;
+  color: var(--color-smoky-black);
+}

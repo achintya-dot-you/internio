@@ -1,0 +1,35 @@
+@import "../../styles/initialization.scss";
+
+.link {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+
+  a {
+    font-size: var(--navbar-navling-font-size);
+    text-decoration: none;
+    color: var(--color-smoky-black);
+    font-weight: var(--navbar-navlink-font-weight);
+    cursor: pointer;
+  }
+
+  h5 {
+    font-size: var(--navbar-navling-font-size);
+    text-decoration: none;
+    color: var(--color-smoky-black);
+    font-weight: var(--navbar-navlink-font-weight);
+    cursor: pointer;
+  }
+}
+
+.link-standard {
+  animation-fill-mode: backwards;
+  animation: moveInLeft var(--navbar-animation-time) ease-out;
+}
+
+.link-dropdown {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}

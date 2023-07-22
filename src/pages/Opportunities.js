@@ -1,6 +1,6 @@
 import React from "react";
 
-import Navbar from "../components/header/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import OpportunitiesContainer from "../components/Opportunities/OpportunitiesContainer";
 import OpportunityCard from "../components/Opportunities/OpportunityCard";
 

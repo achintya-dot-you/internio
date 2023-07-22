@@ -1,0 +1,60 @@
+@import "../../styles/initialization.scss";
+
+.link {
+  animation: moveInLeft var(--navbar-animation-time) ease-out;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+
+  animation-fill-mode: backwards;
+  a {
+    font-size: var(--navbar-navling-font-size);
+    text-decoration: none;
+    color: var(--color-smoky-black);
+    font-weight: var(--navbar-navlink-font-weight);
+    cursor: pointer;
+  }
+
+  h5 {
+    font-size: var(--navbar-navling-font-size);
+    text-decoration: none;
+    color: var(--color-smoky-black);
+    font-weight: var(--navbar-navlink-font-weight);
+    cursor: pointer;
+  }
+}
+
+.link-icon {
+  height: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: var(--color-pure-white);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  gap: 1rem;
+  border: 1px solid var(--color-smoky-black);
+  position: absolute;
+  top: 115%;
+  transform: translateX(-8%);
+  //   left: 50%;
+  white-space: nowrap;
+  border-radius: var(--navbar-dropdown-border-radius);
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
