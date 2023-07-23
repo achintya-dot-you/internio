@@ -70,6 +70,8 @@
   max-height: 5.2rem;
   cursor: pointer;
   white-space: nowrap;
+  animation-fill-mode: backwards;
+  animation: moveInRight var(--navbar-animation-time) ease-out;
 }
 
 .action-container {

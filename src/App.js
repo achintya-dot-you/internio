@@ -24,13 +24,9 @@ function App() {
       <Router>
         <Title />
         <Routes>
-          {/* <Route
-            path='/'
-            element={<Home />}
-          /> */}
           <Route
             path='/'
-            element={<Landing />}
+            element={<Home />}
           />
           <Route
             path='/home'
