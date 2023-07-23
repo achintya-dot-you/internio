@@ -3,7 +3,7 @@
 .link {
   animation: moveInLeft var(--navbar-animation-time) ease-out;
   display: flex;
-  gap: 0.5rem;
+  gap: var(--navbar-dropdown-icon-gap);
   align-items: center;
   text-align: center;
 
@@ -26,11 +26,11 @@
 }
 
 .link-icon {
-  height: 2rem;
+  height: var(--navbar-dropdown-icon-height);
   cursor: pointer;
   display: flex;
   align-items: center;
-  margin-top: 3px;
+  margin-top: var(--navbar-dropdown-icon-offset-top);
 }
 
 .list {
@@ -38,18 +38,20 @@
   flex-direction: column;
   justify-content: space-around;
   background-color: var(--color-pure-white);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-right: 2rem;
-  padding-left: 2rem;
-  gap: 1rem;
-  border: 1px solid var(--color-smoky-black);
+  padding-top: var(--navbar-dropdown-link-gap);
+  padding-bottom: var(--navbar-dropdown-link-gap);
+  padding-right: var(--navbar-dropdown-link-side-padding);
+  padding-left: var(--navbar-dropdown-link-side-padding);
+  gap: var(--navbar-dropdown-link-gap);
+  border: var(--navbar-dropdown-border-width) solid var(--color-smoky-black);
   position: absolute;
   top: 115%;
-  transform: translateX(-8%);
+  transform: translateX(var(--navbar-dropdown-side-offset));
   //   left: 50%;
   white-space: nowrap;
   border-radius: var(--navbar-dropdown-border-radius);
+  animation-fill-mode: backwards;
+  animation: fadeIn var(--navbar-dropdown-animation-time) ease-out;
 }
 
 .container {

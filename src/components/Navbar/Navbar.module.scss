@@ -36,7 +36,7 @@
   &__list {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: var(--navbar-link-gap);
     height: var(--navbar-height);
     align-items: center;
   }
@@ -45,7 +45,7 @@
 .link-container {
   display: flex;
   justify-content: flex-start;
-  gap: 4rem;
+  gap: var(--navbar-header-gap);
   align-items: center;
 }
 
@@ -65,9 +65,9 @@
   padding: var(--navbar-button-padding);
   font-size: var(--navbar-button-font-size);
   font-family: "Montserrat", sans-serif;
-  border-radius: 13px;
-  max-width: 13rem;
-  max-height: 5.2rem;
+  border-radius: var(--navbar-button-border-radius);
+  max-width: var(--navbar-button-width);
+  max-height: var(--navbar-button-height);
   cursor: pointer;
   white-space: nowrap;
   animation-fill-mode: backwards;
@@ -76,7 +76,7 @@
 
 .action-container {
   display: flex;
-  gap: 1rem;
+  gap: var(--navbar-button-gap);
 }
 
 .sign-in {
