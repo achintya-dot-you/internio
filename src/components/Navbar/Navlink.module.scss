@@ -33,3 +33,9 @@
   align-items: center;
   text-align: center;
 }
+
+@media only screen and (max-width: 46.875em) {
+  .link {
+    display: none;
+  }
+}

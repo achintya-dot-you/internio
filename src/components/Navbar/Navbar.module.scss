@@ -42,6 +42,12 @@
   }
 }
 
+.navbar__toggler {
+  width: 1em;
+  box-sizing: content-box;
+  overflow: visible;
+}
+
 .link-container {
   display: flex;
   justify-content: flex-start;
@@ -82,4 +88,10 @@
 .sign-in {
   background-color: transparent;
   color: var(--color-smoky-black);
+}
+
+@media only screen and (max-width: 46.875em) {
+  .navbar__header {
+    display: none;
+  }
 }
