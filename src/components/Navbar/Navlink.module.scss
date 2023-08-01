@@ -4,22 +4,16 @@
   display: flex;
   align-items: center;
   text-align: center;
-  height: 100%;
+  height: fit-content;
 
   a {
-    font-size: var(--navbar-navling-font-size);
+    font-size: var(--navbar-navlink-font-size);
     text-decoration: none;
-    color: var(--color-smoky-black);
-    font-weight: var(--navbar-navlink-font-weight);
+    color: var(--color-slightly-light-gray);
+    font-weight: 600;
     cursor: pointer;
-  }
-
-  h5 {
-    font-size: var(--navbar-navling-font-size);
-    text-decoration: none;
-    color: var(--color-smoky-black);
-    font-weight: var(--navbar-navlink-font-weight);
-    cursor: pointer;
+    font-family: "Inter", Arial, sans-serif;
+    user-select: none;
   }
 }
 
@@ -32,10 +26,81 @@
   display: flex;
   align-items: center;
   text-align: center;
+  font-family: "Inter", Arial, sans-serif;
+  padding: 1rem var(--navbar-dropdown-link-side-padding);
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten(black, 90%);
+  }
+  z-index: 1001;
+}
+
+.link-phone {
+  a {
+    color: var(--color-smoky-black);
+  }
+}
+
+.link-dropdown-phone {
+  a {
+    color: var(--color-slightly-light-gray);
+  }
+}
+
+.link-container-dropdown-phone {
+  width: 100%;
 }
 
 @media only screen and (max-width: 46.875em) {
   .link {
     display: none;
+  }
+
+  .link {
+    a,
+    h5 {
+      font-size: var(--navbar-navlink-phone-font-size);
+    }
+  }
+
+  .link-phone {
+    display: flex;
+    width: 100%;
+    padding: var(--navbar-navlink-phone-padding);
+    position: relative;
+    a {
+      font-size: var(--navbar-navlink-font-size-big);
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: lighten(black, 90);
+    }
+    margin-top: var(--navbar-phone-gap);
+    margin-bottom: var(--navbar-phone-gap);
+  }
+
+  .link-standard-phone {
+    border-bottom: var(--navbar-phone-gap) solid var(--color-pure-white);
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: var(--navbar-phone-gap);
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-bottom: var(--navbar-border-width) solid var(--color-light-gray);
+    }
+  }
+
+  .link-dropdown-phone {
+    border: none;
+    padding: var(--navbar-dropdown-navlink-padding);
+
+    a {
+      font-size: var(--navbar-navlink-font-size);
+    }
   }
 }

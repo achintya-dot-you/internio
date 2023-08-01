@@ -33,25 +33,64 @@ const NavDropDown = (props) => {
     );
   }, [shouldShow]);
 
+  const handlePhoneClick = () => {
+    setShouldShow(!shouldShow);
+  };
+
   return (
-    <div className={styles["container"]}>
-      <li
-        className={`${props.style} ${styles["link"]}`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <h5>{props.title}</h5>
-        {icon}
-      </li>
-      {shouldShow && (
+    <>
+      {props.phone === "phone" && (
         <div
-          ref={dropdownRef}
-          className={styles["list"]}
+          className={`${styles["container"]} ${styles["container-phone"]}`}
+          onClick={handlePhoneClick}
         >
-          {props.children}
+          <li className={`${props.style} ${styles["link"]} ${styles["link-" + props.phone]}`}>
+            <h5>{props.title}</h5>
+            {icon}
+          </li>
+          {shouldShow && (
+            <>
+              <div
+                ref={dropdownRef}
+                className={styles["list-container-phone"]}
+              >
+                <div
+                  ref={dropdownRef}
+                  className={styles["list-phone"]}
+                >
+                  {props.children}
+                </div>
+              </div>
+            </>
+          )}
         </div>
       )}
-    </div>
+      {props.phone !== "phone" && (
+        <div
+          className={styles["container"]}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <li className={`${props.style} ${styles["link"]} ${styles["link-" + props.phone]}`}>
+            <h5>{props.title}</h5>
+            {icon}
+          </li>
+          {shouldShow && (
+            <div
+              ref={dropdownRef}
+              className={styles["list-container"]}
+            >
+              <div
+                ref={dropdownRef}
+                className={styles["list"]}
+              >
+                {props.children}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </>
   );
 };
 

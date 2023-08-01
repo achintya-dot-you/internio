@@ -6,7 +6,7 @@
   --color-white: #edecd6;
   --color-pure-white: #f7fff7;
   --color-light-gray: #bac7c5;
-  --color-slightly-light-gray: #a0a0a0;
+  --color-slightly-light-gray: #4a5568;
   --color-gray: #5e5e5e;
   --color-dark-gray: #1f1f1f;
   --color-bone-gray: #413e3a;
@@ -46,33 +46,45 @@
   --background-solid: #6a93f1;
 
   // ** NAVBAR **
-  --navbar-horizontal-padding: 6rem;
+  --navbar-horizontal-padding: 3rem;
   --navbar-height: 9vh;
+  --navbar-height-medium: 11vh;
+  --navbar-height-large: 13vh;
   --navbar-box-shadow-spread: 3rem;
-  --navbar-header-font-size: 4rem;
-  --navbar-header-icon-size: 4.2rem;
+  --navbar-header-font-size: 3.3rem;
+  --navbar-header-icon-size: 3.3rem;
   --navbar-header-font-weight: 700;
   --navbar-header-line-height: 5.8rem;
-  --navbar-animation-time: 2s;
-  --navbar-navlink-font-weight: 500;
-  --navbar-navling-font-size: 2.5rem;
-  --navbar-button-padding: 0.9rem 1.8rem;
-  --navbar-button-font-size: 2.3rem;
+  --navbar-animation-time: 0.7s;
+  --navbar-navlink-font-weight: 600;
+  --navbar-navlink-font-size: 1.8rem;
+  --navbar-navlink-font-size-big: 2.5rem;
+  --navbar-navlink-phone-font-size: 2.4rem;
+  --navbar-navlink-phone-padding: 2rem;
+  --navbar-button-padding-large: 0.9rem 1.8rem;
+  --navbar-button-padding-small: 0.7rem 1.4rem;
+  --navbar-button-padding-xsmall: 0.55rem 1.3rem;
+  --navbar-button-font-size: 2rem;
   --navbar-dropdown-border-radius: 1rem;
-  --navbar-button-border-radius: 13px;
+  --navbar-button-border-radius: 8px;
   --navbar-button-width: 13rem;
   --navbar-button-height: 5.2rem;
   --navbar-button-gap: 1rem;
   --navbar-header-gap: 5.5rem;
   --navbar-link-gap: 3.8rem;
   --navbar-dropdown-icon-gap: 0.5rem;
-  --navbar-dropdown-icon-height: 2rem;
+  --navbar-dropdown-icon-height: 1.8rem;
   --navbar-dropdown-icon-offset-top: 3px;
-  --navbar-dropdown-link-gap: 1rem;
+  --navbar-dropdown-link-gap: 0.5rem;
   --navbar-dropdown-link-side-padding: 2rem;
   --navbar-dropdown-border-width: 2px;
   --navbar-dropdown-side-offset: -8%;
-  --navbar-dropdown-animation-time: 0.7s;
+  --navbar-dropdown-animation-time: 0.4s;
+  --navbar-dropdown-navlink-padding: 1rem 3.5rem;
+  --navbar-toggler-font-size-large: 3rem;
+  --navbar-border-width: 2px;
+  --navbar-phone-width: 45vw;
+  --navbar-phone-gap: 4px;
 
   // ** HEADER **
   --header-button-gap: 4rem;
@@ -146,4 +158,16 @@
   --landing-input-border-radius: 0.5rem 0 0 0.5rem;
   --landing-button-border-radius: 0 0.5rem 0.5rem 0;
   --landing-input-placeholder-font-size: 1em;
+}
+
+@media only screen and (max-width: 62.5em) {
+  :root {
+    --navbar-navlink-font-size: 2.1rem;
+  }
+}
+
+@media only screen and (max-width: 46.875em) {
+  :root {
+    --navbar-header-gap: 0;
+  }
 }
