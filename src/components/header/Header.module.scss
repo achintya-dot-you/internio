@@ -1,22 +1,91 @@
 @import "../../styles/initialization.scss";
 
 .header {
+  max-height: var(--header-height-large);
+  height: fit-content;
+  padding: 6rem 0;
+  gap: 2rem;
+  width: 100%;
+  background-color: transparent;
+
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  animation: fadeIn var(--header-animation-time);
+  animation-fill-mode: backwards;
 }
 
-.header-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -100;
-  height: 100%;
-  width: 100%;
+.heading,
+.desc {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 98%);
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 98%);
+.text {
+  gap: 1rem;
+}
 
-  img {
-    height: 100%;
-    width: 100%;
+.heading {
+  font-size: 3rem;
+
+  @font-face {
+    font-family: "proximanova";
+    src: url("../../assets/fonts//proximanova/Fontspring-DEMO-proximanova-extrabold.otf");
+  }
+}
+
+.desc {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-dark-gray);
+}
+
+.cta {
+  display: flex;
+  gap: 2rem;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  padding: 0.6rem 1.8rem;
+  border: 0.35rem solid var(--color-smoky-black);
+  border-radius: 15px;
+  white-space: no-wrap;
+  text-align: center;
+  user-select: none;
+  font-weight: 700;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.btn-filled {
+  background-color: var(--color-smoky-black);
+  color: var(--color-pure-white);
+}
+
+.btn-outline {
+  color: var(--color-smoky-black);
+  background-color: var(--color-pure-white);
+}
+
+@media only screen and (max-height: 31.25em) {
+  .header {
+    height: calc(var(--header-height-medium) * 1.5);
+  }
+}
+
+@media only screen and (max-height: 21.875em) {
+  .header {
+    height: calc(var(--header-height) * 2);
+  }
+}
+
+@media only screen and (max-width: 40.625em) {
+  .container {
+    height: calc(var(--header-height-large) / 2);
   }
 }

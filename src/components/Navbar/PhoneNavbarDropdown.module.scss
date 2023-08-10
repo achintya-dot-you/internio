@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 @import "../../styles/initialization.scss";
 
 .navbar {
   color: var(--color-smoky-black);
-  background-color: transparent;
+  background-color: var(--color-pure-white);
   height: 100%;
-  width: var(--navbar-phone-width);
+  min-width: var(--navbar-phone-width);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,6 +14,9 @@
   display: none;
   z-index: 1000;
   overflow: scroll;
+
+  animation-fill-mode: backwards;
+  animation: navbarMoveInLeft var(--general-animation-time) ease-out;
 }
 
 @media only screen and (max-width: 46.875em) {

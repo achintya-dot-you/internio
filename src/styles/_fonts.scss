@@ -1,2 +1,94 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+
+// TODO
+// !Following code is not working. For now, regular font imported but address that in the future.
+// *GREYCLIFF CF*
+// @font-face {
+//   font-family: "greycliffcf";
+//   src: local("greycliffcf"), url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-bold.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-boldoblique.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-demibold.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-demiboldoblique.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-extrabold.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-extraboldoblique.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-extralight.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-extralightoblique.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-heavy.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-heavyoblique.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-light.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-lightoblique.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-medium.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-mediumoblique.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-regular.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-regularoblique.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-thin.otf"),
+//     url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-thinoblique.otf");
+// }
+
+// *PROXIMA NOVA*
+// @font-face {
+//   font-family: "proximanova";
+//   src: local("proximanova"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-black.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-blackit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-bold.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-boldit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-extrabold.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-extraboldit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-light.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-lightit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-medium.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-mediumit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-regular.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-regularit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-semibold.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-semiboldit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-thin.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-thinit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-black.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-blackit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-bold.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-boldit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-extrabold.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-extraboldit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-light.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-lightit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-medium.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-mediumit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-regular.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-regularit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-semibold.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-semiboldit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-thin.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovacond-thinit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-black.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-blackit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-bold.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-boldit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-extrabold.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-extraboldit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-light.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-lightit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-medium.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-mediumit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-regular.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-regularit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-semibold.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-semiboldit.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-thin.otf"),
+//     url("../assets/fonts/proximanova/Fontspring-DEMO-proximanovaexcn-thinit.otf");
+// }
+
+// *GREYCLIFF CF*
+@font-face {
+  font-family: "greycliffcf";
+  src: url("../assets/fonts/greycliffcf/Fontspring-DEMO-greycliffcf-regular.otf");
+}
+
+// *PROXIMA NOVA*
+@font-face {
+  font-family: "proximanova";
+  src: url("../assets/fonts/proximanova/Fontspring-DEMO-proximanova-regular.otf");
+}

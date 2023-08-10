@@ -34,6 +34,16 @@
   }
 }
 
+@keyframes navbarMoveInLeft {
+  0% {
+    transform: translateX(calc(-1 * var(--navbar-phone-width)));
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;

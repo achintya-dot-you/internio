@@ -1,7 +1,7 @@
 @import "../../styles/initialization.scss";
 
 .link {
-  animation: moveInLeft var(--navbar-animation-time) ease-out;
+  animation: moveInLeft var(--general-animation-time) ease-out;
   display: flex;
   gap: var(--navbar-dropdown-icon-gap);
 
@@ -15,9 +15,9 @@
     text-decoration: none;
     color: var(--color-slightly-light-gray);
     font-weight: 600;
-    line-height: 1.2;
     font-family: "Inter", Arial, sans-serif;
     user-select: none;
+    line-height: 1.2;
   }
 }
 

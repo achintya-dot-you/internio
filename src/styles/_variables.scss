@@ -1,10 +1,14 @@
 :root {
+  // ** GENERAL **
+  --general-animation-time: 0.7s;
+
   // ** COLOR THEME **
   // Shades of Black and White
   --color-smoky-black: #12100e;
   --color-pure-black: #0c0404;
   --color-white: #edecd6;
   --color-pure-white: #f7fff7;
+  --color-very-light-gray: #f0f0f0;
   --color-light-gray: #bac7c5;
   --color-slightly-light-gray: #4a5568;
   --color-gray: #5e5e5e;
@@ -55,9 +59,9 @@
   --navbar-header-icon-size: 3.3rem;
   --navbar-header-font-weight: 700;
   --navbar-header-line-height: 5.8rem;
-  --navbar-animation-time: 0.7s;
   --navbar-navlink-font-weight: 600;
   --navbar-navlink-font-size: 1.8rem;
+  --navbar-navlink-font-size-small: 1.6rem;
   --navbar-navlink-font-size-big: 2.5rem;
   --navbar-navlink-phone-font-size: 2.4rem;
   --navbar-navlink-phone-padding: 2rem;
@@ -87,35 +91,15 @@
   --navbar-phone-gap: 4px;
 
   // ** HEADER **
-  --header-button-gap: 4rem;
-  --header-font-size: 3.7rem;
-  --header-line-height: 8rem;
-  --header-font-weight: 400;
-  --heading-logo-height: 7.8rem;
-  --header-animation-time: 2s;
-  --header-subheading-font-size: 6.5rem;
-  --header-subheading-font-weight: 300;
-  --header-heading-font-size: 9rem;
-  --header-heading-font-weight: 700;
+  --header-height: calc((100vh - var(--navbar-height-large)) / 2);
+  --header-height-medium: calc((100vh - var(--navbar-height-medium)) / 2);
+  --header-height-large: calc((100vh - var(--navbar-height)) / 2);
+  --header-animation-time: calc(var(--general-animation-time) * 3);
 
-  // Header Button
-  --header-button-font-size: 2.4rem;
-  --header-button-font-weight: 700;
-  --header-button-hover-animation-timing: 0.2s;
-  --header-button-animation-timing: 0.4s;
-  --header-button-padding-horizontal: 7rem;
-  --header-button-padding-vertical: 0;
-  --header-button-border-radius: 0.9vw;
-  --header-button-margin-left: 4rem;
-  --header-button-hover-box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.2);
-  --header-button-active-box-shadow: 0 1rem 1rem rgba(255, 255, 255, 0.2);
-  --header-button-hover-movement-distance: -3px;
-  --header-button-active-movement-distance: -1px;
-  --header-button-hover-animation-horizontal-scaling: 1.2;
-  --header-button-hover-animation-vertical-scaling: 1.6;
-
-  // Fonts
-  --logo-font: "Montserrat", sans-serif;
+  // **OPPORTUNITIES HIGHLIGHT**
+  --opportunities-highlight-height: calc((100vh - var(--navbar-height-large)) / 2);
+  --opportunities-highlight-height-medium: calc((100vh - var(--navbar-height-medium)) / 2);
+  --opportunities-highlight-height-large: calc((100vh - var(--navbar-height)) / 2);
 
   // **OPPORTUNITIES PAGE**
   --opportunities-container-gap: 6rem;

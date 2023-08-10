@@ -34,7 +34,7 @@ const Navbar = (props) => {
         phone='default'
       />
       <NavDropDown
-        title='About'
+        title='Opportunities'
         phone='default'
       >
         <NavLink

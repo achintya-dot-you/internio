@@ -14,12 +14,13 @@
     cursor: pointer;
     font-family: "Inter", Arial, sans-serif;
     user-select: none;
+    line-height: 1.2;
   }
 }
 
 .link-standard {
   animation-fill-mode: backwards;
-  animation: moveInLeft var(--navbar-animation-time) ease-out;
+  animation: moveInLeft var(--general-animation-time) ease-out;
 }
 
 .link-dropdown {
@@ -55,6 +56,8 @@
 @media only screen and (max-width: 46.875em) {
   .link {
     display: none;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .link {
@@ -101,6 +104,14 @@
 
     a {
       font-size: var(--navbar-navlink-font-size);
+    }
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .link-dropdown-phone {
+    a {
+      font-size: var(--navbar-navlink-font-size-small);
     }
   }
 }

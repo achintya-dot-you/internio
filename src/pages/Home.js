@@ -1,16 +1,17 @@
 import React from "react";
 
-// import Header from "../components/header/Header";
 import Navbar from "../components/Navbar/Navbar";
+import Header from "../components/Header/Header";
+import OpportunitiesHighlight from "../components/Opportunities Highlight/OpportunitiesHighlight";
+import Footer from "../components/Footer/Footer";
 
 const Home = () => {
   return (
     <>
-      <header id='home-header'>
-        <Navbar />
-      </header>
-
-      {/* <Carousel /> */}
+      <Navbar />
+      <Header />
+      <OpportunitiesHighlight />
+      <Footer />
     </>
   );
 };
