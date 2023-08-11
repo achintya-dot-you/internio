@@ -61,7 +61,8 @@
 
 .link-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  width: 100%;
   gap: var(--navbar-header-gap);
   align-items: center;
 }

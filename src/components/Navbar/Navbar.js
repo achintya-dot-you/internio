@@ -27,6 +27,41 @@ const Navbar = (props) => {
 
   const list = (
     <ul className={styles["navbar__list"]}>
+      <NavDropDown
+        title='Opportunities'
+        phone='default'
+      >
+        <NavLink
+          link='/'
+          title='Option 2'
+          type='dropdown'
+          phone='default'
+        />
+        <NavLink
+          link='/'
+          title='Long Option 1'
+          type='dropdown'
+          phone='default'
+        />
+      </NavDropDown>
+
+      <NavDropDown
+        title='Opportunities'
+        phone='default'
+      >
+        <NavLink
+          link='/'
+          title='Option 2'
+          type='dropdown'
+          phone='default'
+        />
+        <NavLink
+          link='/'
+          title='Long Option 1'
+          type='dropdown'
+          phone='default'
+        />
+      </NavDropDown>
       <NavLink
         link='/opportunities'
         title='Opportunities'
@@ -77,7 +112,7 @@ const Navbar = (props) => {
           </h2>
           {list}
         </div>
-        <div className={styles["action-container"]}>
+        {/* <div className={styles["action-container"]}>
           <button
             type='button'
             className={styles["sign-in"] + " " + styles["button"]}
@@ -90,7 +125,7 @@ const Navbar = (props) => {
           >
             Sign Up
           </button>
-        </div>
+        </div> */}
       </div>
 
       {phoneToggled && <PhoneNavbarDropdown phone={phoneToggled} />}

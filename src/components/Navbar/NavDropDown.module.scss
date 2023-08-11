@@ -34,7 +34,7 @@
   position: absolute;
   top: 100%;
   background-color: transparent;
-  transform: translateX(var(--navbar-dropdown-side-offset));
+  transform: translateX(calc(1 * var(--navbar-dropdown-side-offset)));
   animation-fill-mode: backwards;
   animation: fadeIn var(--navbar-dropdown-animation-time) ease-out;
 }
