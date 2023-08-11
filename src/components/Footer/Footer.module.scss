@@ -8,6 +8,24 @@
   padding: 6.4rem 6.7rem 8rem 6.7rem;
 }
 
+.heading {
+  display: flex;
+  color: var(--color-pure-white);
+  height: fit-content;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.heading-text {
+  font-size: 3rem;
+  font-family: Montserrat, sans-serif;
+  height: fit-content;
+}
+
+.heading-icon {
+  height: 3rem;
+}
+
 .content {
   height: 100%;
   width: 100%;
@@ -47,6 +65,8 @@
   &:visited {
     text-decoration: none;
     color: var(--color-pure-white);
+    text-transform: capitalize;
+    font-size: 1.6rem;
   }
 
   &:hover {
