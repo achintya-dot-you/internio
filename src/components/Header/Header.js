@@ -27,6 +27,10 @@ const Header = () => {
           <span className={styles["desc-line-2"]}>
             curated for motivated and driven high school students.
           </span>
+          <span className={styles["desc-line-all"]}>
+            Explore a new world of internship opportunities, curated for motivated and driven high
+            school students.
+          </span>
         </h3>
       </div>
       <div className={styles["cta"]}>

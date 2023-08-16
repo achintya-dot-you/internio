@@ -3,9 +3,15 @@
 .footer {
   display: grid;
   background-color: var(--color-smoky-black);
-  height: 60vh;
+  height: fit-content;
   width: 100%;
   padding: 6.4rem 6.7rem 8rem 6.7rem;
+  grid-row-gap: 6.4rem;
+
+  ::selection {
+    color: var(--color-smoky-black);
+    background-color: var(--color-pure-white);
+  }
 }
 
 .heading {
@@ -14,6 +20,7 @@
   height: fit-content;
   align-items: center;
   justify-content: flex-start;
+  user-select: none;
 }
 
 .heading-text {
@@ -24,6 +31,7 @@
 
 .heading-icon {
   height: 3rem;
+  user-select: none;
 }
 
 .content {
@@ -42,22 +50,29 @@
 .column-content {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 1.6rem;
+  width: 100%;
 }
 
 .column-header {
   color: var(--color-pure-white);
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-family: "proximanova", Helvetica, Arial, sans-serif;
+  cursor: default;
+  opacity: 0.85;
+  font-family: "proximanova", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
 }
 
 .links {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.6rem;
+  width: 100%;
+  user-select: none;
 }
 
 .link {
@@ -67,9 +82,77 @@
     color: var(--color-pure-white);
     text-transform: capitalize;
     font-size: 1.6rem;
+    font-family: "proximanova", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    width: 100%;
   }
 
   &:hover {
     text-decoration: underline;
+    opacity: 0.8;
+  }
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.copyright {
+  color: var(--color-very-light-gray);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 1.65rem;
+}
+
+.socials {
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  a {
+    user-select: none;
+
+    &:link,
+    &:visited {
+      color: var(--color-pure-white);
+      stroke: var(--color-smoky-black);
+      opacity: 0.85;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+.icon {
+  width: 2.3rem;
+  height: 2.3rem;
+}
+
+@media only screen and (max-width: 46.875em) {
+  .content {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+
+  .column-header {
+    font-size: 1.8rem;
+  }
+
+  .link {
+    &:link,
+    &:visited {
+      font-size: 1.8rem;
+    }
+  }
+
+  .footer-row {
+    flex-direction: column;
+    gap: 1.6rem;
   }
 }

@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 
 import styles from "./Footer.module.scss";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faTwitter } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faDiscord, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 import iconImage from "../../assets/images/icon-inverted.png";
 
 const Footer = () => {
@@ -128,12 +132,6 @@ const Footer = () => {
               >
                 another link 3
               </Link>
-              <Link
-                to={"/"}
-                className={styles["link"]}
-              >
-                LINK 4
-              </Link>
             </div>
           </div>
         </div>
@@ -143,7 +141,32 @@ const Footer = () => {
           <span className={styles["symbol"]}>&copy;</span>
           <span className={styles["brand"]}>internio.app</span>
         </p>
-        <div className={styles["socials"]}></div>
+        <div className={styles["socials"]}>
+          <a href='https://discord.com/invite/Usb95exFEc'>
+            <FontAwesomeIcon
+              className={styles["icon"]}
+              icon={faDiscord}
+            />
+          </a>
+          <a href='https://www.instagram.com/internio.app/'>
+            <FontAwesomeIcon
+              className={styles["icon"]}
+              icon={faInstagram}
+            />
+          </a>
+          <a href='https://www.linkedin.com/company/internio/'>
+            <FontAwesomeIcon
+              className={styles["icon"]}
+              icon={faLinkedin}
+            />
+          </a>
+          <a href='https://github.com/achintya-dot-you/internio'>
+            <FontAwesomeIcon
+              className={styles["icon"]}
+              icon={faGithub}
+            />
+          </a>
+        </div>
       </div>
     </div>
   );

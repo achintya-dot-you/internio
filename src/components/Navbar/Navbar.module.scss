@@ -108,9 +108,10 @@
 
 @media only screen and (max-width: 46.875em) {
   .navbar__header {
-    display: static;
+    display: flex;
     margin: 0;
-    position: absolute;
+    justify-content: center;
+    width: 100%;
   }
 
   .navbar-toggler {
