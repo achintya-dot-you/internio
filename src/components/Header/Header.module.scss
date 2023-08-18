@@ -1,8 +1,6 @@
 @import "../../styles/initialization.scss";
 
 .header {
-  max-height: var(--header-height-large);
-  height: fit-content;
   padding: 6rem 0;
   gap: 2rem;
   width: 100%;
@@ -74,23 +72,6 @@
 .btn-outline {
   color: var(--color-smoky-black);
   background-color: var(--color-pure-white);
-}
-
-@media only screen and (max-height: 31.25em) {
-  .header {
-    height: calc(var(--header-height-medium) * 1.5);
-  }
-}
-@media only screen and (max-height: 21.875em) {
-  .header {
-    height: calc(var(--header-height) * 2);
-  }
-}
-
-@media only screen and (max-width: 40.625em) {
-  .container {
-    height: calc(var(--header-height-large) / 2);
-  }
 }
 @media only screen and (max-width: 25.375em) {
   .desc {

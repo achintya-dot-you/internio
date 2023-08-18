@@ -1,8 +1,6 @@
 @import "../../styles/initialization.scss";
 
 .container {
-  min-height: var(--opportunities-highlight-height-large);
-  height: fit-content;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -100,8 +98,6 @@
 @media only screen and (max-width: 40.625em) {
   .container {
     flex-direction: column-reverse;
-    max-height: calc(var(--opportunities-highlight-height-medium) * 2);
-    height: fit-content;
     padding: 4rem 0;
   }
 
@@ -126,23 +122,5 @@
   .details-heading {
     max-width: 100%;
     width: 100%;
-  }
-}
-
-@media only screen and (max-height: 37.5em) {
-  .container {
-    height: var(--opportunities-highlight-height-medium);
-  }
-}
-
-@media only screen and (max-height: 31.25em) {
-  .contianer {
-    height: calc(var(--opportunities-highlight-height-medium) * 1.5);
-  }
-}
-
-@media only screen and (max-height: 21.875em) {
-  .container {
-    height: calc(var(--opportunities-highlight-height) * 2);
   }
 }
