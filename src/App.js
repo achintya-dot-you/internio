@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Opportunities from "./pages/Opportunities";
+import Team from "./pages/Team";
 import NotFound from "./pages/NotFound";
 import Title from "./components/General/Title";
 
@@ -18,6 +19,7 @@ function App() {
 
     return null; // or you can render some loading/spinner component if needed
   };
+
   return (
     <>
       <Router>
@@ -39,6 +41,11 @@ function App() {
             exact
             path='/apply'
             element={<ApplyPage />}
+          />
+          <Route
+            exact
+            path='/team'
+            element={<Team />}
           />
           <Route
             path='/*'

@@ -1,0 +1,191 @@
+@import "../styles/initialization.scss";
+
+.heading-container {
+  padding: 28vh 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.heading {
+  font-size: 11vw;
+  font-weight: 500;
+  font-family: "proximanova", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  position: relative;
+  color: var(--color-smoky-black);
+
+  &::after {
+    content: "";
+    width: 80%;
+    height: 5px;
+    background-color: var(--color-smoky-black);
+    position: absolute; /* Change this to absolute */
+    bottom: 0; /* Adjust this value to control the distance of the line from the heading */
+    left: 50%; /* Align the line to the center of the heading */
+    transform: translateX(-50%); /* Center the line horizontally */
+  }
+}
+
+.founders-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 9rem;
+  padding: 0 9rem;
+}
+
+.founders-frame {
+  width: 100%;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.founders-picture-container {
+  width: 100%;
+  max-width: 100%;
+  transition: all 0.5s;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(93%);
+  }
+}
+
+.founders-picture {
+  width: 100%;
+  max-width: 100%;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(130%);
+  }
+}
+
+.founders-position,
+.founders-name {
+  font-family: "DM Serif Display", serif;
+  color: var(--color-smoky-black);
+}
+
+.founders-position {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.founders-name {
+  font-size: 3rem;
+}
+
+.founders-desc {
+  font-family: "DM Serif Text", serif;
+  font-size: 1.5rem;
+  letter-spacing: -1%;
+  line-height: 1.6;
+}
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 6%;
+  row-gap: 6%;
+  padding: 0 6%;
+  margin: 15rem 0;
+}
+
+.member {
+  cursor: pointer;
+}
+
+.members-picture-container {
+  overflow: hidden;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(93%);
+  }
+}
+
+.members-picture {
+  width: 100%;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(130%);
+  }
+}
+
+.members-position,
+.members-name {
+  font-family: "DM Serif Display", serif;
+  color: var(--color-smoky-black);
+  letter-spacing: 0.3px;
+  font-size: 1.6rem;
+}
+
+.members-name {
+  font-size: 2.4rem;
+  letter-spacing: 0.5px;
+}
+
+@media only screen and (max-width: 50em) {
+  .heading::after {
+    width: 60%;
+  }
+
+  .team {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .founders-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .founders-position {
+    font-size: 2.5rem;
+  }
+
+  .founders-name {
+    font-size: 3rem;
+  }
+
+  .founders-desc {
+    font-size: 1.8rem;
+  }
+
+  .members-position {
+    font-size: 2.2rem;
+  }
+
+  .members-name {
+    font-size: 3rem;
+  }
+
+  .founders-picture,
+  .founders-picture-container,
+  .members-picture,
+  .members-picture-container {
+    &:hover {
+      transform: scale(100%);
+    }
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .heading-container {
+    padding: 15vh 0;
+  }
+
+  .team {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    margin: 15rem 5rem;
+  }
+}
+
+@media only screen and (max-width: 18.75em) {
+  .heading-container {
+    padding: 10vh 0;
+  }
+}
