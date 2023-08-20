@@ -44,47 +44,12 @@ const Navbar = (props) => {
           phone='default'
         />
       </NavDropDown>
-
-      <NavDropDown
-        title='Opportunities'
-        phone='default'
-      >
-        <NavLink
-          link='/'
-          title='Option 2'
-          type='dropdown'
-          phone='default'
-        />
-        <NavLink
-          link='/'
-          title='Long Option 1'
-          type='dropdown'
-          phone='default'
-        />
-      </NavDropDown>
       <NavLink
         link='/opportunities'
         title='Opportunities'
         type='standard'
         phone='default'
       />
-      <NavDropDown
-        title='Opportunities'
-        phone='default'
-      >
-        <NavLink
-          link='/'
-          title='Option 2'
-          type='dropdown'
-          phone='default'
-        />
-        <NavLink
-          link='/'
-          title='Long Option 1'
-          type='dropdown'
-          phone='default'
-        />
-      </NavDropDown>
     </ul>
   );
 

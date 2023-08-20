@@ -10,13 +10,13 @@ const Title = () => {
 
     // Map the pathname to the desired title for each route
     if (pathname === "/") {
-      title = "Internio | Home";
+      title = "internio | Home";
     } else if (pathname === "/opportunities") {
-      title = "Internio | Opportunities";
+      title = "internio | Opportunities";
     } else if (pathname === "/team") {
-      title = "Internio | Team";
+      title = "internio | Team";
     } else if (pathname === "/apply") {
-      title = "Internio | Apply";
+      title = "internio | Apply";
     }
 
     document.title = title; // Set the document title

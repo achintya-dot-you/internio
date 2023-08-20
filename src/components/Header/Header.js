@@ -14,42 +14,44 @@ const Header = () => {
   };
 
   return (
-    <header className={styles["header"]}>
-      <div className={styles["text"]}>
-        <h1 className={styles["heading"]}>
-          <span className={styles["header-line-1"]}>Quality internships,</span>
-          <span className={styles["header-line-2"]}>for students like you.</span>
-        </h1>
-        <h3 className={styles["desc"]}>
-          <span className={styles["desc-line-1"]}>
-            Explore a new world of internship opportunities,
-          </span>
-          <span className={styles["desc-line-2"]}>
-            curated for motivated and driven high school students.
-          </span>
-          <span className={styles["desc-line-all"]}>
-            Explore a new world of internship opportunities, curated for motivated and driven high
-            school students.
-          </span>
-        </h3>
-      </div>
-      <div className={styles["cta"]}>
-        <button
-          type='link'
-          className={`${styles["btn"]} ${styles["btn-filled"]}`}
-          onClick={opportunitiesClickHandler}
-        >
-          opportunities
-        </button>
-        <button
-          type='link'
-          className={`${styles["btn"]} ${styles["btn-outline"]}`}
-          onClick={resourcesClickHandler}
-        >
-          resources
-        </button>
-      </div>
-    </header>
+    <div className={styles["header-container"]}>
+      <header className={styles["header"]}>
+        <div className={styles["text"]}>
+          <h1 className={styles["heading"]}>
+            <span className={styles["header-line-1"]}>Quality internships,</span>
+            <span className={styles["header-line-2"]}>for students like you.</span>
+          </h1>
+          <h3 className={styles["desc"]}>
+            <span className={styles["desc-line-1"]}>
+              Explore a new world of internship opportunities,
+            </span>
+            <span className={styles["desc-line-2"]}>
+              curated for motivated and driven high school students.
+            </span>
+            <span className={styles["desc-line-all"]}>
+              Explore a new world of internship opportunities, curated for motivated and driven high
+              school students.
+            </span>
+          </h3>
+        </div>
+        <div className={styles["cta"]}>
+          <button
+            type='link'
+            className={`${styles["btn"]} ${styles["btn-filled"]}`}
+            onClick={opportunitiesClickHandler}
+          >
+            opportunities
+          </button>
+          <button
+            type='link'
+            className={`${styles["btn"]} ${styles["btn-outline"]}`}
+            onClick={resourcesClickHandler}
+          >
+            resources
+          </button>
+        </div>
+      </header>
+    </div>
   );
 };
 
