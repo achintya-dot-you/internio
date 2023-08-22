@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 var(--navbar-horizontal-padding);
-  border-bottom: var(--navbar-border-width) solid var(--color-light-gray);
+  border-bottom: var(--navbar-border-width) solid var(--color-contrast-gray);
 
   &__header {
     animation: moveInLeft var(--navbar-animation-time) ease-out;
@@ -122,14 +122,22 @@
       background-color: transparent;
     }
     border-radius: 0;
+    z-index: 1002;
   }
 
   .navbar {
     justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    background-color: var(--color-pure-white);
   }
 
   .link-container {
     margin: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
   }
 }
 

@@ -1,0 +1,33 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+import styles from "./Introduction.module.scss";
+
+const Introduction = () => {
+  return (
+    <div className={styles["container"]}>
+      <div className={styles["content-container"]}>
+        <h2 className={styles["heading"]}>
+          <span className={styles["blue"]}>What is</span> internio?
+        </h2>
+        <p className={styles["para-1"] + " " + styles["para"]}>
+          internio is a non-profit organization comitted to providing quality internships to
+          motivated and driven high school students.
+        </p>
+        <p className={styles["para-2"] + " " + styles["para"]}>
+          We are a team of high school and college students from across the world who are passionate
+          about making a difference through technology.
+        </p>
+        <Link
+          to={"/about"}
+          className={styles["button"]}
+        >
+          Read More
+        </Link>
+      </div>
+      <div className={styles["image-container"]}></div>
+    </div>
+  );
+};
+
+export default Introduction;

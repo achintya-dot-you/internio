@@ -13,7 +13,7 @@
   --color-slightly-light-gray: #4a5568;
   --color-gray: #5e5e5e;
   --color-dark-gray: #1f1f1f;
-  --color-bone-gray: #413e3a;
+  --color-contrast-gray: #c4d0ef;
 
   // Primary and important colors
   --color-beaver: #9d816c;
@@ -26,23 +26,7 @@
   --color-bone-dark: #aea69a;
   --color-bone-light: #e4ddd4;
   --color-form-input: #d9d9d9;
-
-  // Secondary Color
-  --color-secondary: #f8333c;
-  --color-secondary-light: #fb858a;
-  --color-secondary-dark: #4a0f12;
-
-  // Tertiary Color
-  --color-tertiary: #80a1c1;
-  --color-tertiary-dark: #4d6174;
-  --color-tertiary-very-dark: #1e272f;
-  --color-tertiary-light: #a6bdd4;
-
-  // Contrast Color
-  --color-contrast: #4ecdc4;
-  --color-contrast-dark: #1f524e;
-  --color-contrast-light: #95e1dc;
-  --color-contrast-blue: #2200ff;
+  --color-contrast: #4c7bf4;
 
   // ** BACKGROUND **
   --background-gradient: radial-gradient(at right, #6a93f1 0%, #12100e 100%),
@@ -63,6 +47,7 @@
   --navbar-navlink-font-size: 1.8rem;
   --navbar-navlink-font-size-small: 1.6rem;
   --navbar-navlink-font-size-big: 2.5rem;
+  --navbar-navlink-line-height: 1.2;
   --navbar-navlink-phone-font-size: 2.4rem;
   --navbar-navlink-phone-padding: 2rem;
   --navbar-button-padding-large: 0.9rem 1.8rem;
@@ -91,10 +76,19 @@
   --navbar-phone-gap: 4px;
 
   // ** HEADER **
-  --header-height: calc((100vh - var(--navbar-height-large)) / 2);
-  --header-height-medium: calc((100vh - var(--navbar-height-medium)) / 2);
-  --header-height-large: calc((100vh - var(--navbar-height)) / 2);
-  --header-animation-time: calc(var(--general-animation-time) * 3);
+  --header-gap: 2rem;
+  --header-animation-time: 1s;
+  --header-text-gap: 1rem;
+  --header-heading-font-size: 5rem;
+  --header-subheading-font-size: 2.9rem;
+  --header-subheading-font-weight: 600;
+  --header-cta-gap: 2rem;
+  --header-button-padding: 0.6rem 1.8rem;
+  --header-button-width: 20rem;
+  --header-button-border-width: 0.35rem;
+  --header-button-border-radius: 15px;
+  --header-button-font-size: 2rem;
+  --header-button-font-weight: 700;
 
   // **OPPORTUNITIES HIGHLIGHT**
   --opportunities-highlight-height: calc((100vh - var(--navbar-height-large)) / 2);
@@ -141,6 +135,33 @@
   --landing-input-border-radius: 0.5rem 0 0 0.5rem;
   --landing-button-border-radius: 0 0.5rem 0.5rem 0;
   --landing-input-placeholder-font-size: 1em;
+
+  // **FOOTER**
+  --footer-padding: 6.4rem 6.7rem 8rem 6.7rem;
+  --footer-phone-content-gap: 4.8rem;
+  --footer-row-gap: 6.4rem;
+  --footer-phone-row-gap: 1.6rem;
+  --footer-heading-font-size: 3rem;
+  --footer-heading-icon-height: 3rem;
+  --footer-column-content-gap: 1.6rem;
+  --footer-column-heading-font-size: 1.4rem;
+  --footer-phone-column-heading-font-size: 1.8rem;
+  --footer-column-heading-font-weight: 500;
+  --footer-column-heading-letter-spacing: 0.1rem;
+  --footer-column-heading-opacity: 0.85;
+  --footer-column-heading-line-height: 1.5;
+  --footer-link-gap: 1.6rem;
+  --footer-link-font-size: 1.6rem;
+  --footer-phone-link-font-size: 1.8rem;
+  --footer-link-line-height: 1.5;
+  --footer-link-letter-spacing: 1px;
+  --footer-link-hover-opacity: 0.8;
+  --footer-copyright-text-gap: 0.2rem;
+  --footer-copyright-text-font-size: 1.65rem;
+  --footer-socials-gap: 1rem;
+  --footer-socials-opcaity: 0.85;
+  --footer-socials-hover-opacity: 0.6;
+  --footer-socials-icon-side-length: 2.3rem;
 }
 
 @media only screen and (max-width: 62.5em) {

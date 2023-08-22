@@ -10,11 +10,11 @@
     font-size: var(--navbar-navlink-font-size);
     text-decoration: none;
     color: var(--color-slightly-light-gray);
-    font-weight: 600;
+    font-weight: var(--navbar-navlink-font-weight);
     cursor: pointer;
     font-family: "Inter", Arial, sans-serif;
     user-select: none;
-    line-height: 1.2;
+    line-height: var(--navbar-navlink-line-height);
   }
 }
 

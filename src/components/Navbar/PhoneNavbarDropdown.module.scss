@@ -10,12 +10,13 @@
   justify-content: space-between;
   padding: 0 var(--navbar-horizontal-padding);
   position: fixed;
-  border-right: var(--navbar-border-width) solid var(--color-light-gray);
+  border-right: var(--navbar-border-width) solid var(--color-contrast-gray);
   display: none;
   z-index: 1000;
   overflow: scroll;
+  top: var(--navbar-height);
 
-  animation-fill-mode: backwards;
+  animation-fill-mode: both;
   animation: navbarMoveInLeft var(--general-animation-time) ease-out;
 }
 

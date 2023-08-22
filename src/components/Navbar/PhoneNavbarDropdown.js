@@ -32,12 +32,125 @@ const PhoneNavbarDropdown = (props) => {
             phone={props.phone ? "phone" : "default"}
           />
         </NavDropDown>
-        <NavLink
-          link='/example'
-          title='Example'
-          type='standard'
+        <NavDropDown
+          title='About'
           phone={props.phone ? "phone" : "default"}
-        />
+        >
+          <NavLink
+            link='/'
+            title='Option 2'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+          <NavLink
+            link='/'
+            title='Long Option 1'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+        </NavDropDown>
+        <NavDropDown
+          title='About'
+          phone={props.phone ? "phone" : "default"}
+        >
+          <NavLink
+            link='/'
+            title='Option 2'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+          <NavLink
+            link='/'
+            title='Long Option 1'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+        </NavDropDown>
+        <NavDropDown
+          title='About'
+          phone={props.phone ? "phone" : "default"}
+        >
+          <NavLink
+            link='/'
+            title='Option 2'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+          <NavLink
+            link='/'
+            title='Long Option 1'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+        </NavDropDown>
+        <NavDropDown
+          title='About'
+          phone={props.phone ? "phone" : "default"}
+        >
+          <NavLink
+            link='/'
+            title='Option 2'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+          <NavLink
+            link='/'
+            title='Long Option 1'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+        </NavDropDown>
+        <NavDropDown
+          title='About'
+          phone={props.phone ? "phone" : "default"}
+        >
+          <NavLink
+            link='/'
+            title='Option 2'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+          <NavLink
+            link='/'
+            title='Long Option 1'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+        </NavDropDown>
+        <NavDropDown
+          title='About'
+          phone={props.phone ? "phone" : "default"}
+        >
+          <NavLink
+            link='/'
+            title='Option 2'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+          <NavLink
+            link='/'
+            title='Long Option 1'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+        </NavDropDown>
+        <NavDropDown
+          title='About'
+          phone={props.phone ? "phone" : "default"}
+        >
+          <NavLink
+            link='/'
+            title='Option 2'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+          <NavLink
+            link='/'
+            title='Long Option 1'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+        </NavDropDown>
       </ul>
     </div>
   );

@@ -9,7 +9,7 @@ const Title = () => {
     let title = "internio | Page Not Found"; // Set your default title here
 
     // Map the pathname to the desired title for each route
-    if (pathname === "/") {
+    if (pathname === "/" || pathname === "/home") {
       title = "internio | Home";
     } else if (pathname === "/opportunities") {
       title = "internio | Opportunities";

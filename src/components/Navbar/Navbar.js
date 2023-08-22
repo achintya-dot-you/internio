@@ -28,18 +28,18 @@ const Navbar = (props) => {
   const list = (
     <ul className={styles["navbar__list"]}>
       <NavDropDown
-        title='Opportunities'
+        title='About'
         phone='default'
       >
         <NavLink
-          link='/'
-          title='Option 2'
+          link='/mission'
+          title='Our Mission'
           type='dropdown'
           phone='default'
         />
         <NavLink
-          link='/'
-          title='Long Option 1'
+          link='/team'
+          title='Our Team'
           type='dropdown'
           phone='default'
         />
@@ -47,6 +47,12 @@ const Navbar = (props) => {
       <NavLink
         link='/opportunities'
         title='Opportunities'
+        type='standard'
+        phone='default'
+      />
+      <NavLink
+        link='/resources'
+        title='Resources'
         type='standard'
         phone='default'
       />

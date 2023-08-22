@@ -6,14 +6,14 @@
   flex-direction: row;
   gap: 5rem;
   padding: 6rem 0;
-  background-color: var(--color-very-light-gray);
+  background-color: var(--color-pure-white);
   align-items: center;
 }
 
 .flashcards-container,
 .details-container {
   width: 100%;
-  background-color: var(--color-very-light-gray);
+  background-color: var(--color-pure-white);
   display: flex;
   align-items: flex-start;
 }
