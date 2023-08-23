@@ -48,14 +48,18 @@
   aspect-ratio: 1;
   border-radius: 50vw;
   background-color: transparent;
+  user-select: none;
 
   &:hover {
     background-color: var(--color-light-gray);
   }
 
   &:focus,
-  &:focus-within {
+  &:focus-within,
+  &:active {
     background-color: transparent;
+    outline: none;
+    box-shadow: none;
   }
 }
 

@@ -3,7 +3,9 @@ import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Header from "../components/Header/Header";
 import Introduction from "../components/Introduction/Introduction";
-import OpportunitiesHighlight from "../components/OpportunitiesHighlight/OpportunitiesHighlight";
+// import OpportunitiesHighlight from "../components/OpportunitiesHighlight/OpportunitiesHighlight";
+import PartnersHighlight from "../components/PartnersHighlight/PartnersHighlight";
+import ResourcesHighlight from "../components/ResourcesHighlight/ResourcesHighlight";
 import Footer from "../components/Footer/Footer";
 
 const Home = () => {
@@ -12,7 +14,9 @@ const Home = () => {
       <Navbar />
       <Header />
       <Introduction />
-      <OpportunitiesHighlight />
+      {/* <OpportunitiesHighlight /> */}
+      <PartnersHighlight />
+      <ResourcesHighlight />
       <Footer />
     </>
   );

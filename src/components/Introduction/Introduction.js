@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import styles from "./Introduction.module.scss";
 
+import image from "../../assets/images/Introduction/Image.svg";
+
 const Introduction = () => {
   return (
     <div className={styles["container"]}>
@@ -25,7 +27,16 @@ const Introduction = () => {
           Read More
         </Link>
       </div>
-      <div className={styles["image-container"]}></div>
+      <div className={styles["image-container"]}>
+        <picture className={styles["image-picture"]}>
+          <img
+            srcSet={image}
+            alt='collaboraters'
+            loading='lazy'
+            className={styles["image"]}
+          />
+        </picture>
+      </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@
   gap: var(--header-gap);
   width: 100%;
   background-color: transparent;
+  min-height: calc(100vh - var(--navbar-height));
 
   display: flex;
   flex-direction: column;
@@ -27,6 +28,7 @@
 
 .heading {
   font-size: var(--header-heading-font-size);
+  line-height: var(--header-heading-line-height);
 
   @font-face {
     font-family: "proximanova";
@@ -85,6 +87,11 @@
 }
 
 @media only screen and (max-width: 37.5em) {
+  .header {
+    margin: 0 1rem;
+    width: fit-content;
+  }
+
   .desc {
     text-align: center;
   }
