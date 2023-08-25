@@ -29,21 +29,30 @@
 .heading {
   font-size: var(--header-heading-font-size);
   line-height: var(--header-heading-line-height);
+  font-weight: var(--header-heading-font-weight);
 
-  @font-face {
-    font-family: "proximanova";
-    src: url("../../assets/fonts//proximanova/Fontspring-DEMO-proximanova-extrabold.otf");
-  }
+  font-family: "Montserrat", sans-serif;
+
+  // @font-face {
+  //   font-family: "proximanova";
+  //   src: url("../../assets/fonts//proximanova/Fontspring-DEMO-proximanova-extrabold.otf");
+  // }
 }
 
 .header-line-2 {
   color: var(--color-contrast);
+
+  &::selection {
+    background-color: var(--color-contrast);
+    color: var(--color-pure-white);
+  }
 }
 
 .desc {
   font-size: var(--header-subheading-font-size);
   font-weight: var(--header-subheading-font-weight);
   color: var(--color-dark-gray);
+  font-family: "Montserrat", sans-serif;
 }
 
 .desc-line-all {
@@ -68,6 +77,7 @@
   font-weight: var(--header-button-font-weight);
   font-size: var(--header-button-font-size);
   cursor: pointer;
+  font-family: "Montserrat", sans-serif;
 }
 
 .btn-filled {

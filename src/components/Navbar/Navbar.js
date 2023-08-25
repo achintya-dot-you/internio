@@ -45,12 +45,6 @@ const Navbar = (props) => {
         />
       </NavDropDown>
       <NavLink
-        link='/opportunities'
-        title='Opportunities'
-        type='standard'
-        phone='default'
-      />
-      <NavLink
         link='/resources'
         title='Resources'
         type='standard'

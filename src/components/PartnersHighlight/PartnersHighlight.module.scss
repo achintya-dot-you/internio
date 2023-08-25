@@ -8,12 +8,23 @@
 
 .heading {
   color: var(--color-contrast);
+
+  &::selection {
+    background-color: var(--color-contrast);
+    color: var(--color-pure-white);
+  }
+
   font-size: 3rem;
   width: 40vw;
   max-width: fit-content;
 
   span {
     color: var(--color-smoky-black);
+
+    &::selection {
+      background-color: var(--color-smoky-black);
+      color: var(--color-pure-white);
+    }
   }
 
   margin-bottom: 5rem;

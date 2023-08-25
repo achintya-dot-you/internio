@@ -9,148 +9,29 @@ const PhoneNavbarDropdown = (props) => {
   const list = (
     <div className={styles["navbar"]}>
       <ul className={styles["navbar__list"]}>
+        <NavDropDown
+          title='About'
+          phone={props.phone ? "phone" : "default"}
+        >
+          <NavLink
+            link='/mission'
+            title='Our Misson'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+          <NavLink
+            link='/team'
+            title='Our Team'
+            type='dropdown'
+            phone={props.phone ? "phone" : "default"}
+          />
+        </NavDropDown>
         <NavLink
-          link='/opportunities'
-          title='Opportunities'
+          link='/resources'
+          title='Resources'
           type='standard'
           phone={props.phone ? "phone" : "default"}
         />
-        <NavDropDown
-          title='About'
-          phone={props.phone ? "phone" : "default"}
-        >
-          <NavLink
-            link='/'
-            title='Option 2'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-          <NavLink
-            link='/'
-            title='Long Option 1'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-        </NavDropDown>
-        <NavDropDown
-          title='About'
-          phone={props.phone ? "phone" : "default"}
-        >
-          <NavLink
-            link='/'
-            title='Option 2'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-          <NavLink
-            link='/'
-            title='Long Option 1'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-        </NavDropDown>
-        <NavDropDown
-          title='About'
-          phone={props.phone ? "phone" : "default"}
-        >
-          <NavLink
-            link='/'
-            title='Option 2'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-          <NavLink
-            link='/'
-            title='Long Option 1'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-        </NavDropDown>
-        <NavDropDown
-          title='About'
-          phone={props.phone ? "phone" : "default"}
-        >
-          <NavLink
-            link='/'
-            title='Option 2'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-          <NavLink
-            link='/'
-            title='Long Option 1'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-        </NavDropDown>
-        <NavDropDown
-          title='About'
-          phone={props.phone ? "phone" : "default"}
-        >
-          <NavLink
-            link='/'
-            title='Option 2'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-          <NavLink
-            link='/'
-            title='Long Option 1'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-        </NavDropDown>
-        <NavDropDown
-          title='About'
-          phone={props.phone ? "phone" : "default"}
-        >
-          <NavLink
-            link='/'
-            title='Option 2'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-          <NavLink
-            link='/'
-            title='Long Option 1'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-        </NavDropDown>
-        <NavDropDown
-          title='About'
-          phone={props.phone ? "phone" : "default"}
-        >
-          <NavLink
-            link='/'
-            title='Option 2'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-          <NavLink
-            link='/'
-            title='Long Option 1'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-        </NavDropDown>
-        <NavDropDown
-          title='About'
-          phone={props.phone ? "phone" : "default"}
-        >
-          <NavLink
-            link='/'
-            title='Option 2'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-          <NavLink
-            link='/'
-            title='Long Option 1'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-        </NavDropDown>
       </ul>
     </div>
   );

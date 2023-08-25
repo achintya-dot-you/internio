@@ -13,7 +13,7 @@ const ResourcesHighlight = () => {
         <h2 className={styles["sub-heading"]}>+ much more</h2>
       </div>
       <Link
-        to={"/opportunities"}
+        to={"/resources"}
         className={styles["button"]}
       >
         Discover Resources

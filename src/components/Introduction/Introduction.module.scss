@@ -54,6 +54,11 @@
 
 .blue {
   color: var(--color-contrast);
+
+  &::selection {
+    background-color: var(--color-contrast);
+    color: var(--color-pure-white);
+  }
 }
 
 .button {
