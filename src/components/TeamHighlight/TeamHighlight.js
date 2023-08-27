@@ -46,7 +46,7 @@ const TeamHighlight = () => {
         </div>
       </div>
       <div className={styles["details"]}>
-        <h2 className={styles["heading"]}>Meet the founders</h2>
+        <h2 className={styles["heading"]}>MEET THE FOUNDERS</h2>
         <div className={styles["paragraphs"]}>
           <p className={styles["text"]}>
             At internio, our journey began with a shared vision and a passion for empowering high

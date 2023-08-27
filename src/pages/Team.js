@@ -6,6 +6,10 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
 import dummyPic from "../assets/images/team/dummy1.jpg";
+import siddhant from "../assets/images/team/Siddhant.jpg";
+import nidhi from "../assets/images/team/nidhi.png";
+import eva from "../assets/images/team/eva.jpg";
+
 
 const Team = () => {
   return (
@@ -71,7 +75,7 @@ const Team = () => {
           <div className={styles["members-picture-container"]}>
             <picture>
               <img
-                srcSet={dummyPic}
+                srcSet={eva}
                 alt='dummy'
                 loading='lazy'
                 className={styles["members-picture"]}
@@ -85,8 +89,8 @@ const Team = () => {
           <div className={styles["members-picture-container"]}>
             <picture>
               <img
-                srcSet={dummyPic}
-                alt='dummy'
+                srcSet={siddhant}
+                alt='Siddhant'
                 loading='lazy'
                 className={styles["members-picture"]}
               />
@@ -127,7 +131,7 @@ const Team = () => {
           <div className={styles["members-picture-container"]}>
             <picture>
               <img
-                srcSet={dummyPic}
+                srcSet={nidhi}
                 alt='dummy'
                 loading='lazy'
                 className={styles["members-picture"]}

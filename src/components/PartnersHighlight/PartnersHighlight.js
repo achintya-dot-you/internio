@@ -13,7 +13,7 @@ const PartnersHighlight = () => {
   };
 
   const redirectHandlerThreco = () => {
-    document.location.href = "https://ayikafoundation.org/";
+    document.location.href = "https://threco.com/";
   };
 
   const redirectHandlerTMHS = () => {

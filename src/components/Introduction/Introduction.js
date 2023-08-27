@@ -10,7 +10,7 @@ const Introduction = () => {
     <div className={styles["container"]}>
       <div className={styles["content-container"]}>
         <h2 className={styles["heading"]}>
-          <span className={styles["blue"]}>What is</span> internio?
+          <span className={styles["blue"]}>WHAT IS</span> internio?
         </h2>
         <p className={styles["para-1"] + " " + styles["para"]}>
           internio is a non-profit organization comitted to providing quality internships to
