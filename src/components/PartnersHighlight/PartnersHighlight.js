@@ -5,9 +5,21 @@ import styles from "./PartnersHighlight.module.scss";
 
 import Threco from "../../assets/images/PartnersHighlight/Threco.svg";
 import Ayika from "../../assets/images/PartnersHighlight/Ayika.svg";
-import Studo from "../../assets/images/PartnersHighlight/Studo.svg";
+import tmhs from "../../assets/images/PartnersHighlight/Studo.svg";
 
 const PartnersHighlight = () => {
+  const redirectHandlerAyika = () => {
+    document.location.href = "https://ayikafoundation.org/";
+  };
+
+  const redirectHandlerThreco = () => {
+    document.location.href = "https://ayikafoundation.org/";
+  };
+
+  const redirectHandlerTMHS = () => {
+    document.location.href = "https://www.teenmentalhealthsociety.org/";
+  };
+
   return (
     <div className={styles["container"]}>
       <h2 className={styles["heading"]}>
@@ -16,7 +28,10 @@ const PartnersHighlight = () => {
       </h2>
       <h3 className={styles["sub-heading"]}>Some of our partners:</h3>
       <div className={styles["image-container"]}>
-        <picture className={styles["threco-picture"]}>
+        <picture
+          className={styles["threco-picture"]}
+          onClick={redirectHandlerThreco}
+        >
           <img
             srcSet={Threco}
             alt='threco'
@@ -24,7 +39,10 @@ const PartnersHighlight = () => {
             className={styles["threco-image"]}
           />
         </picture>
-        <picture className={styles["ayika-picture"]}>
+        <picture
+          className={styles["ayika-picture"]}
+          onClick={redirectHandlerAyika}
+        >
           <img
             srcSet={Ayika}
             alt='ayika'
@@ -32,12 +50,15 @@ const PartnersHighlight = () => {
             className={styles["ayika-image"]}
           />
         </picture>
-        <picture className={styles["studo-picture"]}>
+        <picture
+          className={styles["tmhs-picture"]}
+          onClick={redirectHandlerTMHS}
+        >
           <img
-            srcSet={Studo}
-            alt='studo'
+            srcSet={tmhs}
+            alt='Teen Mental Health Soceity'
             loading='lazy'
-            className={styles["studo-image"]}
+            className={styles["tmhs-image"]}
           />
         </picture>
       </div>

@@ -94,6 +94,14 @@
   .header {
     height: 100vh;
   }
+
+  .heading {
+    font-size: 4rem;
+  }
+
+  .desc {
+    font-size: 2.6rem;
+  }
 }
 
 @media only screen and (max-width: 37.5em) {
@@ -120,5 +128,23 @@
 @media only screen and (max-width: 25.375em) {
   .cta {
     flex-direction: column;
+  }
+
+  .heading {
+    font-size: 3.5rem;
+  }
+
+  .desc {
+    font-size: 2.2rem;
+  }
+}
+
+@media only screen and (max-width: 20.875em) {
+  .heading {
+    font-size: 3.2rem;
+  }
+
+  .desc {
+    font-size: 2rem;
   }
 }

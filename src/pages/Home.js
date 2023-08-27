@@ -6,6 +6,7 @@ import Introduction from "../components/Introduction/Introduction";
 // import OpportunitiesHighlight from "../components/OpportunitiesHighlight/OpportunitiesHighlight";
 import PartnersHighlight from "../components/PartnersHighlight/PartnersHighlight";
 import ResourcesHighlight from "../components/ResourcesHighlight/ResourcesHighlight";
+import TeamHighlight from "../components/TeamHighlight/TeamHighlight";
 import Footer from "../components/Footer/Footer";
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
       {/* <OpportunitiesHighlight /> */}
       <PartnersHighlight />
       <ResourcesHighlight />
+      <TeamHighlight />
       <Footer />
     </>
   );
