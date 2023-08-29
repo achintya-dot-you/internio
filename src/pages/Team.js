@@ -2,14 +2,21 @@ import React from "react";
 
 import styles from "./Team.module.scss";
 
+import data from "../data/Team.json";
+
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
 import dummyPic from "../assets/images/team/dummy1.jpg";
-import siddhant from "../assets/images/team/Siddhant.jpg";
-import nidhi from "../assets/images/team/nidhi.png";
-import eva from "../assets/images/team/eva.jpg";
 
+const getImageSrc = (imagesrc) => {
+  try {
+    return require("../assets/images/team/" + imagesrc);
+  } catch (error) {
+    console.log(`Error loading image at path: ${imagesrc}`);
+    return null;
+  }
+};
 
 const Team = () => {
   return (
@@ -71,76 +78,25 @@ const Team = () => {
         </div>
       </div>
       <div className={styles["team"]}>
-        <div className={styles["member"]}>
-          <div className={styles["members-picture-container"]}>
-            <picture>
-              <img
-                srcSet={eva}
-                alt='dummy'
-                loading='lazy'
-                className={styles["members-picture"]}
-              />
-            </picture>
+        {data.map((member, index) => (
+          <div
+            className={styles["member"]}
+            key={index}
+          >
+            <div className={styles["members-picture-container"]}>
+              <picture>
+                <img
+                  srcSet={getImageSrc(member.image)}
+                  alt={member.name}
+                  loading='lazy'
+                  className={styles["members-picture"]}
+                />
+              </picture>
+            </div>
+            <h4 className={styles["members-position"]}>{member.position}</h4>
+            <h3 className={styles["members-name"]}>{member.name}</h3>
           </div>
-          <h4 className={styles["members-position"]}>Director of Outreach</h4>
-          <h3 className={styles["members-name"]}>Eva Swanson</h3>
-        </div>
-        <div className={styles["member"]}>
-          <div className={styles["members-picture-container"]}>
-            <picture>
-              <img
-                srcSet={siddhant}
-                alt='Siddhant'
-                loading='lazy'
-                className={styles["members-picture"]}
-              />
-            </picture>
-          </div>
-          <h4 className={styles["members-position"]}>Director of Design</h4>
-          <h3 className={styles["members-name"]}>Siddhant Mathur</h3>
-        </div>
-        <div className={styles["member"]}>
-          <div className={styles["members-picture-container"]}>
-            <picture>
-              <img
-                srcSet={dummyPic}
-                alt='dummy'
-                loading='lazy'
-                className={styles["members-picture"]}
-              />
-            </picture>
-          </div>
-          <h4 className={styles["members-position"]}>Director of Technology</h4>
-          <h3 className={styles["members-name"]}>Manish Chaurasiya</h3>
-        </div>
-        <div className={styles["member"]}>
-          <div className={styles["members-picture-container"]}>
-            <picture>
-              <img
-                srcSet={dummyPic}
-                alt='dummy'
-                loading='lazy'
-                className={styles["members-picture"]}
-              />
-            </picture>
-          </div>
-          <h4 className={styles["members-position"]}>Outreach Specialist</h4>
-          <h3 className={styles["members-name"]}>Aarav</h3>
-        </div>
-        <div className={styles["member"]}>
-          <div className={styles["members-picture-container"]}>
-            <picture>
-              <img
-                srcSet={nidhi}
-                alt='dummy'
-                loading='lazy'
-                className={styles["members-picture"]}
-              />
-            </picture>
-          </div>
-          <h4 className={styles["members-position"]}>Social Media Manager</h4>
-          <h3 className={styles["members-name"]}>Nidhi Hegde</h3>
-        </div>
+        ))}
       </div>
       <Footer />
     </>

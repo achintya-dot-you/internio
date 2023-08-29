@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Opportunities from "./pages/Opportunities";
 import Team from "./pages/Team";
+import Mission from "./pages/Mission";
 import NotFound from "./pages/NotFound";
 import Title from "./components/General/Title";
 
@@ -46,6 +47,11 @@ function App() {
             exact
             path='/team'
             element={<Team />}
+          />
+          <Route
+            exact
+            path='/mission'
+            element={<Mission />}
           />
           <Route
             path='/*'

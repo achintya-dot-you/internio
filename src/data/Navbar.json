@@ -1,0 +1,15 @@
+[
+  {
+    "title": "About",
+    "type": "dropdown",
+    "links": [
+      { "title": "Our Mission", "link": "/mission", "type": "dropdown" },
+      { "title": "Our Team", "link": "/team", "type": "dropdown" }
+    ]
+  },
+  {
+    "title": "Resources",
+    "type": "standard",
+    "link": "/resources"
+  }
+]

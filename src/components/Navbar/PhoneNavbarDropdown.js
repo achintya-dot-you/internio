@@ -5,33 +5,40 @@ import NavDropDown from "./NavDropDown";
 
 import styles from "./PhoneNavbarDropdown.module.scss";
 
+import data from "../../data/Navbar.json";
+
 const PhoneNavbarDropdown = (props) => {
   const list = (
     <div className={styles["navbar"]}>
       <ul className={styles["navbar__list"]}>
-        <NavDropDown
-          title='About'
-          phone={props.phone ? "phone" : "default"}
-        >
-          <NavLink
-            link='/mission'
-            title='Our Misson'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-          <NavLink
-            link='/team'
-            title='Our Team'
-            type='dropdown'
-            phone={props.phone ? "phone" : "default"}
-          />
-        </NavDropDown>
-        <NavLink
-          link='/resources'
-          title='Resources'
-          type='standard'
-          phone={props.phone ? "phone" : "default"}
-        />
+        {data.map((item) => {
+          if (item.type === "dropdown") {
+            return (
+              <NavDropDown
+                title={item.title}
+                phone={props.phone ? "phone" : "default"}
+              >
+                {item.links.map((link) => (
+                  <NavLink
+                    link={link.link}
+                    title={link.title}
+                    type={link.type}
+                    phone={props.phone ? "phone" : "default"}
+                  />
+                ))}
+              </NavDropDown>
+            );
+          } else {
+            return (
+              <NavLink
+                link={item.link}
+                title={item.title}
+                type={item.type}
+                phone={props.phone ? "phone" : "default"}
+              />
+            );
+          }
+        })}
       </ul>
     </div>
   );

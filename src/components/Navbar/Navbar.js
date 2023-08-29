@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import styles from "./Navbar.module.scss";
 
+import data from "../../data/Navbar.json";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 
@@ -27,29 +29,34 @@ const Navbar = (props) => {
 
   const list = (
     <ul className={styles["navbar__list"]}>
-      <NavDropDown
-        title='About'
-        phone='default'
-      >
-        <NavLink
-          link='/mission'
-          title='Our Mission'
-          type='dropdown'
-          phone='default'
-        />
-        <NavLink
-          link='/team'
-          title='Our Team'
-          type='dropdown'
-          phone='default'
-        />
-      </NavDropDown>
-      <NavLink
-        link='/resources'
-        title='Resources'
-        type='standard'
-        phone='default'
-      />
+      {data.map((item) => {
+        if (item.type === "dropdown") {
+          return (
+            <NavDropDown
+              title={item.title}
+              phone='default'
+            >
+              {item.links.map((link) => (
+                <NavLink
+                  link={link.link}
+                  title={link.title}
+                  type={link.type}
+                  phone='default'
+                />
+              ))}
+            </NavDropDown>
+          );
+        } else {
+          return (
+            <NavLink
+              link={item.link}
+              title={item.title}
+              type={item.type}
+              phone='default'
+            />
+          );
+        }
+      })}
     </ul>
   );
 
