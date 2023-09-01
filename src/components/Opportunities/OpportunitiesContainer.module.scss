@@ -1,8 +1,0 @@
-@import "../../styles/initialization.scss";
-
-.container {
-  padding: var(--opportunities-container-margin) var(--opportunities-container-gap);
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: var(--opportunities-container-gap);
-}
