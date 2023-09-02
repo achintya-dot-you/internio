@@ -17,6 +17,7 @@ const PhoneNavbarDropdown = (props) => {
               <NavDropDown
                 title={item.title}
                 phone={props.phone ? "phone" : "default"}
+                key={item.title}
               >
                 {item.links.map((link) => (
                   <NavLink
@@ -24,6 +25,7 @@ const PhoneNavbarDropdown = (props) => {
                     title={link.title}
                     type={link.type}
                     phone={props.phone ? "phone" : "default"}
+                    key={item.title}
                   />
                 ))}
               </NavDropDown>
@@ -35,6 +37,7 @@ const PhoneNavbarDropdown = (props) => {
                 title={item.title}
                 type={item.type}
                 phone={props.phone ? "phone" : "default"}
+                key={item.title}
               />
             );
           }

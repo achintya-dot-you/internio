@@ -33,6 +33,7 @@ const Navbar = (props) => {
         if (item.type === "dropdown") {
           return (
             <NavDropDown
+              key={item.title}
               title={item.title}
               phone='default'
             >
@@ -41,6 +42,7 @@ const Navbar = (props) => {
                   link={link.link}
                   title={link.title}
                   type={link.type}
+                  key={link.title}
                   phone='default'
                 />
               ))}
@@ -52,6 +54,7 @@ const Navbar = (props) => {
               link={item.link}
               title={item.title}
               type={item.type}
+              key={item.title}
               phone='default'
             />
           );
