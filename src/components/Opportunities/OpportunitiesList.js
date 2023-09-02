@@ -9,7 +9,7 @@ import { collection, getDocs } from "firebase/firestore";
 
 import OpportunitiesCard from "./OpportunitiesCard";
 
-import dummy from "../../assets/images/test/dummy.jpg";
+import dummy from "../../assets/images/opportunities/dummy.jpg";
 
 const OpportunitiesList = () => {
   const [imageList, setImageList] = useState([]);
