@@ -107,3 +107,26 @@
     transform: translateY(-0.5rem);
   }
 }
+
+@media only screen and (max-width: 46.875em) {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 6rem;
+  }
+
+  .details,
+  .paragraphs {
+    align-items: center;
+  }
+
+  .text {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 26.25em) {
+  .pictures {
+    flex-direction: column;
+  }
+}
