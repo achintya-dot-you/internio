@@ -7,3 +7,9 @@
   gap: 6rem;
   padding: 6rem 0;
 }
+
+@media only screen and (max-width: 46.875em) {
+  .container {
+    padding-top: calc(var(--navbar-height) + 6rem);
+  }
+}

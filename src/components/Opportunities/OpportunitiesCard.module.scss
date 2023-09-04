@@ -118,3 +118,35 @@
     transform: translateY(-0.5rem);
   }
 }
+
+@media only screen and (max-width: 41.875em) {
+  .bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+@media only screen and (max-width: 31.875em) {
+  .top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .container {
+    gap: 6rem;
+  }
+
+  .image {
+    height: 80%;
+    width: 80%;
+  }
+
+  .picture {
+    justify-content: center;
+  }
+}
