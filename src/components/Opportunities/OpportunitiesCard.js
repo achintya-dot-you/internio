@@ -14,9 +14,7 @@ const OpportunitiesCard = (props) => {
       }`}
     >
       <div className={styles["top"]}>
-        <h2 className={styles["heading"]}>
-          {props.heading} {props.animationToggle}
-        </h2>
+        <h2 className={styles["heading"]}>{props.heading}</h2>
         <picture className={styles["picture"]}>
           <img
             srcSet={props.imageURL}

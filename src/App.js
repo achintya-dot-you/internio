@@ -10,6 +10,7 @@ import Title from "./components/General/Title";
 
 import "./styles/initialization.scss";
 import "./App.scss";
+import OpportunitiesDetails from "./pages/OpportunitiesDetails";
 
 function App() {
   const ApplyPage = () => {
@@ -52,6 +53,10 @@ function App() {
             exact
             path='/mission'
             element={<Mission />}
+          />
+          <Route
+            path='/opportunity/:id'
+            element={<OpportunitiesDetails />}
           />
           <Route
             path='/*'

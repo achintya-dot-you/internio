@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { ref, listAll, getDownloadURL } from "firebase/storage";
 
 import styles from "./OpportunitiesList.module.scss";
 
+import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase_setup/firebase-config";
 import { db } from "../../firebase_setup/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
