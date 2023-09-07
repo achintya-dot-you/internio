@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-import styles from "./OpportunitiesList.module.scss";
-
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase_setup/firebase-config";
 import { db } from "../../firebase_setup/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 
-import OpportunitiesCard from "./OpportunitiesCard";
+import styles from "./OpportunitiesList.module.scss";
 
+import OpportunitiesCard from "./OpportunitiesCard";
 import dummy from "../../assets/images/opportunities/dummy.jpg";
 
 const OpportunitiesList = () => {
@@ -17,57 +16,44 @@ const OpportunitiesList = () => {
   const [combinedData, setCombinedData] = useState([]);
 
   useEffect(() => {
-    listAll(ref(storage, "opportunities/"))
-      .then((response) => {
-        const urls = response.items.map(async (item) => {
-          const url = await getDownloadURL(item);
-          return url;
-        });
+    const fetchOpportunitiesAndImages = async () => {
+      // Fetch opportunities data only once
+      const opportunitiesData = await getDocs(collection(db, "opportunities"));
+      setOpportunitiesList(opportunitiesData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
 
-        Promise.all(urls).then((imageUrls) => {
-          setImageList(imageUrls);
-        });
-      })
-      .catch((error) => {
-        console.error("Error fetching image list:", error);
-      });
-
-    const getOpportunities = async () => {
-      const data = await getDocs(collection(db, "opportunities"));
-      setOpportunitiesList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      // Fetch image URLs only once
+      const imageRefs = await listAll(ref(storage, "opportunities/"));
+      const urls = await Promise.all(imageRefs.items.map(async (item) => getDownloadURL(item)));
+      setImageList(urls);
     };
 
-    getOpportunities();
-  }, []);
+    fetchOpportunitiesAndImages();
+  }, []); // Empty dependency array to ensure it runs only once
 
   useEffect(() => {
+    // Combine opportunities and image data
     if (imageList.length > 0 && opportunitiesList.length > 0) {
-      setCombinedData(
-        opportunitiesList.map((opportunity) => {
-          const selectedImage = imageList.find((url) => {
-            const imageNameFromURL = url.match(/%2F(.*?)\?/)[1];
-            console.log(url);
+      const combinedData = opportunitiesList.map((opportunity) => {
+        const selectedImage = imageList.find((url) => {
+          const imageNameFromURL = url.match(/%2F(.*?)\?/)[1];
+          return imageNameFromURL === opportunity.imagename;
+        });
 
-            console.log("----" + opportunity.imagename);
-            return imageNameFromURL === opportunity.imagename;
-          });
-          console.log(selectedImage);
+        return { ...opportunity, imageURL: selectedImage || dummy };
+      });
 
-          return { ...opportunity, imageURL: selectedImage };
-        })
-      );
+      setCombinedData(combinedData);
     }
   }, [imageList, opportunitiesList]);
 
   return (
-    <div className={styles["container"]}>
+    <div className={styles.container}>
       {combinedData.map((opportunity, index) => {
         const animationToggle = index % 2 === 0 ? 1 : 2;
-        const imageURL = opportunity.imageURL || dummy; // Use dummy image if imageURL is undefined
         return (
           <OpportunitiesCard
             key={opportunity.name}
-            imageURL={imageURL}
+            imageURL={opportunity.imageURL}
             alt={opportunity.name}
             heading={opportunity.position}
             term={opportunity.term}
