@@ -7,6 +7,8 @@ import { db } from "../firebase_setup/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 
 import styles from "./OpportunitiesDetails.module.scss";
+
+import OpportunitiesForm from "../components/Opportunities/OpportunitiesForm";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
@@ -114,7 +116,7 @@ const OpportunitiesDetails = () => {
           <div className={styles["left"]}>
             <h1 className={styles["heading"]}>Chapter Head</h1>
             <div>
-              <h2 className={styles["subheading"]}>About {id}</h2>
+              <h2 className={styles["subheading"]}>About {selectedItem.company}</h2>
               <p className={styles["about-details"]}>{selectedItem.about}</p>
             </div>
             <div>
@@ -135,17 +137,9 @@ const OpportunitiesDetails = () => {
                 />
               </ul>
             </div>
-            <div>
-              <a
-                href={"https://www.google.com"}
-                className={styles["button"]}
-              >
-                Apply Now
-              </a>
-              <p className={styles["cta-paragraph"]}>
-                Or email us at hiring@internio.app with your resume and the job you’re applying for!
-              </p>
-            </div>
+          </div>
+          <div className={styles["right"]}>
+            <OpportunitiesForm company={selectedItem.company} />
           </div>
         </div>
       )}

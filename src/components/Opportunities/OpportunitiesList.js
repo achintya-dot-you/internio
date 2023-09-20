@@ -14,6 +14,7 @@ const OpportunitiesList = () => {
   const [imageList, setImageList] = useState([]);
   const [opportunitiesList, setOpportunitiesList] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchOpportunitiesAndImages = async () => {
@@ -43,11 +44,13 @@ const OpportunitiesList = () => {
       });
 
       setCombinedData(combinedData);
+      setLoading(false);
     }
   }, [imageList, opportunitiesList]);
 
   return (
     <div className={styles.container}>
+      {loading && <h1>Loading...</h1>}
       {combinedData.map((opportunity, index) => {
         const animationToggle = index % 2 === 0 ? 1 : 2;
         return (
