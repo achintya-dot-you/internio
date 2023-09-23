@@ -13,6 +13,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
 import dummy from "../assets/images/opportunities/dummy.jpg";
+import iconImage from "../assets/images/icon.png";
 
 const ListItem = (props) => {
   const textParts = props.text.split(/(<a.*?<\/a>|\bhttps?:\/\/\S+\b)/); // Split text by existing <a> tags and links
@@ -69,6 +70,15 @@ const OpportunitiesDetails = () => {
   const [imageList, setImageList] = useState([]);
   const [opportunitiesList, setOpportunitiesList] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const selectedItem = useMemo(() => {
+    if (id && combinedData.length > 0) {
+      setLoading(false);
+      return combinedData.find((item) => item.name === id);
+    }
+    return null;
+  }, [id, combinedData]);
 
   useEffect(() => {
     const fetchOpportunitiesAndImages = async () => {
@@ -80,10 +90,16 @@ const OpportunitiesDetails = () => {
       const imageRefs = await listAll(ref(storage, "opportunities/"));
       const urls = await Promise.all(imageRefs.items.map(async (item) => getDownloadURL(item)));
       setImageList(urls);
+
+      if (selectedItem) {
+        document.title = `Opportunity | ${selectedItem.name}`;
+      } else {
+        document.title = "Page Not Found";
+      }
     };
 
     fetchOpportunitiesAndImages();
-  }, []); // Empty dependency array to ensure it runs only once
+  }, [selectedItem]); // Empty dependency array to ensure it runs only once
 
   useEffect(() => {
     // Combine opportunities and image data
@@ -98,52 +114,59 @@ const OpportunitiesDetails = () => {
       });
 
       setCombinedData(combinedData);
+
+      setLoading(false);
     }
   }, [imageList, opportunitiesList]);
 
-  const selectedItem = useMemo(() => {
-    if (id && combinedData.length > 0) {
-      return combinedData.find((item) => item.name === id);
-    }
-    return null;
-  }, [id, combinedData]);
-
   return (
     <>
-      <Navbar />
-      {selectedItem && (
-        <div className={styles["container"]}>
-          <div className={styles["left"]}>
-            <h1 className={styles["heading"]}>Chapter Head</h1>
-            <div>
-              <h2 className={styles["subheading"]}>About {selectedItem.company}</h2>
-              <p className={styles["about-details"]}>{selectedItem.about}</p>
-            </div>
-            <div>
-              <h2 className={styles["subheading"]}>Job Description</h2>
-              <ul className={styles["list"] + " " + styles["job-description-list"]}>
-                <ListComponent
-                  text={selectedItem.description}
-                  category='job-description'
-                />
-              </ul>
-            </div>
-            <div>
-              <h2 className={styles["subheading"]}>Requirements</h2>
-              <ul className={styles["list"] + " " + styles["requirements-list"]}>
-                <ListComponent
-                  text={selectedItem.requirements}
-                  category='requirements'
-                />
-              </ul>
-            </div>
-          </div>
-          <div className={styles["right"]}>
-            <OpportunitiesForm company={selectedItem.company} />
-          </div>
+      {loading && (
+        <div className={styles["loader-container"]}>
+          <img
+            srcSet={iconImage}
+            alt=''
+            loading='lazy'
+            className={styles["loader"]}
+          ></img>
         </div>
       )}
-      <Footer />
+      {selectedItem && (
+        <>
+          <Navbar />
+          <div className={styles["container"]}>
+            <div className={styles["left"]}>
+              <h1 className={styles["heading"]}>Chapter Head</h1>
+              <div>
+                <h2 className={styles["subheading"]}>About {selectedItem.company}</h2>
+                <p className={styles["about-details"]}>{selectedItem.about}</p>
+              </div>
+              <div>
+                <h2 className={styles["subheading"]}>Job Description</h2>
+                <ul className={styles["list"] + " " + styles["job-description-list"]}>
+                  <ListComponent
+                    text={selectedItem.description}
+                    category='job-description'
+                  />
+                </ul>
+              </div>
+              <div>
+                <h2 className={styles["subheading"]}>Requirements</h2>
+                <ul className={styles["list"] + " " + styles["requirements-list"]}>
+                  <ListComponent
+                    text={selectedItem.requirements}
+                    category='requirements'
+                  />
+                </ul>
+              </div>
+            </div>
+            <div className={styles["right"]}>
+              <OpportunitiesForm company={selectedItem.company} />
+            </div>
+          </div>
+          <Footer />
+        </>
+      )}
     </>
   );
 };

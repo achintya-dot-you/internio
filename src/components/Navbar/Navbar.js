@@ -73,7 +73,7 @@ const Navbar = (props) => {
         />
         <div className={styles["link-container"]}>
           <h2 className={styles["navbar__header"]}>
-            <Link to='/home'>
+            <Link to='/'>
               <span className={styles["navbar__header__container"]}>
                 interni
                 <img

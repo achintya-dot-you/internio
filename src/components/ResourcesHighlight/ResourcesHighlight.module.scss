@@ -7,6 +7,8 @@
   padding: 10rem 6rem;
   background-color: var(--color-tertiary-gray);
   gap: 4.5rem;
+  animation: moveInBottom var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
 }
 
 .headings {
@@ -20,6 +22,7 @@
 .sub-heading {
   color: var(--color-contrast);
   font-size: 3rem;
+  font-family: "montserrat";
 
   &::selection {
     background-color: var(--color-contrast);
@@ -45,8 +48,8 @@
   padding: 0.6rem 0;
   border-radius: 1rem;
   font-size: 2rem;
-  font-weight: 600;
-  min-width: 20rem;
+  font-weight: 700;
+  min-width: 25rem;
   display: flex;
   align-items: center;
   justify-content: center;

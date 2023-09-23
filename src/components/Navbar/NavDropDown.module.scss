@@ -1,7 +1,7 @@
 @import "../../styles/initialization.scss";
 
 .link {
-  animation: moveInLeft var(--general-animation-time) ease-out;
+  animation: moveInRight var(--general-animation-time) ease-out;
   display: flex;
   gap: var(--navbar-dropdown-icon-gap);
 

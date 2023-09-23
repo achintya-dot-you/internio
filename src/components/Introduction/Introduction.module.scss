@@ -22,6 +22,8 @@
   gap: 2rem;
   padding: 0 10rem;
   padding-right: 0;
+  animation: moveInLeft var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
 }
 
 .image-container {
@@ -29,6 +31,9 @@
   height: 100%;
   padding: 0 10rem;
   padding-left: 0;
+  animation: moveInRight var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
+  animation-delay: 1s;
 
   picture {
     width: 100%;
@@ -80,6 +85,8 @@
   align-items: center;
   justify-content: center;
   transition: all 0.1s;
+  animation: moveInBottom var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
 
   &:hover {
     transform: translateY(-0.5rem);

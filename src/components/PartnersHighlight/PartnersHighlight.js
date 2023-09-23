@@ -66,7 +66,7 @@ const PartnersHighlight = () => {
         to={"/opportunities"}
         className={styles["button"]}
       >
-        More Opportunities
+        All Opportunities
       </Link>
     </div>
   );

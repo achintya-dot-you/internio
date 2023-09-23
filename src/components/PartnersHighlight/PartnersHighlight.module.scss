@@ -4,6 +4,8 @@
   padding: 6rem;
   display: flex;
   flex-direction: column;
+  animation: moveInBottom var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
 }
 
 .heading {
@@ -28,6 +30,8 @@
   }
 
   margin-bottom: 5rem;
+  animation: moveInLeft var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
 }
 
 .sub-heading {
@@ -46,7 +50,9 @@
     width: 30%;
     display: flex;
     justify-content: center;
-
+    animation: moveInBottom var(--general-animation-time) ease-out;
+    animation-fill-mode: backwards;
+    animation-delay: 1s;
     cursor: pointer;
   }
 }
@@ -72,7 +78,7 @@
   padding: 0.6rem 0;
   border-radius: 1rem;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 700;
   min-width: 25rem;
   display: flex;
   align-items: center;

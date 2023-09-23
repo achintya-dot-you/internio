@@ -61,6 +61,44 @@
   font-size: 1.8rem;
 }
 
+.loader {
+  // animation: infitesimalSpin 0.8s ease-in-out infinite;
+  animation-name: infitesimalSpin;
+  animation-duration: 0.9s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media only screen and (max-width: 50em) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .right,
+  .left {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 40em) {
+  .right,
+  .left {
+    width: 90%;
+  }
+}
+
 @media only screen and (max-width: 46.875em) {
   .container {
     padding-top: calc(var(--navbar-height) + 2.5rem);

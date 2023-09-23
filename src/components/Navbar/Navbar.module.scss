@@ -11,9 +11,8 @@
   padding: 0 var(--navbar-horizontal-padding);
   border-bottom: var(--navbar-border-width) solid var(--color-contrast-gray);
 
-  &__header {
+  h2 {
     animation: moveInLeft var(--navbar-animation-time) ease-out;
-    animation-fill-mode: backwards;
 
     a {
       &:link,
