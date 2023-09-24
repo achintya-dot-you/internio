@@ -1,5 +1,12 @@
 @import "../../styles/initialization.scss";
 
+.heading {
+  font-size: 4rem;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -121,4 +128,11 @@
 
 .hide {
   display: none;
+}
+
+@media only screen and (max-width: 50em) {
+  .heading {
+    margin-top: 6rem;
+    font-size: 4.5rem;
+  }
 }

@@ -125,6 +125,7 @@ const OpportunitiesForm = (props) => {
 
   return (
     <>
+      <h2 className={styles["heading"]}>Fill out the details to apply</h2>
       <form
         autoComplete='off'
         className={styles["form"]}

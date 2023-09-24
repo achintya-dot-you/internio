@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase_setup/firebase-config";
@@ -71,6 +71,7 @@ const OpportunitiesDetails = () => {
   const [opportunitiesList, setOpportunitiesList] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const selectedItem = useMemo(() => {
     if (id && combinedData.length > 0) {
@@ -100,6 +101,12 @@ const OpportunitiesDetails = () => {
 
     fetchOpportunitiesAndImages();
   }, [selectedItem]); // Empty dependency array to ensure it runs only once
+
+  useEffect(() => {
+    if (loading === false && !selectedItem) {
+      navigate("/404"); // Redirect to the 404 page or any other URL
+    }
+  }, [loading, navigate, selectedItem]);
 
   useEffect(() => {
     // Combine opportunities and image data

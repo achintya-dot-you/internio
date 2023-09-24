@@ -20,12 +20,6 @@ const Introduction = () => {
           We are a team of high school and college students from across the world who are passionate
           about making a difference through technology.
         </p>
-        <Link
-          to={"/about"}
-          className={styles["button"]}
-        >
-          Read More
-        </Link>
       </div>
       <div className={styles["image-container"]}>
         <picture className={styles["image-picture"]}>
