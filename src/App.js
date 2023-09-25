@@ -1,18 +1,22 @@
+// ** Imports **
+// Importing React
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+// Importing all pages
 import Home from "./pages/Home";
 import Opportunities from "./pages/Opportunities";
 import Team from "./pages/Team";
 import Mission from "./pages/Mission";
 import NotFound from "./pages/NotFound";
 import Title from "./components/General/Title";
-
-import "./styles/initialization.scss";
-import "./App.scss";
 import OpportunitiesDetails from "./pages/OpportunitiesDetails";
 
+// Importing Styles
+import "./styles/initialization.scss";
+
 function App() {
+  // Redirecting to job board in /careers link
   const ApplyPage = () => {
     React.useEffect(() => {
       window.location.href =
@@ -22,7 +26,9 @@ function App() {
     return null; // or you can render some loading/spinner component if needed
   };
 
+  // ** JSX **
   return (
+    // Routing every page link
     <>
       <Router>
         <Title />

@@ -1,14 +1,24 @@
+// ** Imports **
+// Importing React
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Importing Styles
 import styles from "./TeamHighlight.module.scss";
 
+// Importing Dummy picture
 import dummyPic from "../../assets/images/team/dummy1.jpg";
 
+// ** Main Component **
+// This component is the highlight to the team page in the homepage.
 const TeamHighlight = () => {
+  // ** JSX **
   return (
+    // Container
     <div className={styles["container"]}>
+      {/* Pictures Part - In Left */}
       <div className={styles["pictures"]}>
+        {/* Achintya */}
         <div className={styles["achintya"]}>
           <picture>
             <img
@@ -27,6 +37,8 @@ const TeamHighlight = () => {
             </p>
           </div>
         </div>
+
+        {/* Arnav */}
         <div className={styles["arnav"]}>
           <picture>
             <img
@@ -45,8 +57,13 @@ const TeamHighlight = () => {
           </div>
         </div>
       </div>
+
+      {/* Details Part - In Right */}
       <div className={styles["details"]}>
+        {/* Header */}
         <h2 className={styles["heading"]}>MEET THE FOUNDERS</h2>
+
+        {/* Details */}
         <div className={styles["paragraphs"]}>
           <p className={styles["text"]}>
             At internio, our journey began with a shared vision and a passion for empowering high
@@ -57,6 +74,7 @@ const TeamHighlight = () => {
             the course toward innovation and success.
           </p>
         </div>
+        {/* Button */}
         <Link
           to={"/team"}
           className={styles["button"]}

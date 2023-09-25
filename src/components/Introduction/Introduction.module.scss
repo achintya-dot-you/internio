@@ -1,5 +1,7 @@
+// ** Importing Base Styles **
 @import "../../styles/initialization.scss";
 
+// ** Container **
 .container {
   width: 100%;
   display: flex;
@@ -10,6 +12,7 @@
   align-items: center;
 }
 
+// ** Layout - Left and Right **
 .content-container,
 .image-container {
   width: 100%;
@@ -31,10 +34,13 @@
   height: 100%;
   padding: 0 10rem;
   padding-left: 0;
+
+  // Animation
   animation: moveInRight var(--general-animation-time) ease-out;
   animation-fill-mode: backwards;
   animation-delay: 1s;
 
+  // Graphic
   picture {
     width: 100%;
     height: 100%;
@@ -47,6 +53,7 @@
   }
 }
 
+// ** Styling Text **
 .heading {
   font-size: 3rem;
   font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -93,6 +100,7 @@
   }
 }
 
+// ** Slight Adjustments for responsiveness **
 @media only screen and (max-width: 53.75em) {
   .image-container {
     display: none;

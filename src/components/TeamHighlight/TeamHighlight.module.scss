@@ -1,4 +1,6 @@
+// ** Importing Base Styles **
 @import "../../styles/initialization.scss";
+// ** Container **
 
 .container {
   background-color: var(--color-pure-white);
@@ -7,6 +9,7 @@
   padding: 6rem;
 }
 
+// ** Styling Pictures - In Left **
 .pictures {
   display: flex;
   gap: 4rem;
@@ -41,11 +44,13 @@
   }
 }
 
+// Animations
 .achintya {
   animation: moveInTop var(--general-animation-time) ease-out;
   animation-fill-mode: backwards;
 }
 
+// Small descriptions about us
 .arnav {
   animation: moveInBottom var(--general-animation-time) ease-out;
   animation-fill-mode: backwards;
@@ -66,6 +71,7 @@
   font-weight: 500;
 }
 
+// ** Styling Text / Details part **
 .details {
   display: flex;
   flex-direction: column;
@@ -96,6 +102,7 @@
   width: 90%;
 }
 
+// Styling Button
 .button {
   text-decoration: none;
   border: 0.35rem solid var(--color-smoky-black);
@@ -120,7 +127,9 @@
   }
 }
 
+// ** Slight adjustments for responsiveness **
 @media only screen and (max-width: 46.875em) {
+  // Adding column layout for smaller screens
   .container {
     display: flex;
     flex-direction: column-reverse;

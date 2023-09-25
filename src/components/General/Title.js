@@ -1,9 +1,13 @@
+// ** Imports **
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+// ** Main Component **
 const Title = () => {
+  // Getting link
   const location = useLocation();
 
+  // Setting page title
   useEffect(() => {
     const pathname = location.pathname; // Get the current pathname
     let title = "internio | Page Not Found"; // Set your default title here
@@ -25,4 +29,5 @@ const Title = () => {
   return null; // Render nothing in the component
 };
 
+// ** Exporting Component **
 export default Title;

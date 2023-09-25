@@ -1,17 +1,25 @@
+// ** IMPORTS **
+// Importing React
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Importing Styles
 import styles from "./Footer.module.scss";
 
+// Importing Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faTwitter } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faDiscord, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
+// Importing Images
 import iconImage from "../../assets/images/icon-inverted.png";
 
+// ** Main Component **
 const Footer = () => {
+  // ** JSX **
   return (
     <div className={styles["footer"]}>
+      {/* Icon in footer */}
       <h1 className={styles["heading"]}>
         <p className={styles["heading-text"]}>interni</p>
 
@@ -22,10 +30,16 @@ const Footer = () => {
           className={styles["heading-icon"]}
         ></img>
       </h1>
+
+      {/* Content in footer */}
       <div className={styles["content"]}>
+        {/* First Column */}
         <div className={styles["column"]}>
           <div className={styles["column-content"]}>
+            {/* Column Header */}
             <p className={styles["column-header"]}>SOCIALS</p>
+
+            {/* Column Links */}
             <div className={styles["links"]}>
               <a
                 href='https://discord.gg/Usb95exFEc'
@@ -60,9 +74,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        {/* Second Column */}
         <div className={styles["column"]}>
           <div className={styles["column-content"]}>
+            {/* Column Header */}
             <p className={styles["column-header"]}>ABOUT</p>
+
+            {/* Column Links */}
             <div className={styles["links"]}>
               <Link
                 to={"/about"}
@@ -91,9 +110,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        {/* 3rd Column */}
         <div className={styles["column"]}>
           <div className={styles["column-content"]}>
+            {/* Column Header */}
             <p className={styles["column-header"]}>RESOURCES</p>
+
+            {/* Column Links */}
             <div className={styles["links"]}>
               <Link
                 to={"/opportunities"}
@@ -104,9 +128,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        {/* 4th Column */}
         <div className={styles["column"]}>
           <div className={styles["column-content"]}>
+            {/* Column Header */}
             <p className={styles["column-header"]}>HEADING</p>
+
+            {/* Column Links */}
             <div className={styles["links"]}>
               <Link
                 to={"/"}
@@ -136,11 +165,16 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Ending in footer */}
       <div className={styles["footer-row"]}>
+        {/* Copyright text */}
         <p className={styles["copyright"]}>
           <span className={styles["symbol"]}>&copy;</span>
           <span className={styles["brand"]}>internio.app</span>
         </p>
+
+        {/* Social List */}
         <div className={styles["socials"]}>
           <a href='https://discord.com/invite/Usb95exFEc'>
             <FontAwesomeIcon
@@ -172,4 +206,5 @@ const Footer = () => {
   );
 };
 
+// ** EXPORTING COMPONENT **
 export default Footer;

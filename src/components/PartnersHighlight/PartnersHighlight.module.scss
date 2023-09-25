@@ -1,5 +1,7 @@
+// ** Importing Base Styles **
 @import "../../styles/initialization.scss";
 
+// ** Container **
 .container {
   padding: 6rem;
   display: flex;
@@ -8,6 +10,7 @@
   animation-fill-mode: backwards;
 }
 
+// ** Styling Headings **
 .heading {
   color: var(--color-contrast);
 
@@ -41,6 +44,7 @@
   margin-bottom: 2rem;
 }
 
+// ** Styling Images **
 .image-container {
   display: flex;
   justify-content: space-around;
@@ -69,6 +73,7 @@
   width: 17rem;
 }
 
+// Button
 .button {
   text-decoration: none;
   border: 0.35rem solid var(--color-smoky-black);
@@ -88,11 +93,13 @@
 
   margin-top: 2rem;
 
+  // Hover Animation
   &:hover {
     transform: translateY(-0.5rem);
   }
 }
 
+// ** Slight adjustments for responsiveness **
 @media only screen and (max-width: 46.875em) {
   .heading {
     width: 100%;
@@ -106,6 +113,7 @@
 }
 
 @media only screen and (max-width: 36.25em) {
+  // Switching to column layout
   .image-container {
     flex-direction: column;
     gap: 5rem;
