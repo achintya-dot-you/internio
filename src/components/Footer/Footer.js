@@ -101,8 +101,9 @@ const Footer = () => {
               >
                 careers
               </a>
+
               <Link
-                to={"/donate"}
+                to={"https://www.paypal.me/internio"}
                 className={styles["link"]}
               >
                 donate

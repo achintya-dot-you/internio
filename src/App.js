@@ -23,7 +23,15 @@ function App() {
         "https://internio.notion.site/Job-Board-f02cf790ddc944f1ab233c22cf44157e";
     }, []);
 
-    return null; // or you can render some loading/spinner component if needed
+    return null;
+  };
+
+  const DonatePage = () => {
+    React.useEffect(() => {
+      window.location.href = "https://www.paypal.com/paypalme/internio";
+    }, []);
+
+    return null;
   };
 
   // ** JSX **
@@ -59,6 +67,11 @@ function App() {
             exact
             path='/mission'
             element={<Mission />}
+          />
+          <Route
+            exact
+            path='/donate'
+            element={<DonatePage />}
           />
           <Route
             path='/opportunity/:id'
