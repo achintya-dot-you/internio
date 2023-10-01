@@ -1,6 +1,6 @@
 // ** Imports **
 // Importing React
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Importing all pages
@@ -18,7 +18,7 @@ import "./styles/initialization.scss";
 function App() {
   // Redirecting to job board in /careers link
   const ApplyPage = () => {
-    React.useEffect(() => {
+    useEffect(() => {
       window.location.href =
         "https://internio.notion.site/Job-Board-f02cf790ddc944f1ab233c22cf44157e";
     }, []);
@@ -26,8 +26,17 @@ function App() {
     return null;
   };
 
+  const ResourcesPage = () => {
+    useEffect(() => {
+      window.location.href =
+        "https://internio.notion.site/Resources-internio-3d3d31a80407462ea943c323dc21ccb4?pvs=4";
+    }, []);
+
+    return null;
+  };
+
   const DonatePage = () => {
-    React.useEffect(() => {
+    useEffect(() => {
       window.location.href = "https://www.paypal.com/paypalme/internio";
     }, []);
 
@@ -72,6 +81,11 @@ function App() {
             exact
             path='/donate'
             element={<DonatePage />}
+          />
+          <Route
+            exact
+            path='/resources'
+            element={<ResourcesPage />}
           />
           <Route
             path='/opportunity/:id'

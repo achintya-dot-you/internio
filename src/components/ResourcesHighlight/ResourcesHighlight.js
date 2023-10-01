@@ -6,17 +6,18 @@ import styles from "./ResourcesHighlight.module.scss";
 const ResourcesHighlight = () => {
   return (
     <div className={styles["container"]}>
-      <div className={styles["content"]}>
+      <div className={styles["headings"]}>
         <h2 className={styles["heading"]}>
-          Unlock Your Potential with Our <span>Internship Resources</span>
+          Resources to help you navigate <span>internships</span>
         </h2>
-        <p className={styles["sub-heading"]}>
-          Explore a wealth of resources designed to empower you on your internship journey.
-        </p>
-        <Link to={"/resources"} className={styles["button"]}>
-          Discover Resources
-        </Link>
+        <h2 className={styles["sub-heading"]}>+ much more</h2>
       </div>
+      <Link
+        to={"/resources"}
+        className={styles["button"]}
+      >
+        Discover Resources
+      </Link>
     </div>
   );
 };

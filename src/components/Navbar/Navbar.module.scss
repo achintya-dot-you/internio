@@ -90,23 +90,24 @@
 }
 
 .button {
-  text-decoration: none;
   border: 0.35rem solid var(--color-smoky-black);
   background-color: var(--color-smoky-black);
   color: var(--color-pure-white);
   width: fit-content;
   padding: 0.6rem 0;
   border-radius: 1rem;
-  font-size: 2rem;
-  font-weight: 700;
   min-width: 20rem;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.1s;
   animation: moveInRight var(--general-animation-time) ease-out;
   animation-fill-mode: backwards;
+  font-size: var(--navbar-navlink-font-size);
+  text-decoration: none;
+  font-weight: var(--navbar-navlink-font-weight);
+  cursor: pointer;
+  font-family: "Inter", Arial, sans-serif;
 }
 
 .action-container {
