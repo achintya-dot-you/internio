@@ -3,6 +3,8 @@
 .container {
   padding: 10rem 10rem;
   height: 100vh;
+  animation: moveInRight var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
 }
 
 .heading {
