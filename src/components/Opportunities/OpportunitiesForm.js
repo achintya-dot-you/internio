@@ -8,7 +8,7 @@ import styles from "./OpportunitiesForm.module.scss";
 import { v4 } from "uuid";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpload, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faUpload, faTrash, faX } from "@fortawesome/free-solid-svg-icons";
 
 const OpportunitiesForm = (props) => {
   const [name, setName] = useState("");
@@ -20,7 +20,7 @@ const OpportunitiesForm = (props) => {
   const [experience, setExperience] = useState("");
   const [resume, setResume] = useState();
   const [remarks, setRemarks] = useState("");
-  const [wrong, setWrong] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
@@ -34,7 +34,7 @@ const OpportunitiesForm = (props) => {
       reason === "" ||
       experience === ""
     ) {
-      setWrong(true);
+      setIsWrong(true);
       return;
     }
     if (resume === null) {
@@ -113,7 +113,7 @@ const OpportunitiesForm = (props) => {
   };
 
   const outsidePopupClickHandler = () => {
-    setWrong(false);
+    setIsWrong(false);
     setIsSubmitted(false);
   };
 
@@ -284,6 +284,13 @@ const OpportunitiesForm = (props) => {
               className={styles["popup"]}
               onClick={insidePopupClickHandler}
             >
+              <FontAwesomeIcon
+                icon={faX}
+                className={styles["popup-icon"]}
+                onClick={() => {
+                  setIsSubmitted(false);
+                }}
+              />
               <h5>Submission Received!</h5>
               <p>
                 You can expect to receive additional details regarding your internship application
@@ -300,7 +307,7 @@ const OpportunitiesForm = (props) => {
           </div>
         </>
       )}
-      {wrong && (
+      {isWrong && (
         <div
           className={styles["popup-container"]}
           onClick={outsidePopupClickHandler}
@@ -309,13 +316,20 @@ const OpportunitiesForm = (props) => {
             className={styles["popup"]}
             onClick={insidePopupClickHandler}
           >
+            <FontAwesomeIcon
+              icon={faX}
+              className={styles["popup-icon"]}
+              onClick={() => {
+                setIsWrong(false);
+              }}
+            />
             <h5>Invalid Data Entered!</h5>
             <p>
               Please make sure to fill in the required sections of the form with correct details.
             </p>
             <button
               onClick={() => {
-                setWrong(false);
+                setIsWrong(false);
               }}
             >
               Hide
