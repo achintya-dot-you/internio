@@ -12,7 +12,7 @@
   border-bottom: var(--navbar-border-width) solid var(--color-contrast-gray);
 
   h2 {
-    animation: moveInLeft var(--navbar-animation-time) ease-out;
+    animation: moveInLeft var(--general-animation-time) ease-out;
 
     a {
       &:link,
@@ -81,22 +81,32 @@
   user-select: none;
 }
 
+.navbar-links-container {
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
 .button {
+  text-decoration: none;
+  border: 0.35rem solid var(--color-smoky-black);
   background-color: var(--color-smoky-black);
-  border: none;
   color: var(--color-pure-white);
-  padding: var(--navbar-button-padding-large);
-  font-size: var(--navbar-button-font-size);
-  font-family: "Inter", Arial, sans-serif;
-  border-radius: var(--navbar-button-border-radius);
-  max-width: var(--navbar-button-width);
-  max-height: var(--navbar-button-height);
+  width: fit-content;
+  padding: 0.6rem 0;
+  border-radius: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  min-width: 20rem;
   cursor: pointer;
-  white-space: nowrap;
-  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
+  animation: moveInRight var(--general-animation-time) ease-out;
   animation-fill-mode: backwards;
-  animation: moveInRight var(--navbar-animation-time) ease-out;
-  font-weight: 600;
 }
 
 .action-container {
@@ -141,6 +151,10 @@
     width: 100%;
     top: 0;
     left: 0;
+  }
+
+  .button {
+    display: none;
   }
 }
 

@@ -90,36 +90,33 @@ const Navbar = (props) => {
         {/* Contains all the links */}
         <div className={styles["link-container"]}>
           {/* Navbar Header */}
-          <h2 className={styles["navbar__header"]}>
-            <Link to='/'>
-              <span className={styles["navbar__header__container"]}>
-                interni
-                <img
-                  srcSet={iconImage}
-                  alt=''
-                  loading='lazy'
-                  className={styles["navbar__header__image"]}
-                ></img>
-              </span>
-            </Link>
-          </h2>
-          {/* All the other links */}
-          {list}
+          <div className={styles["navbar-links-container"]}>
+            <h2 className={styles["navbar__header"]}>
+              <Link to='/'>
+                <span className={styles["navbar__header__container"]}>
+                  interni
+                  <img
+                    srcSet={iconImage}
+                    alt=''
+                    loading='lazy'
+                    className={styles["navbar__header__image"]}
+                  ></img>
+                </span>
+              </Link>
+            </h2>
+
+            {/* All the other links */}
+            {list}
+          </div>
+
+          {/* Button in navbar - opportunities */}
+          <button
+            type='button'
+            className={styles["button"]}
+          >
+            opportunities
+          </button>
         </div>
-        {/* <div className={styles["action-container"]}>
-          <button
-            type='button'
-            className={styles["sign-in"] + " " + styles["button"]}
-          >
-            Sign In
-          </button>
-          <button
-            type='button'
-            className={styles["sign-up"] + " " + styles["button"]}
-          >
-            Sign Up
-          </button>
-        </div> */}
       </div>
 
       {/* Showing a phone navbar if user is in a phone */}

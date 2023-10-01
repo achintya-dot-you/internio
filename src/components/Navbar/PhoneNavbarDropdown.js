@@ -43,6 +43,14 @@ const PhoneNavbarDropdown = (props) => {
           }
         })}
       </ul>
+
+      {/* Button in navbar - opportunities */}
+      <button
+        type='button'
+        className={styles["button"]}
+      >
+        opportunities
+      </button>
     </div>
   );
 
