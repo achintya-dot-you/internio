@@ -110,12 +110,12 @@ const Navbar = (props) => {
           </div>
 
           {/* Button in navbar - opportunities */}
-          <button
-            type='button'
+          <Link
+            to='/opportunities'
             className={styles["button"]}
           >
-            opportunities
-          </button>
+            Opportunities
+          </Link>
         </div>
       </div>
 
