@@ -21,6 +21,7 @@ const OpportunitiesForm = (props) => {
   const [resume, setResume] = useState();
   const [remarks, setRemarks] = useState("");
   const [wrong, setWrong] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,6 +68,7 @@ const OpportunitiesForm = (props) => {
         setReason("");
         setExperience("");
         setRemarks("");
+        setIsSubmitted(true);
       });
     } else {
       const resumeFileName = email + "_" + v4();
@@ -97,13 +99,14 @@ const OpportunitiesForm = (props) => {
           .then((response) => {
             setName("");
             setEmail("");
-            setResume();
+            setResume(null);
             setPhone("");
             setInstitution("");
             setCity("");
             setReason("");
             setExperience("");
             setRemarks("");
+            setIsSubmitted(true);
           });
       });
     }
@@ -270,6 +273,24 @@ const OpportunitiesForm = (props) => {
           Apply Now
         </button>
       </form>
+      {isSubmitted && (
+      <div className={`${styles["submission-confirmation"]} ${isSubmitted ? "" : styles["hide"]}`}>
+        <div className={styles["confirmation-content"]}>
+          <p>
+            We have successfully received your submission. 
+            Rest assured, you can expect to receive additional details regarding your internship application in the coming days.
+          </p>
+          <button
+            className={styles["close-button"]}
+            onClick={() => {
+              setIsSubmitted(false);
+            }}
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    )}
       {wrong && (
         <div
           className={styles["popup-container"]}

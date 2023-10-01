@@ -11,51 +11,40 @@
   animation-fill-mode: backwards;
 }
 
-.headings {
-  display: flex;
-  flex-direction: column;
-  gap: 1.7rem;
-  align-items: center;
-}
-
-.heading,
-.sub-heading {
-  color: var(--color-contrast);
-  font-size: 3rem;
-  font-family: "montserrat";
-
-  &::selection {
-    background-color: var(--color-contrast);
-    color: var(--color-pure-white);
-  }
-
-  span {
-    color: var(--color-smoky-black);
-  }
+.content {
+  text-align: center;
 }
 
 .heading {
-  width: 40rem;
-  text-align: center;
+  font-size: 3rem;
+  color: var(--color-smoky-black);
+  font-family: "montserrat";
+
+  span {
+    color: var(--color-contrast);
+  }
+}
+
+.sub-heading {
+  color: var(--color-dark-gray);
+  font-size: 1.8rem;
+  margin-top: 1rem;
 }
 
 .button {
   text-decoration: none;
-  border: 0.35rem solid var(--color-smoky-black);
   background-color: var(--color-smoky-black);
   color: var(--color-pure-white);
-  width: fit-content;
-  padding: 0.6rem 0;
+  padding: 1rem 2rem;
   border-radius: 1rem;
   font-size: 2rem;
   font-weight: 700;
-  min-width: 25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.1s;
+  transition: all 0.3s;
+  display: inline-block;
+  margin-top: 2rem;
 
   &:hover {
-    transform: translateY(-0.5rem);
+    background-color: var(--color-dark-gray);
+    transform: translateY(-0.2rem);
   }
 }
