@@ -14,7 +14,6 @@ const OpportunitiesList = (props) => {
   const [imageList, setImageList] = useState([]);
   const [opportunitiesList, setOpportunitiesList] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchOpportunitiesAndImages = async () => {
@@ -44,7 +43,6 @@ const OpportunitiesList = (props) => {
       });
 
       setCombinedData(combinedData);
-      setLoading(false);
       props.loader(false);
     }
   }, [imageList, opportunitiesList, props]);
