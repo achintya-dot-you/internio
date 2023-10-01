@@ -16,6 +16,7 @@
   position: relative;
   color: var(--color-smoky-black);
   user-select: none;
+  animation: moveInTop var(--general-animation-time) ease-out;
 
   &::after {
     content: "";
@@ -58,6 +59,7 @@
   max-width: 100%;
   transition: all 0.5s;
   user-select: none;
+  animation: zoomIn var(--general-animation-time);
 
   &:hover {
     transform: scale(130%);
@@ -73,10 +75,14 @@
 .founders-position {
   font-size: 2rem;
   margin-top: 1rem;
+  animation-fill-mode: backwards;
+  animation: moveInBottom var(--general-animation-time) ease-out;
 }
 
 .founders-name {
   font-size: 3rem;
+  animation-fill-mode: backwards;
+  animation: moveInBottom var(--general-animation-time) ease-out;
 }
 
 .founders-desc {
@@ -84,6 +90,8 @@
   font-size: 1.5rem;
   letter-spacing: -1%;
   line-height: 1.6;
+  animation-fill-mode: backwards;
+  animation: moveInBottom var(--general-animation-time) ease-out;
 }
 
 .team {
@@ -109,6 +117,7 @@
   width: 100%;
   transition: all 0.5s;
   user-select: none;
+  animation: zoomIn var(--general-animation-time);
 
   &:hover {
     transform: scale(130%);
@@ -121,6 +130,8 @@
   color: var(--color-smoky-black);
   letter-spacing: 0.3px;
   font-size: 1.6rem;
+  animation-fill-mode: backwards;
+  animation: moveInBottom var(--general-animation-time) ease-out;
 }
 
 .members-name {

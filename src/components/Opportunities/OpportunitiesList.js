@@ -10,12 +10,11 @@ import styles from "./OpportunitiesList.module.scss";
 import OpportunitiesCard from "./OpportunitiesCard";
 import dummy from "../../assets/images/opportunities/dummy.jpg";
 
-const OpportunitiesList = () => {
+const OpportunitiesList = (props) => {
   const [imageList, setImageList] = useState([]);
   const [opportunitiesList, setOpportunitiesList] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [loadingText, setLoadingText] = useState("...");
 
   useEffect(() => {
     const fetchOpportunitiesAndImages = async () => {
@@ -50,23 +49,13 @@ const OpportunitiesList = () => {
   }, [imageList, opportunitiesList]);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setLoadingText((prevLoadingText) => {
-        // Rotate through the ellipsis pattern
-        if (prevLoadingText === "...") return ".";
-        else if (prevLoadingText === "..") return "...";
-        else if (prevLoadingText === ".") return "..";
-      });
-    }, 500);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+    if (loading !== true) {
+      props.loader();
+    }
+  }, [loading, props]);
 
   return (
     <div className={styles.container}>
-      {loading && <h1>Loading{loadingText}</h1>}
       {combinedData.map((opportunity, index) => {
         const animationToggle = index % 2 === 0 ? 1 : 2;
         return (
