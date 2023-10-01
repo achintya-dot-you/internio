@@ -45,14 +45,9 @@ const OpportunitiesList = (props) => {
 
       setCombinedData(combinedData);
       setLoading(false);
+      props.loader(false);
     }
-  }, [imageList, opportunitiesList]);
-
-  useEffect(() => {
-    if (loading !== true) {
-      props.loader();
-    }
-  }, [loading, props]);
+  }, [imageList, opportunitiesList, props]);
 
   return (
     <div className={styles.container}>

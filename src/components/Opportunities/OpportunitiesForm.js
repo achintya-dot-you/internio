@@ -114,6 +114,7 @@ const OpportunitiesForm = (props) => {
 
   const outsidePopupClickHandler = () => {
     setWrong(false);
+    setIsSubmitted(false);
   };
 
   const insidePopupClickHandler = (e) => {
@@ -274,23 +275,31 @@ const OpportunitiesForm = (props) => {
         </button>
       </form>
       {isSubmitted && (
-      <div className={`${styles["submission-confirmation"]} ${isSubmitted ? "" : styles["hide"]}`}>
-        <div className={styles["confirmation-content"]}>
-          <p>
-            We have successfully received your submission. 
-            Rest assured, you can expect to receive additional details regarding your internship application in the coming days.
-          </p>
-          <button
-            className={styles["close-button"]}
-            onClick={() => {
-              setIsSubmitted(false);
-            }}
+        <>
+          <div
+            className={styles["popup-container"]}
+            onClick={outsidePopupClickHandler}
           >
-            Close
-          </button>
-        </div>
-      </div>
-    )}
+            <div
+              className={styles["popup"]}
+              onClick={insidePopupClickHandler}
+            >
+              <h5>Submission Received!</h5>
+              <p>
+                You can expect to receive additional details regarding your internship application
+                in the coming days.
+              </p>
+              <button
+                onClick={() => {
+                  setIsSubmitted(false);
+                }}
+              >
+                Hide
+              </button>
+            </div>
+          </div>
+        </>
+      )}
       {wrong && (
         <div
           className={styles["popup-container"]}
@@ -300,7 +309,10 @@ const OpportunitiesForm = (props) => {
             className={styles["popup"]}
             onClick={insidePopupClickHandler}
           >
-            <p>Invalid Data Entered</p>{" "}
+            <h5>Invalid Data Entered!</h5>
+            <p>
+              Please make sure to fill in the required sections of the form with correct details.
+            </p>
             <button
               onClick={() => {
                 setWrong(false);

@@ -87,7 +87,7 @@
   --header-button-padding: 0.6rem 1.8rem;
   --header-button-width: 20rem;
   --header-button-border-width: 0.35rem;
-  --header-button-border-radius: 1.5rem;
+  --header-button-border-radius: 1rem;
   --header-button-font-size: 2rem;
   --header-button-font-weight: 700;
 
@@ -138,12 +138,17 @@
   --landing-input-placeholder-font-size: 1em;
 
   // **FOOTER**
+  // Gap and Padding
   --footer-padding: 6.4rem 6.7rem 8rem 6.7rem;
   --footer-phone-content-gap: 4.8rem;
   --footer-row-gap: 6.4rem;
   --footer-phone-row-gap: 1.6rem;
+
+  // Heading
   --footer-heading-font-size: 3rem;
   --footer-heading-icon-height: 3rem;
+
+  // Columns
   --footer-column-content-gap: 1.6rem;
   --footer-column-heading-font-size: 1.4rem;
   --footer-phone-column-heading-font-size: 1.8rem;
@@ -151,20 +156,28 @@
   --footer-column-heading-letter-spacing: 0.1rem;
   --footer-column-heading-opacity: 0.85;
   --footer-column-heading-line-height: 1.5;
+
+  // Links
   --footer-link-gap: 1.6rem;
   --footer-link-font-size: 1.6rem;
   --footer-phone-link-font-size: 1.8rem;
   --footer-link-line-height: 1.5;
   --footer-link-letter-spacing: 1px;
   --footer-link-hover-opacity: 0.8;
+
+  // Copyright Text
   --footer-copyright-text-gap: 0.2rem;
   --footer-copyright-text-font-size: 1.65rem;
+
+  // Socials
   --footer-socials-gap: 1rem;
   --footer-socials-opcaity: 0.85;
   --footer-socials-hover-opacity: 0.6;
   --footer-socials-icon-side-length: 2.3rem;
 }
 
+// ** Responsive Functionality **
+// Navbar
 @media only screen and (max-width: 62.5em) {
   :root {
     --navbar-navlink-font-size: 2.1rem;

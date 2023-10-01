@@ -12,8 +12,8 @@ import iconImage from "../assets/images/icon.png";
 const Opportunities = () => {
   const [loading, setLoading] = useState(true);
 
-  const changeLoading = () => {
-    setLoading(!loading);
+  const changeLoading = (bool) => {
+    setLoading(bool);
   };
 
   return (
@@ -21,8 +21,12 @@ const Opportunities = () => {
       {!loading && (
         <div>
           <Navbar />
-          <OpportunitiesHeader />
-          <OpportunitiesList loader={changeLoading} />
+          <OpportunitiesHeader />{" "}
+        </div>
+      )}
+      <OpportunitiesList loader={changeLoading} />
+      {!loading && (
+        <div>
           <Footer />
         </div>
       )}
