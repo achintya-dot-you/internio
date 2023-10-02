@@ -9,7 +9,7 @@ import styles from "./PartnersHighlight.module.scss";
 // Importing Images
 import Threco from "../../assets/images/PartnersHighlight/Threco.svg";
 import Ayika from "../../assets/images/PartnersHighlight/Ayika.svg";
-import tmhs from "../../assets/images/PartnersHighlight/Studo.svg";
+import tmhs from "../../assets/images/PartnersHighlight/tmhs.jpg";
 
 // ** Main Component **
 // This component is to show our 3 best partnerships in the home page

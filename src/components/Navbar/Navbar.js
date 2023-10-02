@@ -108,14 +108,6 @@ const Navbar = (props) => {
             {/* All the other links */}
             {list}
           </div>
-
-          {/* Button in navbar - opportunities */}
-          <Link
-            to='/opportunities'
-            className={styles["button"]}
-          >
-            Opportunities
-          </Link>
         </div>
       </div>
 

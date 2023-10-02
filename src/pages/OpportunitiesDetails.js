@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase_setup/firebase-config";
@@ -65,6 +65,42 @@ const ListComponent = (props) => {
   ));
 };
 
+const LinkDetectedText = (props) => {
+  const textParts = props.text.split(/(<a.*?<\/a>|\bhttps?:\/\/\S+\b)/); // Split text by existing <a> tags and links
+
+  return (
+    <span className={styles[`${props.category}-text`]}>
+      {textParts.map((part, index) => {
+        if (part.startsWith("<a") && part.endsWith("</a>")) {
+          // If part is an existing <a> tag, render it as-is
+          return (
+            <span
+              key={index}
+              dangerouslySetInnerHTML={{ __html: part }}
+            />
+          );
+        } else if (/^https?:\/\/\S+$/i.test(part)) {
+          // If part is a link, render it inside a new <a> tag
+          return (
+            <a
+              key={index}
+              href={part}
+              target='_blank'
+              rel='noopener noreferrer'
+              className={styles[`${props.category}-link`]}
+            >
+              {part}
+            </a>
+          );
+        } else {
+          // If part is plain text, render it as-is
+          return part;
+        }
+      })}
+    </span>
+  );
+};
+
 const OpportunitiesDetails = () => {
   const { id } = useParams();
   const [imageList, setImageList] = useState([]);
@@ -114,7 +150,7 @@ const OpportunitiesDetails = () => {
       const combinedData = opportunitiesList.map((opportunity) => {
         const selectedImage = imageList.find((url) => {
           const imageNameFromURL = url.match(/%2F(.*?)\?/)[1];
-          return imageNameFromURL === opportunity.name;
+          return imageNameFromURL === opportunity.imagename;
         });
 
         return { ...opportunity, imageURL: selectedImage || dummy };
@@ -143,10 +179,17 @@ const OpportunitiesDetails = () => {
           <Navbar />
           <div className={styles["container"]}>
             <div className={styles["left"]}>
-              <h1 className={styles["heading"]}>Chapter Head</h1>
+              <h1 className={styles["heading"]}>{selectedItem.position}</h1>
+              <img
+                src={selectedItem.imageURL}
+                alt={selectedItem.company}
+                class={styles["logo"]}
+              />
               <div>
                 <h2 className={styles["subheading"]}>About {selectedItem.company}</h2>
-                <p className={styles["about-details"]}>{selectedItem.about}</p>
+                <p className={styles["about-details"]}>
+                  <LinkDetectedText text={selectedItem.about} />
+                </p>
               </div>
               <div>
                 <h2 className={styles["subheading"]}>Job Description</h2>
@@ -166,6 +209,12 @@ const OpportunitiesDetails = () => {
                   />
                 </ul>
               </div>
+              <Link
+                className={styles["button"]}
+                to='/opportunities'
+              >
+                &lt;&#45; All Opportunities
+              </Link>
             </div>
             <div className={styles["right"]}>
               <OpportunitiesForm company={selectedItem.company} />

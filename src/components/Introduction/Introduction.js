@@ -26,7 +26,7 @@ const Introduction = () => {
         </p>
         <p className={styles["para-2"] + " " + styles["para"]}>
           We are a team of high school and college students from across the world who are passionate
-          about making a difference through technology.
+          about making a difference.
         </p>
       </div>
 

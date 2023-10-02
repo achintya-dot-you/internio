@@ -1,13 +1,9 @@
 import React from "react";
 
 import styles from "./OpportunitiesHeader.module.scss";
+import { Link } from "react-router-dom";
 
-const OpportunitiesHeader = () => {
-  const opportunitiesClickHandler = (event) => {
-    event.preventDefault();
-    window.location.href = window.location.origin + "/opportunities";
-  };
-
+const OpportunitiesHeader = (props) => {
   return (
     <div className={styles["header-container"]}>
       <header className={styles["header"]}>
@@ -25,13 +21,13 @@ const OpportunitiesHeader = () => {
           </h3>
         </div>
         <div className={styles["cta"]}>
-          <button
-            type='link'
+          <Link
+            to='/opportunities'
             className={`${styles["btn"]} ${styles["btn-filled"]}`}
-            onClick={opportunitiesClickHandler}
+            onClick={props.onLinkClick}
           >
             Get Started
-          </button>
+          </Link>
         </div>
       </header>
     </div>

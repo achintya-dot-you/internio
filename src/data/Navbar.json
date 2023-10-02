@@ -11,5 +11,6 @@
     "title": "Resources",
     "type": "standard",
     "link": "/resources"
-  }
+  },
+  { "title": "Opportunities", "type": "standard", "link": "/opportunities" }
 ]

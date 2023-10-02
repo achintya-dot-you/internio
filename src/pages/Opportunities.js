@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import Navbar from "../components/Navbar/Navbar";
 import OpportunitiesList from "../components/Opportunities/OpportunitiesList";
@@ -11,6 +11,7 @@ import iconImage from "../assets/images/icon.png";
 
 const Opportunities = () => {
   const [loading, setLoading] = useState(true);
+  const opportunitiesListRef = useRef(null);
 
   const changeLoading = (bool) => {
     setLoading(bool);
@@ -21,10 +22,14 @@ const Opportunities = () => {
       {!loading && (
         <div>
           <Navbar />
-          <OpportunitiesHeader />{" "}
+          <OpportunitiesHeader />
         </div>
       )}
-      <OpportunitiesList loader={changeLoading} />
+      <OpportunitiesList
+        loader={changeLoading}
+        id='opportunities'
+        ref={opportunitiesListRef}
+      />
       {!loading && (
         <div>
           <Footer />
