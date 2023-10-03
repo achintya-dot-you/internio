@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase_setup/firebase-config";
@@ -10,7 +10,7 @@ import styles from "./OpportunitiesList.module.scss";
 import OpportunitiesCard from "./OpportunitiesCard";
 import dummy from "../../assets/images/opportunities/dummy.jpg";
 
-const OpportunitiesList = (props) => {
+const OpportunitiesList = (props, opportunitiesRef) => {
   const [imageList, setImageList] = useState([]);
   const [opportunitiesList, setOpportunitiesList] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
@@ -48,7 +48,10 @@ const OpportunitiesList = (props) => {
   }, [imageList, opportunitiesList, props]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      ref={opportunitiesRef}
+    >
       {combinedData.map((opportunity, index) => {
         const animationToggle = index % 2 === 0 ? 1 : 2;
         return (
@@ -69,4 +72,4 @@ const OpportunitiesList = (props) => {
   );
 };
 
-export default OpportunitiesList;
+export default forwardRef(OpportunitiesList);

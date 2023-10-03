@@ -80,6 +80,10 @@
   text-decoration: none;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+  }
 }
 
 .btn-filled {

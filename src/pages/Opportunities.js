@@ -17,12 +17,16 @@ const Opportunities = () => {
     setLoading(bool);
   };
 
+  const getStartedButtonHandler = () => {
+    opportunitiesListRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className={styles["container"]}>
       {!loading && (
         <div>
           <Navbar />
-          <OpportunitiesHeader />
+          <OpportunitiesHeader scrollHandler={getStartedButtonHandler} />
         </div>
       )}
       <OpportunitiesList

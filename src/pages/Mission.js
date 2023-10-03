@@ -11,6 +11,7 @@ const Mission = () => {
       <div className={styles["mission-container"]}>
         <h2 className={styles["mission-heading"]}>Our Mission</h2>
         <p className={styles["mission-text"]}>
+          {/* TODO - ACHINTYA */}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Eget magna fermentum iaculis eu non. Nunc mi ipsum
           faucibus vitae aliquet nec ullamcorper. Integer malesuada nunc vel risus commodo viverra

@@ -24,7 +24,9 @@ const OpportunitiesHeader = (props) => {
           <Link
             to='/opportunities'
             className={`${styles["btn"]} ${styles["btn-filled"]}`}
-            onClick={props.onLinkClick}
+            onClick={() => {
+              props.scrollHandler();
+            }}
           >
             Get Started
           </Link>
