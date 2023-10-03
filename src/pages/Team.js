@@ -7,7 +7,8 @@ import data from "../data/Team.json";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
-import dummyPic from "../assets/images/team/dummy1.jpg";
+import arnav from "../assets/images/team/arnav.jpg";
+import achintya from "../assets/images/team/achintya.jpg";
 
 const getImageSrc = (imagesrc) => {
   try {
@@ -30,8 +31,8 @@ const Team = () => {
           <div className={styles["founders-picture-container"]}>
             <picture>
               <img
-                srcSet={dummyPic}
-                alt='dummy'
+                srcSet={achintya}
+                alt='achintya'
                 loading='lazy'
                 className={styles["founders-picture"]}
               />
@@ -55,8 +56,8 @@ const Team = () => {
           <div className={styles["founders-picture-container"]}>
             <picture>
               <img
-                srcSet={dummyPic}
-                alt='dummy'
+                srcSet={arnav}
+                alt='arnav'
                 loading='lazy'
                 className={styles["founders-picture"]}
               />

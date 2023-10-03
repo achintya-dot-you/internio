@@ -1,5 +1,9 @@
 @import "../styles/initialization.scss";
 
+.container {
+  animation: fadeIn var(--general-animation-time) ease-out;
+}
+
 .loader {
   // animation: infitesimalSpin 0.8s ease-in-out infinite;
   animation-name: infitesimalSpin;

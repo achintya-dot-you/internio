@@ -18,7 +18,7 @@ const Opportunities = () => {
   };
 
   return (
-    <>
+    <div className={styles["container"]}>
       {!loading && (
         <div>
           <Navbar />
@@ -45,7 +45,7 @@ const Opportunities = () => {
           ></img>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

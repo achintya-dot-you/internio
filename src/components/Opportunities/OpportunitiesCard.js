@@ -24,11 +24,26 @@ const OpportunitiesCard = (props) => {
       </div>
       <div className={styles.bottom}>
         <div className={styles.details}>
-          <DetailItem icon={faCalendarDays} keyText="Term" value={props.term} />
-          <DetailItem icon={faClock} keyText="Commitment" value={props.commitment} />
-          <DetailItem icon={faSackDollar} keyText="Stipend" value={props.stipend} />
+          <DetailItem
+            icon={faCalendarDays}
+            keyText='Term'
+            value={props.term}
+          />
+          <DetailItem
+            icon={faClock}
+            keyText='Commitment'
+            value={props.commitment}
+          />
+          <DetailItem
+            icon={faSackDollar}
+            keyText='Stipend'
+            value={props.stipend}
+          />
         </div>
-        <Link to={"/opportunity/" + props.url} className={styles.button}>
+        <Link
+          to={"/opportunity/" + props.url}
+          className={styles.button}
+        >
           View Details
         </Link>
       </div>
@@ -48,7 +63,6 @@ const DetailItem = ({ icon, keyText, value }) => (
 );
 
 export default OpportunitiesCard;
-
 
 // In this refactored code:
 

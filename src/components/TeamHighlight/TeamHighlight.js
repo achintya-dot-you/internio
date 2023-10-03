@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 // Importing Styles
 import styles from "./TeamHighlight.module.scss";
 
-// Importing Dummy picture
-import dummyPic from "../../assets/images/team/dummy1.jpg";
+// Importing Pictures
+import arnav from "../../assets/images/team/arnav.jpg";
+import achintya from "../../assets/images/team/achintya.jpg";
 
 // ** Main Component **
 // This component is the highlight to the team page in the homepage.
@@ -22,7 +23,7 @@ const TeamHighlight = () => {
         <div className={styles["achintya"]}>
           <picture>
             <img
-              srcSet={dummyPic}
+              srcSet={achintya}
               alt='Achintya'
               loading='lazy'
               className={styles["picture"]}
@@ -42,7 +43,7 @@ const TeamHighlight = () => {
         <div className={styles["arnav"]}>
           <picture>
             <img
-              srcSet={dummyPic}
+              srcSet={arnav}
               alt='Arnav'
               loading='lazy'
               className={styles["picture"]}

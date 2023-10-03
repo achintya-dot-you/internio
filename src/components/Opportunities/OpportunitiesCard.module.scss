@@ -39,6 +39,7 @@
 
 .picture {
   max-height: 6rem;
+  width: auto;
   display: flex;
   justify-content: flex-end;
   background-color: transparent;
@@ -48,6 +49,9 @@
   height: 100%;
   background-color: transparent;
   border-radius: 4px;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .details {
@@ -119,6 +123,12 @@
   }
 }
 
+// @media only screen and (max-width: 72.5em) {
+//   .top {
+//     flex-direction: column;
+//   }
+// }
+
 @media only screen and (max-width: 41.875em) {
   .bottom {
     flex-direction: column;
@@ -142,8 +152,10 @@
   }
 
   .image {
-    height: 80%;
+    height: auto;
+    max-height: 100%;
     width: 80%;
+    max-width: 100%;
   }
 
   .picture {
