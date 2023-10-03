@@ -52,8 +52,8 @@ const TeamHighlight = () => {
           <div className={styles["intro"]}>
             <h2 className={styles["name"]}>Arnav</h2>
             <p className={styles["description"]}>
-              Adding another layer of expertise to internio, Arnav’s work in web development has
-              been crucial in propelling our organsation.
+              Adding another layer of expertise to internio, Arnav’s work in the tech department has
+              been crucial for our organsation.
             </p>
           </div>
         </div>
