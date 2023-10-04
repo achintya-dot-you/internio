@@ -18,6 +18,12 @@
   display: flex;
   flex-direction: column;
   gap: 6rem;
+  animation: moveInLeft var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
+}
+
+.right {
+  animation: moveInRight var(--general-animation-time) ease-out;
 }
 
 .heading {
@@ -30,6 +36,11 @@
   max-height: 20%;
   width: fit-content;
   height: fit-content;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .subheading {
@@ -122,6 +133,7 @@
   .right,
   .left {
     width: 80%;
+    gap: 4rem;
   }
 }
 

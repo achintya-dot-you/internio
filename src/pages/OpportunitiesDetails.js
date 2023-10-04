@@ -162,19 +162,26 @@ const OpportunitiesDetails = () => {
     }
   }, [imageList, opportunitiesList]);
 
+  const logoClickHandler = (e) => {
+    e.preventDefault();
+    document.location.href = selectedItem.link;
+  };
+
   return (
     <>
       {loading && (
         <div className={styles["loader-container"]}>
-          <img
-            srcSet={iconImage}
-            alt=''
-            loading='lazy'
-            className={styles["loader"]}
-          ></img>
+          <picture>
+            <img
+              srcSet={iconImage}
+              alt=''
+              loading='lazy'
+              className={styles["loader"]}
+            ></img>
+          </picture>
         </div>
       )}
-      {selectedItem && (
+      {selectedItem && !loading && (
         <>
           <Navbar />
           <div className={styles["container"]}>
@@ -184,6 +191,7 @@ const OpportunitiesDetails = () => {
                 src={selectedItem.imageURL}
                 alt={selectedItem.company}
                 class={styles["logo"]}
+                onClick={logoClickHandler}
               />
               <div>
                 <h2 className={styles["subheading"]}>About {selectedItem.company}</h2>

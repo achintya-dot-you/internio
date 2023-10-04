@@ -21,7 +21,7 @@ const Introduction = () => {
           <span className={styles["blue"]}>A bit about</span> internio
         </h2>
         <p className={styles["para-1"] + " " + styles["para"]}>
-          internio is a non-profit organization comitted to providing quality internships to
+          internio is a non-profit organization committed to providing quality internships to
           motivated and driven high school students.
         </p>
         <p className={styles["para-2"] + " " + styles["para"]}>
