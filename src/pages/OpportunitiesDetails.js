@@ -187,10 +187,9 @@ const OpportunitiesDetails = () => {
           <div className={styles["container"]}>
             <div className={styles["left"]}>
               <h1 className={styles["heading"]}>{selectedItem.position}</h1>
-              <h2 onClick={logoClickHandler} styles="cursor:pointer;"> {selectedItem.company} </h2>
               <img
                 src={selectedItem.imageURL}
-                alt=
+                alt={selectedItem.company}
                 class={styles["logo"]}
                 onClick={logoClickHandler}
               />
