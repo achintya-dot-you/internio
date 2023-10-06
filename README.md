@@ -54,7 +54,7 @@ Join our community to stay up-to-date on our latest projects.
 
 ## Contact Us
 
-If you have questions or need assistance, feel free to reach out to us at support@internio.app or open an issue in one of our GitHub repositories.
+If you have questions or need assistance, feel free to reach out to us at [team@internio.app](mailto:team@internio.app) or open an issue in one of our GitHub repositories.
 
 ## Donate
 
