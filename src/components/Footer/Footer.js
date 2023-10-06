@@ -116,7 +116,7 @@ const Footer = () => {
         <div className={styles["column"]}>
           <div className={styles["column-content"]}>
             {/* Column Header */}
-            <p className={styles["column-header"]}>RESOURCES</p>
+            <p className={styles["column-header"]}>SERVICES</p>
 
             {/* Column Links */}
             <div className={styles["links"]}>
@@ -126,6 +126,12 @@ const Footer = () => {
               >
                 opportunities
               </Link>
+              <Link
+                to={"/resources"}
+                className={styles["link"]}
+              >
+                Resources
+              </Link>
             </div>
           </div>
         </div>
@@ -134,33 +140,27 @@ const Footer = () => {
         <div className={styles["column"]}>
           <div className={styles["column-content"]}>
             {/* Column Header */}
-            <p className={styles["column-header"]}>HEADING</p>
+            <p className={styles["column-header"]}>Partners</p>
 
             {/* Column Links */}
             <div className={styles["links"]}>
               <Link
-                to={"/"}
+                to={"https://www.instagram.com/ayika.foundation/"}
                 className={styles["link"]}
               >
-                link 1
+                Ayika Foundation
               </Link>
               <Link
-                to={"/"}
+                to={"https://www.teenmentalhealthsociety.org/"}
                 className={styles["link"]}
               >
-                link 2
+                Teen Mental Health Society
               </Link>
               <Link
-                to={"/"}
+                to={"https://www.threco.com"}
                 className={styles["link"]}
               >
-                link 3
-              </Link>
-              <Link
-                to={"/"}
-                className={styles["link"]}
-              >
-                another link 3
+                The Recycling Company
               </Link>
             </div>
           </div>
