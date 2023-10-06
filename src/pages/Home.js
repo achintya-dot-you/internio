@@ -1,17 +1,25 @@
 import React from "react";
 
-import Header from "../components/header/Header";
-import Navbar from "../components/header/Navbar";
+import Navbar from "../components/Navbar/Navbar";
+import Header from "../components/Header/Header";
+import Introduction from "../components/Introduction/Introduction";
+// import OpportunitiesHighlight from "../components/OpportunitiesHighlight/OpportunitiesHighlight";
+import PartnersHighlight from "../components/PartnersHighlight/PartnersHighlight";
+import ResourcesHighlight from "../components/ResourcesHighlight/ResourcesHighlight";
+import TeamHighlight from "../components/TeamHighlight/TeamHighlight";
+import Footer from "../components/Footer/Footer";
 
 const Home = () => {
   return (
     <>
-      <header id='home-header'>
-        <Navbar />
-        <Header />
-      </header>
-
-      {/* <Carousel /> */}
+      <Navbar />
+      <Header />
+      <Introduction />
+      {/* <OpportunitiesHighlight /> */}
+      <PartnersHighlight />
+      <ResourcesHighlight />
+      <TeamHighlight />
+      <Footer />
     </>
   );
 };

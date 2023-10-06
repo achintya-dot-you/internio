@@ -1,0 +1,253 @@
+@import "../../styles/initialization.scss";
+
+.heading {
+  font-size: 4rem;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 2rem;
+  }
+
+  input,
+  textarea {
+    padding: 0.75rem 1rem;
+    font-size: 1.6rem;
+    font-family: Inter;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.required label:after {
+  color: #e32;
+  content: " *";
+  display: inline;
+}
+
+.file-upload-actions {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.file-upload-label {
+  border: 1px solid var(--color-smoky-black);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  line-height: 1.5;
+
+  input[type="file"] {
+    display: none;
+  }
+}
+
+.file-upload-content {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.resume-display {
+  font-size: 1.4rem;
+}
+
+.button {
+  text-decoration: none;
+  border: 0.35rem solid var(--color-smoky-black);
+  background-color: var(--color-smoky-black);
+  color: var(--color-pure-white);
+  width: fit-content;
+  padding: 0.6rem 0;
+  border-radius: 1rem;
+  font-size: 2rem;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  min-width: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  align-self: center;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+  }
+}
+
+.popup-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup {
+  min-width: 20%;
+  min-height: 10%;
+  width: 50%;
+  padding: 3rem 5rem;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: white;
+  text-align: center;
+  position: relative;
+
+  h5 {
+    font-size: 2.6rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+
+  button {
+    text-decoration: none;
+    border: 0.35rem solid var(--color-smoky-black);
+    background-color: var(--color-smoky-black);
+    color: var(--color-pure-white);
+    width: fit-content;
+    padding: 0.6rem 0;
+    border-radius: 1rem;
+    font-size: 2rem;
+    font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 600;
+    min-width: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s;
+    margin-top: 1.6rem;
+    cursor: pointer;
+    align-self: center;
+
+    &:hover {
+      transform: translateY(-0.5rem);
+    }
+  }
+}
+
+.popup-icon {
+  position: absolute;
+  top: 2rem;
+  cursor: pointer;
+  right: 2rem;
+  font-size: 2rem;
+}
+
+.submission-confirmation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-dark-gray);
+  color: white;
+  padding: 1.5rem 2.5rem;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.8rem;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &.hide {
+    display: none;
+  }
+}
+
+.confirmation-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .close-button {
+    background-color: var(--color-vanilla);
+    color: var(--color-smoky-black);
+    border: none;
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: var(--color-dark-gray);
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+@media only screen and (max-width: 50em) {
+  .heading {
+    margin-top: 6rem;
+    font-size: 4.5rem;
+  }
+
+  .popup {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .submission-confirmation {
+    padding: 1.5rem 2.5rem;
+    font-size: 1.8rem;
+    width: 80%;
+  }
+
+  .confirmation-content {
+    p {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .close-button {
+      font-size: 1.4rem;
+      font-weight: bold;
+      padding: var(--navbar-button-padding-large);
+    }
+  }
+}

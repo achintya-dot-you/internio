@@ -1,0 +1,62 @@
+@import "../../styles/initialization.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rem 6rem;
+  background-color: var(--color-tertiary-gray);
+  gap: 4.5rem;
+}
+
+.headings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  align-items: center;
+}
+
+.heading,
+.sub-heading {
+  color: var(--color-contrast);
+  font-size: 3rem;
+
+  &::selection {
+    background-color: var(--color-contrast);
+    color: var(--color-pure-white);
+  }
+
+  span {
+    color: var(--color-smoky-black);
+  }
+}
+
+.heading {
+  width: 40rem;
+  text-align: center;
+}
+
+.button {
+  text-decoration: none;
+  border: 0.35rem solid var(--color-smoky-black);
+  background-color: var(--color-smoky-black);
+  color: var(--color-pure-white);
+  width: fit-content;
+  padding: 0.6rem 0;
+  border-radius: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  min-width: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
+  align-self: center;
+
+  margin-top: 2rem;
+
+  // Hover Animation
+  &:hover {
+    transform: translateY(-0.5rem);
+  }
+}

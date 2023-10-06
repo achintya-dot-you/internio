@@ -1,36 +1,58 @@
-import React from "react";
+// ** Imports **
+// Importing React
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+// Importing all pages
 import Home from "./pages/Home";
-import Landing from "./pages/Landing";
 import Opportunities from "./pages/Opportunities";
+import Team from "./pages/Team";
+import Mission from "./pages/Mission";
 import NotFound from "./pages/NotFound";
 import Title from "./components/General/Title";
+import OpportunitiesDetails from "./pages/OpportunitiesDetails";
 
+// Importing Styles
 import "./styles/initialization.scss";
-import "./App.scss";
 
 function App() {
+  // Redirecting to job board in /careers link
   const ApplyPage = () => {
-    React.useEffect(() => {
+    useEffect(() => {
       window.location.href =
         "https://internio.notion.site/Job-Board-f02cf790ddc944f1ab233c22cf44157e";
     }, []);
 
-    return null; // or you can render some loading/spinner component if needed
+    return null;
   };
+
+  const ResourcesPage = () => {
+    useEffect(() => {
+      window.location.href =
+        "https://internio.notion.site/Resources-internio-3d3d31a80407462ea943c323dc21ccb4?pvs=4";
+    }, []);
+
+    return null;
+  };
+
+  const DonatePage = () => {
+    useEffect(() => {
+      window.location.href = "https://www.paypal.com/paypalme/internio";
+    }, []);
+
+    return null;
+  };
+
+  // ** JSX **
   return (
+    // Routing every page link
     <>
       <Router>
         <Title />
         <Routes>
-          {/* <Route
-            path='/'
-            element={<Home />}
-          /> */}
           <Route
             path='/'
-            element={<Landing />}
+            element={<Home />}
           />
           <Route
             path='/home'
@@ -44,6 +66,30 @@ function App() {
             exact
             path='/apply'
             element={<ApplyPage />}
+          />
+          <Route
+            exact
+            path='/team'
+            element={<Team />}
+          />
+          <Route
+            exact
+            path='/mission'
+            element={<Mission />}
+          />
+          <Route
+            exact
+            path='/donate'
+            element={<DonatePage />}
+          />
+          <Route
+            exact
+            path='/resources'
+            element={<ResourcesPage />}
+          />
+          <Route
+            path='/opportunity/:id'
+            element={<OpportunitiesDetails />}
           />
           <Route
             path='/*'

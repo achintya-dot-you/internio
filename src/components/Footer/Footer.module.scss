@@ -1,0 +1,205 @@
+// ** Importing Base Styles **
+@import "../../styles/initialization.scss";
+
+// Container
+.footer {
+  display: grid;
+  background-color: var(--color-smoky-black);
+  height: fit-content;
+  width: 100%;
+  padding: var(--footer-padding);
+  grid-row-gap: var(--footer-row-gap);
+
+  // Selection styles
+  ::selection {
+    color: var(--color-smoky-black);
+    background-color: var(--color-pure-white);
+  }
+}
+
+// Icon
+.heading {
+  display: flex;
+  color: var(--color-pure-white);
+  height: fit-content;
+  align-items: center;
+  justify-content: flex-start;
+  user-select: none;
+
+  // Animation
+  animation: fadeIn var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
+}
+
+// Text part of heading
+.heading-text {
+  font-size: var(--footer-heading-font-size);
+  font-family: Montserrat, sans-serif;
+  height: fit-content;
+}
+
+// Icon part of heading
+.heading-icon {
+  height: var(--footer-heading-icon-height);
+  user-select: none;
+}
+
+// Bulk of footer
+.content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+// Each column in footer
+.column {
+  width: 100%;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+// Content in column
+.column-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--footer-column-content-gap);
+  width: 100%;
+}
+
+// Column Header
+.column-header {
+  color: var(--color-pure-white);
+  font-size: var(--footer-column-heading-font-size);
+  font-weight: var(--footer-column-heading-font-weight);
+  letter-spacing: var(--footer-column-heading-letter-spacing);
+  text-transform: uppercase;
+  font-family: "proximanova", Helvetica, Arial, sans-serif;
+  cursor: default;
+  opacity: var(--footer-column-heading-opacity);
+  font-family: "proximanova", Helvetica, Arial, sans-serif;
+  line-height: var(--footer-column-heading-line-height);
+
+  // Animation
+  animation: fadeIn var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
+}
+
+// Links in column
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--footer-link-gap);
+  width: 100%;
+  user-select: none;
+
+  // Animation
+  animation: fadeIn var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
+}
+
+// Each link
+.link {
+  // Normal State
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: var(--color-pure-white);
+    text-transform: capitalize;
+    font-size: var(--footer-link-font-size);
+    font-family: "proximanova", Helvetica, Arial, sans-serif;
+    line-height: var(--footer-link-line-height);
+    letter-spacing: var(--footer-link-letter-spacing);
+    width: 100%;
+  }
+
+  // Hover State
+  &:hover {
+    text-decoration: underline;
+    opacity: var(--footer-link-hover-opacity);
+  }
+}
+
+// Ending row in footer
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+// copyright text in footer
+.copyright {
+  color: var(--color-very-light-gray);
+  display: flex;
+  align-items: center;
+  gap: var(--footer-copyright-text-gap);
+  font-size: var(--footer-copyright-text-font-size);
+  a{
+    text-decoration:underline;
+    color: var(--color-very-light-gray)
+  }
+
+  // Animations
+  animation: fadeIn var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
+}
+
+// Socials list
+.socials {
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  gap: var(--footer-socials-gap);
+
+  // Animation
+  animation: fadeIn var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
+
+  // Each social
+  a {
+    user-select: none;
+
+    // Normal State
+    &:link,
+    &:visited {
+      color: var(--color-pure-white);
+      stroke: var(--color-smoky-black);
+      opacity: var(--footer-socials-opcaity);
+    }
+
+    // Hover State
+    &:hover {
+      opacity: var(--footer-socials-hover-opacity);
+    }
+  }
+}
+
+// Every icon in social list
+.icon {
+  width: var(--footer-socials-icon-side-length);
+  height: var(--footer-socials-icon-side-length);
+}
+
+@media only screen and (max-width: 46.875em) {
+  // Changing content to be a column
+  .content {
+    flex-direction: column;
+    gap: var(--footer-phone-content-gap);
+  }
+
+  .footer-row {
+    flex-direction: column;
+    gap: var(--footer-phone-row-gap);
+  }
+
+  // Adjusting font-size
+  .column-header {
+    font-size: var(--footer-phone-column-heading-font-size);
+  }
+
+  .link {
+    &:link,
+    &:visited {
+      font-size: var(--footer-phone-link-font-size);
+    }
+  }
+}

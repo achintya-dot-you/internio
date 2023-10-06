@@ -1,0 +1,127 @@
+// ** Importing Base Styles **
+@import "../../styles/initialization.scss";
+
+// ** Container **
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  padding: 10rem 0;
+  background-color: var(--color-contrast-gray);
+  align-items: center;
+}
+
+// ** Layout - Left and Right **
+.content-container,
+.image-container {
+  width: 100%;
+  background-color: var(--color-contrast-gray);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 10rem;
+  padding-right: 0;
+  animation: moveInLeft var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
+}
+
+.image-container {
+  width: 100%;
+  height: 100%;
+  padding: 0 10rem;
+  padding-left: 0;
+
+  // Animation
+  animation: moveInRight var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
+  animation-delay: 1s;
+
+  // Graphic
+  picture {
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// ** Styling Text **
+.heading {
+  font-size: 3rem;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.para {
+  font-size: 2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.blue {
+  color: var(--color-contrast);
+
+  &::selection {
+    background-color: var(--color-contrast);
+    color: var(--color-pure-white);
+  }
+}
+
+.button {
+  text-decoration: none;
+  border: 0.35rem solid var(--color-smoky-black);
+  background-color: var(--color-smoky-black);
+  color: var(--color-pure-white);
+  width: fit-content;
+  padding: 0.6rem 0;
+  border-radius: 1rem;
+  font-size: 2rem;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  min-width: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
+  animation: moveInBottom var(--general-animation-time) ease-out;
+  animation-fill-mode: backwards;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+  }
+}
+
+// ** Slight Adjustments for responsiveness **
+@media only screen and (max-width: 53.75em) {
+  .image-container {
+    display: none;
+  }
+
+  .content-container {
+    padding: 0 6rem;
+  }
+}
+
+@media only screen and (max-width: 46.875em) {
+  .heading {
+    font-size: 3.3rem;
+    text-align: center;
+  }
+
+  .para {
+    text-align: center;
+  }
+
+  .button {
+    align-self: center;
+  }
+}

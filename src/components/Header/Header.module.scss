@@ -1,0 +1,147 @@
+// ** Importing Base Styles **
+@import "../../styles/initialization.scss";
+
+// ** Container **
+.header {
+  gap: var(--header-gap);
+  width: 100%;
+  background-color: transparent;
+  min-height: calc(100vh - var(--navbar-height));
+
+  // Flex Layout
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// ** Styling Text **
+.heading,
+.desc {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.text {
+  gap: var(--header-text-gap);
+}
+
+.heading {
+  font-size: var(--header-heading-font-size);
+  line-height: var(--header-heading-line-height);
+  font-weight: var(--header-heading-font-weight);
+  font-family: "Montserrat", sans-serif;
+}
+
+.header-line-2 {
+  color: var(--color-contrast);
+
+  &::selection {
+    background-color: var(--color-contrast);
+    color: var(--color-pure-white);
+  }
+}
+
+.desc {
+  font-size: var(--header-subheading-font-size);
+  font-weight: var(--header-subheading-font-weight);
+  color: var(--color-dark-gray);
+  font-family: "Montserrat", sans-serif;
+}
+
+.desc-line-all {
+  display: none;
+}
+
+// ** Styling buttons **
+.cta {
+  display: flex;
+  gap: var(--header-cta-gap);
+}
+
+.btn {
+  outline: none;
+  border: none;
+  padding: var(--header-button-padding);
+  width: var(--header-button-width);
+  border: var(--header-button-border-width) solid var(--color-smoky-black);
+  border-radius: var(--header-button-border-radius);
+  white-space: no-wrap;
+  text-align: center;
+  user-select: none;
+  font-weight: var(--header-button-font-weight);
+  font-size: var(--header-button-font-size);
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+.btn-filled {
+  background-color: var(--color-smoky-black);
+  color: var(--color-pure-white);
+}
+
+.btn-outline {
+  color: var(--color-smoky-black);
+  background-color: var(--color-pure-white);
+}
+
+// ** Small adjustments here and there for repsonsiveness **
+@media only screen and (max-width: 48.875em) {
+  .header {
+    height: 100vh;
+  }
+
+  .heading {
+    font-size: 4rem;
+  }
+
+  .desc {
+    font-size: 2.6rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .header {
+    margin: 0 1rem;
+    width: fit-content;
+  }
+
+  .desc {
+    text-align: center;
+  }
+
+  .desc-line-all {
+    display: flex;
+    justify-content: center;
+  }
+
+  .desc-line-1,
+  .desc-line-2 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 25.375em) {
+  .cta {
+    flex-direction: column;
+  }
+
+  .heading {
+    font-size: 3.5rem;
+  }
+
+  .desc {
+    font-size: 2.2rem;
+  }
+}
+
+@media only screen and (max-width: 20.875em) {
+  .heading {
+    font-size: 3.2rem;
+  }
+
+  .desc {
+    font-size: 2rem;
+  }
+}

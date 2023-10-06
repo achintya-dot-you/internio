@@ -1,15 +1,22 @@
+// ! ALL VARIABLES USED
+
 :root {
+  // ** GENERAL **
+  --general-animation-time: 0.7s;
+
   // ** COLOR THEME **
   // Shades of Black and White
   --color-smoky-black: #12100e;
   --color-pure-black: #0c0404;
   --color-white: #edecd6;
   --color-pure-white: #f7fff7;
+  --color-very-light-gray: #f0f0f0;
   --color-light-gray: #bac7c5;
-  --color-slightly-light-gray: #a0a0a0;
+  --color-slightly-light-gray: #4a5568;
   --color-gray: #5e5e5e;
   --color-dark-gray: #1f1f1f;
-  --color-bone-gray: #413e3a;
+  --color-contrast-gray: #e9ecf3;
+  --color-tertiary-gray: #ecf5ff;
 
   // Primary and important colors
   --color-beaver: #9d816c;
@@ -22,70 +29,72 @@
   --color-bone-dark: #aea69a;
   --color-bone-light: #e4ddd4;
   --color-form-input: #d9d9d9;
-
-  // Secondary Color
-  --color-secondary: #f8333c;
-  --color-secondary-light: #fb858a;
-  --color-secondary-dark: #4a0f12;
-
-  // Tertiary Color
-  --color-tertiary: #80a1c1;
-  --color-tertiary-dark: #4d6174;
-  --color-tertiary-very-dark: #1e272f;
-  --color-tertiary-light: #a6bdd4;
-
-  // Contrast Color
-  --color-contrast: #4ecdc4;
-  --color-contrast-dark: #1f524e;
-  --color-contrast-light: #95e1dc;
-  --color-contrast-blue: #2200ff;
-
-  // ** BACKGROUND **
-  --background-gradient: radial-gradient(at right, #6a93f1 0%, #12100e 100%),
-    radial-gradient(at left, #6a93f1 0%, #12100e 60%);
-  --background-solid: #6a93f1;
+  --color-contrast: #4c7bf4;
 
   // ** NAVBAR **
-  --navbar-horizontal-padding: 6rem;
-  --navbar-height: 10vh;
+  --navbar-horizontal-padding: 3rem;
+  --navbar-height: 9vh;
+  --navbar-height-medium: 11vh;
+  --navbar-height-large: 13vh;
   --navbar-box-shadow-spread: 3rem;
-  --navbar-header-font-size: 4.8rem;
+  --navbar-header-font-size: 3.3rem;
+  --navbar-header-icon-size: 3.3rem;
   --navbar-header-font-weight: 700;
   --navbar-header-line-height: 5.8rem;
-  --navbar-animation-time: 2s;
-  --navbar-navlink-font-weight: 500;
-  --navbar-navling-font-size: 3rem;
+  --navbar-navlink-font-weight: 600;
+  --navbar-navlink-font-size: 1.8rem;
+  --navbar-navlink-font-size-small: 1.6rem;
+  --navbar-navlink-font-size-big: 2.5rem;
+  --navbar-navlink-line-height: 1.2;
+  --navbar-navlink-phone-font-size: 2.4rem;
+  --navbar-navlink-phone-padding: 2rem;
+  --navbar-button-padding-large: 0.9rem 1.8rem;
+  --navbar-button-padding-small: 0.7rem 1.4rem;
+  --navbar-button-padding-xsmall: 0.55rem 1.3rem;
+  --navbar-button-font-size: 2rem;
+  --navbar-dropdown-border-radius: 1rem;
+  --navbar-button-border-radius: 8px;
+  --navbar-button-width: 13rem;
+  --navbar-button-height: 5.2rem;
+  --navbar-button-gap: 1rem;
+  --navbar-header-gap: 5.5rem;
+  --navbar-link-gap: 3.8rem;
+  --navbar-dropdown-icon-gap: 0.5rem;
+  --navbar-dropdown-icon-height: 1.8rem;
+  --navbar-dropdown-icon-offset-top: 3px;
+  --navbar-dropdown-link-gap: 0.5rem;
+  --navbar-dropdown-link-side-padding: 2rem;
+  --navbar-dropdown-border-width: 2px;
+  --navbar-dropdown-side-offset: -8%;
+  --navbar-dropdown-animation-time: 0.4s;
+  --navbar-dropdown-navlink-padding: 1rem 3.5rem;
+  --navbar-toggler-font-size-large: 3rem;
+  --navbar-border-width: 0.2vw;
+  --navbar-phone-width: 75vw;
+  --navbar-phone-gap: 4px;
+  --navbar-animation-time: 0.4s;
 
   // ** HEADER **
-  --header-button-gap: 4rem;
-  --header-font-size: 3.7rem;
-  --header-line-height: 8rem;
-  --header-font-weight: 400;
-  --heading-logo-height: 7.8rem;
-  --header-animation-time: 2s;
-  --header-subheading-font-size: 6.5rem;
-  --header-subheading-font-weight: 300;
-  --header-heading-font-size: 9rem;
-  --header-heading-font-weight: 700;
-
-  // Header Button
-  --header-button-font-size: 2.4rem;
+  --header-gap: 2rem;
+  --header-animation-time: 1s;
+  --header-text-gap: 1rem;
+  --header-heading-font-size: 5rem;
+  --header-heading-line-height: 1.2;
+  --header-heading-font-weight: 800;
+  --header-subheading-font-size: 2.9rem;
+  --header-subheading-font-weight: 500;
+  --header-cta-gap: 2rem;
+  --header-button-padding: 0.6rem 1.8rem;
+  --header-button-width: 20rem;
+  --header-button-border-width: 0.35rem;
+  --header-button-border-radius: 1rem;
+  --header-button-font-size: 2rem;
   --header-button-font-weight: 700;
-  --header-button-hover-animation-timing: 0.2s;
-  --header-button-animation-timing: 0.4s;
-  --header-button-padding-horizontal: 7rem;
-  --header-button-padding-vertical: 0;
-  --header-button-border-radius: 0.9vw;
-  --header-button-margin-left: 4rem;
-  --header-button-hover-box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.2);
-  --header-button-active-box-shadow: 0 1rem 1rem rgba(255, 255, 255, 0.2);
-  --header-button-hover-movement-distance: -3px;
-  --header-button-active-movement-distance: -1px;
-  --header-button-hover-animation-horizontal-scaling: 1.2;
-  --header-button-hover-animation-vertical-scaling: 1.6;
 
-  // Fonts
-  --logo-font: "Montserrat", sans-serif;
+  // **OPPORTUNITIES HIGHLIGHT**
+  --opportunities-highlight-height: calc((100vh - var(--navbar-height-large)) / 2);
+  --opportunities-highlight-height-medium: calc((100vh - var(--navbar-height-medium)) / 2);
+  --opportunities-highlight-height-large: calc((100vh - var(--navbar-height)) / 2);
 
   // **OPPORTUNITIES PAGE**
   --opportunities-container-gap: 6rem;
@@ -106,7 +115,6 @@
   --landing-error-text-font-weight: 600;
   --landing-heading-line-height: 1;
   --landing-heading-top-font-size: 7.5rem;
-  --landing-heading-top-font-family: Montserrat, sans-serif;
   --landing-heading-logo-height: 7rem;
   --landing-heading-bottom-font-size: 3.7rem;
   --landing-heading-bottom-font-family: Syne, sans-serif;
@@ -128,4 +136,56 @@
   --landing-input-border-radius: 0.5rem 0 0 0.5rem;
   --landing-button-border-radius: 0 0.5rem 0.5rem 0;
   --landing-input-placeholder-font-size: 1em;
+
+  // **FOOTER**
+  // Gap and Padding
+  --footer-padding: 6.4rem 6.7rem 8rem 6.7rem;
+  --footer-phone-content-gap: 4.8rem;
+  --footer-row-gap: 6.4rem;
+  --footer-phone-row-gap: 1.6rem;
+
+  // Heading
+  --footer-heading-font-size: 3rem;
+  --footer-heading-icon-height: 3rem;
+
+  // Columns
+  --footer-column-content-gap: 1.6rem;
+  --footer-column-heading-font-size: 1.4rem;
+  --footer-phone-column-heading-font-size: 1.8rem;
+  --footer-column-heading-font-weight: 500;
+  --footer-column-heading-letter-spacing: 0.1rem;
+  --footer-column-heading-opacity: 0.85;
+  --footer-column-heading-line-height: 1.5;
+
+  // Links
+  --footer-link-gap: 1.6rem;
+  --footer-link-font-size: 1.6rem;
+  --footer-phone-link-font-size: 1.8rem;
+  --footer-link-line-height: 1.5;
+  --footer-link-letter-spacing: 1px;
+  --footer-link-hover-opacity: 0.8;
+
+  // Copyright Text
+  --footer-copyright-text-gap: 0.2rem;
+  --footer-copyright-text-font-size: 1.65rem;
+
+  // Socials
+  --footer-socials-gap: 1rem;
+  --footer-socials-opcaity: 0.85;
+  --footer-socials-hover-opacity: 0.6;
+  --footer-socials-icon-side-length: 2.3rem;
+}
+
+// ** Responsive Functionality **
+// Navbar
+@media only screen and (max-width: 62.5em) {
+  :root {
+    --navbar-navlink-font-size: 2.1rem;
+  }
+}
+
+@media only screen and (max-width: 46.875em) {
+  :root {
+    --navbar-header-gap: 0;
+  }
 }
