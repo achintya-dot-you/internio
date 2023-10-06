@@ -65,12 +65,6 @@ const Footer = () => {
               >
                 github
               </a>
-              <a
-                href='mailto:team@internio.app'
-                className={styles["link"]}
-              >
-                email
-              </a>
             </div>
           </div>
         </div>
@@ -107,6 +101,13 @@ const Footer = () => {
                 className={styles["link"]}
               >
                 donate
+              </Link>
+
+              <Link
+                to={"https://forms.gle/jNRsqQMZfL7ZFamAA"}
+                className={styles["link"]}
+              >
+                Contact
               </Link>
             </div>
           </div>
@@ -173,6 +174,8 @@ const Footer = () => {
         <p className={styles["copyright"]}>
           <span className={styles["symbol"]}>&copy;</span>
           <span className={styles["brand"]}>internio.app</span>
+          |
+          <a href="mailto:team@internio.app">&nbsp;team@internio.app</a>
         </p>
 
         {/* Social List */}
