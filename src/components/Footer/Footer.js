@@ -173,9 +173,9 @@ const Footer = () => {
         {/* Copyright text */}
         <p className={styles["copyright"]}>
           <span className={styles["symbol"]}>&copy;</span>
-          <span className={styles["brand"]}>internio.app</span>
-          |
-          <a href="mailto:team@internio.app">&nbsp;team@internio.app</a>
+          <span className={styles["brand"]}>internio.app |
+          <a href="mailto:team@internio.app">&nbsp;team@internio.app</a></span>
+          
         </p>
 
         {/* Social List */}
