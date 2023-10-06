@@ -12,18 +12,7 @@ const Mission = () => {
         <h2 className={styles["mission-heading"]}>Our Mission</h2>
         <p className={styles["mission-text"]}>
           {/* TODO - ACHINTYA */}
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Eget magna fermentum iaculis eu non. Nunc mi ipsum
-          faucibus vitae aliquet nec ullamcorper. Integer malesuada nunc vel risus commodo viverra
-          maecenas. Tristique senectus et netus et malesuada fames. Risus at ultrices mi tempus
-          imperdiet nulla. Nunc aliquet bibendum enim facilisis gravida neque. Est velit egestas dui
-          id ornare arcu. Eget mauris pharetra et ultrices neque ornare. Orci phasellus egestas
-          tellus rutrum. Nisl rhoncus mattis rhoncus urna neque viverra justo nec. Viverra accumsan
-          in nisl nisi scelerisque eu. Blandit turpis cursus in hac habitasse platea dictumst
-          quisque sagittis. At lectus urna duis convallis convallis tellus id. Congue eu consequat
-          ac felis donec et odio. Senectus et netus et malesuada fames ac. Eget sit amet tellus cras
-          adipiscing enim. Justo eget magna fermentum iaculis. Mi bibendum neque egestas congue
-          quisque egestas diam. Tellus molestie nunc non blandit massa enim nec dui nunc.
+          At internio, our mission is to empower future leaders by providing motivated and driven high school students with quality internship opportunities. We believe in a future where high school students can seamlessly access internships, enabling them to put their skills into practice and gain invaluable work experience. Our goal is to remove the barriers that often hinder students from pursuing internships, ensuring that every young individual has the chance to excel academically and professionally. We aim to equip the next generation with the confidence, knowledge, and real-world skills they need to thrive in college and beyond. Together, we're building a brighter future, one internship at a time.
         </p>
       </div>
       <Footer />
