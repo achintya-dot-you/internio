@@ -32,6 +32,7 @@ const PhoneNavbarDropdown = (props) => {
             );
           } else {
             return (
+        
               <NavLink
                 link={item.link}
                 title={item.title}
@@ -39,7 +40,9 @@ const PhoneNavbarDropdown = (props) => {
                 phone={props.phone ? "phone" : "default"}
                 key={item.title}
               />
+
             );
+         
           }
         })}
       </ul>

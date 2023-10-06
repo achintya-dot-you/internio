@@ -78,10 +78,10 @@ const Footer = () => {
             {/* Column Links */}
             <div className={styles["links"]}>
               <Link
-                to={"/about"}
+                to={"/mission"}
                 className={styles["link"]}
               >
-                about us
+                Our Mission
               </Link>
               <Link
                 to={"/team"}
