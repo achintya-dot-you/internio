@@ -8,7 +8,7 @@ const ResourcesHighlight = () => {
     <div className={styles["container"]}>
       <div className={styles["headings"]}>
         <h2 className={styles["heading"]}>
-          Resources to help you navigate <span>internships</span>
+          Resources to help you with <span>your extracurriculars</span>
         </h2>
         <h2 className={styles["sub-heading"]}>+ much more</h2>
       </div>
