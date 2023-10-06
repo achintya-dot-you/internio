@@ -218,7 +218,7 @@ const OpportunitiesDetails = () => {
                 </ul>
               </div>
               <Link
-                className={styles["button"]}
+                className={styles["button"] + " " + styles["hide-phone"]}
                 to='/opportunities'
               >
                 &lt;&#45; All Opportunities

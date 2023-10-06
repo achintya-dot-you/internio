@@ -10,6 +10,7 @@
   justify-content: space-between;
   padding: 0 var(--navbar-horizontal-padding);
   border-bottom: var(--navbar-border-width) solid var(--color-contrast-gray);
+  z-index: 1000;
 
   h2 {
     animation: moveInLeft var(--general-animation-time) ease-out;
