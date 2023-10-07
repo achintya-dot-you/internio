@@ -133,6 +133,10 @@
   align-items: center;
   gap: var(--footer-copyright-text-gap);
   font-size: var(--footer-copyright-text-font-size);
+  a{
+    text-decoration:underline;
+    color: var(--color-very-light-gray)
+  }
 
   // Animations
   animation: fadeIn var(--general-animation-time) ease-out;
