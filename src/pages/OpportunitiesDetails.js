@@ -12,9 +12,6 @@ import OpportunitiesForm from "../components/Opportunities/OpportunitiesForm";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
-
 import dummy from "../assets/images/opportunities/dummy.jpg";
 import iconImage from "../assets/images/icon.png";
 
@@ -132,18 +129,18 @@ const OpportunitiesDetails = () => {
       setImageList(urls);
 
       if (selectedItem) {
-        document.title = `Opportunity | ${selectedItem.position}`;
+        document.title = `Opportunity | ${selectedItem.name}`;
       } else {
         document.title = "Page Not Found";
       }
     };
 
     fetchOpportunitiesAndImages();
-  }, [selectedItem]);
+  }, [selectedItem]); // Empty dependency array to ensure it runs only once
 
   useEffect(() => {
     if (loading === false && !selectedItem) {
-      navigate("/404");
+      navigate("/404"); // Redirect to the 404 page or any other URL
     }
   }, [loading, navigate, selectedItem]);
 
@@ -224,11 +221,7 @@ const OpportunitiesDetails = () => {
                 className={styles["button"] + " " + styles["hide-phone"]}
                 to='/opportunities'
               >
-                <FontAwesomeIcon
-                  icon={faLeftLong}
-                  className={styles["button-icon"]}
-                />
-                All Opportunities
+                &lt;&#45; All Opportunities
               </Link>
             </div>
             <div className={styles["right"]}>

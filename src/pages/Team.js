@@ -42,11 +42,7 @@ const Team = () => {
             <h3 className={styles["founders-position"]}>Co-Founder</h3>
             <h2 className={styles["founders-name"]}>Achintya Pasricha</h2>
             <p className={styles["founders-desc"]}>
-              Dedicated, innovative, and driven, Achintya is an individual passionate about
-              technology, environment, and sustainability. He is resilient and tackles every problem
-              head-on. He loves talking to new people and forming connections. He is committed to
-              creating a platform to help future leaders and aims to bring a difference through
-              internio.
+              Dedicated, innovative, and driven, Achintya is an individual passionate about technology, environment, and sustainability. He is resilient and tackles every problem head-on. He loves talking to new people and forming connections. He is committed to creating a platform to help future leaders and aims to bring a difference through internio.
             </p>
           </div>
         </div>
@@ -65,11 +61,7 @@ const Team = () => {
             <h3 className={styles["founders-position"]}>Co-Founder</h3>
             <h2 className={styles["founders-name"]}>Arnav Bhola</h2>
             <p className={styles["founders-desc"]}>
-              Arnav is passionate about all things tech: whether it is coding websites or developing
-              bots. He is innovative and has participated in and won various hackathons. He thrives
-              on intellectual challenges! He is charismatic, determined, resourceful, and a person
-              you can always rely on. His unwavering dedication is evident through his mission to
-              build a platform to empower future leaders.
+              Arnav is a 14-year-old from Nova Scotia. He is passionate about all things tech: whether it is coding websites or developing bots. He is innovative and has participated in and won various hackathons. He thrives on intellectual challenges and is currently studying calculus! He is charismatic, determined, resourceful, and a person you can always rely on. His unwavering dedication is evident through his mission to build a platform to empower future leaders.
             </p>
           </div>
         </div>
