@@ -15,6 +15,7 @@ const NavLink = (props) => {
           className={`${styles["link"]} ${styles[`link-standard`]} ${
             styles[`link-${props.phone}`]
           } ${styles[`link-standard-${props.phone}`]}`}
+          onClick={handleUserClick}
         >
           <Link to={props.link}>{props.title}</Link>
         </li>
