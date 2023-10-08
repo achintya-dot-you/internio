@@ -21,8 +21,6 @@ const Title = () => {
       title = "internio | Team";
     } else if (pathname === "/apply") {
       title = "internio | Apply";
-    } else if (pathname === "/apply") {
-      title = "internio | Mission";
     }
 
     document.title = title; // Set the document title
