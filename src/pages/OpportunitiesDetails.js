@@ -193,7 +193,7 @@ const OpportunitiesDetails = () => {
               <img
                 src={selectedItem.imageURL}
                 alt={selectedItem.company}
-                class={styles["logo"]}
+                className={styles["logo"]}
                 onClick={logoClickHandler}
               />
               <div>
@@ -232,7 +232,10 @@ const OpportunitiesDetails = () => {
               </Link>
             </div>
             <div className={styles["right"]}>
-              <OpportunitiesForm company={selectedItem.company} />
+              <OpportunitiesForm
+                company={selectedItem.company}
+                position={selectedItem.position}
+              />
             </div>
           </div>
           <Footer />

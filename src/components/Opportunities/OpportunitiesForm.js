@@ -10,6 +10,8 @@ import { v4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTrash, faX } from "@fortawesome/free-solid-svg-icons";
 
+const apiKey = process.env.APPLICATIONS_apiKey;
+
 const OpportunitiesForm = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -48,6 +50,8 @@ const OpportunitiesForm = (props) => {
         Reason: reason,
         PreviousExperience: experience,
         AdditionalRemarks: remarks === "" ? "-" : remarks,
+        Position: props.position,
+        Company: props.company,
       };
       setName("");
       setEmail("");
@@ -58,7 +62,7 @@ const OpportunitiesForm = (props) => {
       setReason("");
       setExperience("");
       setRemarks("");
-      axios.post(process.env.APPLICATIONS_apiKey, data).then((response) => {
+      axios.post(apiKey, data).then((response) => {
         setName("");
         setEmail("");
         setResume();
@@ -84,6 +88,8 @@ const OpportunitiesForm = (props) => {
           Reason: reason,
           PreviousExperience: experience,
           AdditionalRemarks: remarks === "" ? "-" : remarks,
+          Position: props.position,
+          Company: props.company,
         };
         setName("");
         setEmail("");
@@ -94,20 +100,18 @@ const OpportunitiesForm = (props) => {
         setReason("");
         setExperience("");
         setRemarks("");
-        axios
-          .post("https://sheet.best/api/sheets/cc278d92-0a6d-4eee-a757-80fef92278bf", data)
-          .then((response) => {
-            setName("");
-            setEmail("");
-            setResume(null);
-            setPhone("");
-            setInstitution("");
-            setCity("");
-            setReason("");
-            setExperience("");
-            setRemarks("");
-            setIsSubmitted(true);
-          });
+        axios.post(apiKey, data).then((response) => {
+          setName("");
+          setEmail("");
+          setResume(null);
+          setPhone("");
+          setInstitution("");
+          setCity("");
+          setReason("");
+          setExperience("");
+          setRemarks("");
+          setIsSubmitted(true);
+        });
       });
     }
   };

@@ -32,11 +32,11 @@
 }
 
 .logo {
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: auto;
 
-  max-width: 30%;
-  max-height: 30%;
+  max-width: 15vw;
+  max-height: 15vw;
   cursor: pointer;
 
   &:hover {
