@@ -10,7 +10,10 @@ import { v4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTrash, faX } from "@fortawesome/free-solid-svg-icons";
 
-const apiKey = process.env.APPLICATIONS_apiKey;
+const apiKey = "https://sheet.best/api/sheets/" + process.env.REACT_APP_Sheets_apiKey;
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phonePattern = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]{8,14}$/g;
 
 const OpportunitiesForm = (props) => {
   const [name, setName] = useState("");
@@ -28,28 +31,30 @@ const OpportunitiesForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      name === "" ||
-      email === "" ||
-      phone === "" ||
-      institution === "" ||
-      city === "" ||
-      reason === "" ||
-      experience === ""
+      name.trim() === "" ||
+      email.trim() === "" ||
+      !emailPattern.test(email.trim()) ||
+      phone.trim() === "" ||
+      !phonePattern.test(phone.trim()) ||
+      institution.trim() === "" ||
+      city.trim() === "" ||
+      reason.trim() === "" ||
+      experience.trim() === ""
     ) {
       setIsWrong(true);
       return;
     }
     if (resume === null) {
       const data = {
-        Name: name,
-        Email: email,
+        Name: name.trim(),
+        Email: email.trim(),
         ResumeFileName: "-",
-        PhoneNumber: "no: " + phone,
-        Institution: institution,
-        CityOfResidence: city,
-        Reason: reason,
-        PreviousExperience: experience,
-        AdditionalRemarks: remarks === "" ? "-" : remarks,
+        PhoneNumber: "no: " + phone.trim(),
+        Institution: institution.trim(),
+        CityOfResidence: city.trim(),
+        Reason: reason.trim(),
+        PreviousExperience: experience.trim(),
+        AdditionalRemarks: remarks === "" ? "-" : remarks.trim(),
         Position: props.position,
         Company: props.company,
       };
@@ -79,15 +84,15 @@ const OpportunitiesForm = (props) => {
       const resumeRef = ref(storage, `resumes/${resumeFileName}`);
       uploadBytes(resumeRef, resume).then(() => {
         const data = {
-          Name: name,
-          Email: email,
-          ResumeFileName: resumeFileName,
-          PhoneNumber: phone,
-          Institution: institution,
-          CityOfResidence: city,
-          Reason: reason,
-          PreviousExperience: experience,
-          AdditionalRemarks: remarks === "" ? "-" : remarks,
+          Name: name.trim(),
+          Email: email.trim(),
+          ResumeFileName: resumeFileName.trim(),
+          PhoneNumber: phone.trim(),
+          Institution: institution.trim(),
+          CityOfResidence: city.trim(),
+          Reason: reason.trim(),
+          PreviousExperience: experience.trim(),
+          AdditionalRemarks: remarks.trim() === "" ? "-" : remarks.trim(),
           Position: props.position,
           Company: props.company,
         };

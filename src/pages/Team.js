@@ -34,7 +34,7 @@ const Team = () => {
                 srcSet={achintya}
                 alt='achintya'
                 loading='lazy'
-                className={styles["founders-picture"]}
+                className={styles["founders-picture"] + " " + styles["arnav-pic"]}
               />
             </picture>
           </div>
