@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 import { storage } from "../../firebase_setup/firebase-config";
@@ -10,10 +10,17 @@ import { v4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTrash, faX } from "@fortawesome/free-solid-svg-icons";
 
+const apiKey = "https://sheet.best/api/sheets/" + process.env.REACT_APP_Sheets_apiKey;
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phonePattern = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]{8,14}$/g;
+
 const OpportunitiesForm = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [emailIsValid, setEmailIsValid] = useState(true);
+  const [phoneIsValid, setPhoneIsValid] = useState(true);
   const [institution, setInstitution] = useState("");
   const [city, setCity] = useState("");
   const [reason, setReason] = useState("");
@@ -23,45 +30,72 @@ const OpportunitiesForm = (props) => {
   const [isWrong, setIsWrong] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("handleSubmit called");
+
+    let isDataValid = true;
+
     if (
-      name === "" ||
-      email === "" ||
-      phone === "" ||
-      institution === "" ||
-      city === "" ||
-      reason === "" ||
-      experience === ""
+      name.trim() === "" ||
+      email.trim() === "" ||
+      !emailIsValid ||
+      phone.trim() === "" ||
+      !phoneIsValid ||
+      institution.trim() === "" ||
+      city.trim() === "" ||
+      reason.trim() === "" ||
+      experience.trim() === ""
     ) {
-      setIsWrong(true);
-      return;
+      isDataValid = false;
+      console.log({
+        Name: name.trim(),
+        Email: email.trim(),
+        PhoneNumber: "no: " + phone.trim(),
+        Institution: institution.trim(),
+        CityOfResidence: city.trim(),
+        phone: !phonePattern.test(phone.trim()),
+        email: !emailPattern.test(email.trim()),
+        Reason: reason.trim(),
+        PreviousExperience: experience.trim(),
+        AdditionalRemarks: remarks === "" ? "-" : remarks.trim(),
+        Position: props.position,
+        Company: props.company,
+      });
+      console.log("Data is invalid. Setting isWrong to true.");
     }
-    if (resume === null) {
+
+    if (isDataValid) {
+      console.log("Data is valid. Setting isSubmitted to true and isWrong to false.");
+      setIsWrong(false);
+
+      let resumeFileName = "-";
+      if (resume) {
+        resumeFileName = email + "_" + v4();
+        const resumeRef = ref(storage, `resumes/${resumeFileName}`);
+        await uploadBytes(resumeRef, resume);
+      }
+
       const data = {
-        Name: name,
-        Email: email,
-        ResumeFileName: "-",
-        PhoneNumber: "no: " + phone,
-        Institution: institution,
-        CityOfResidence: city,
-        Reason: reason,
-        PreviousExperience: experience,
-        AdditionalRemarks: remarks === "" ? "-" : remarks,
+        Name: name.trim(),
+        Email: email.trim(),
+        ResumeFileName: resumeFileName.trim(),
+        PhoneNumber: "no: " + phone.trim(),
+        Institution: institution.trim(),
+        CityOfResidence: city.trim(),
+        Reason: reason.trim(),
+        PreviousExperience: experience.trim(),
+        AdditionalRemarks: remarks === "" ? "-" : remarks.trim(),
+        Position: props.position,
+        Company: props.company,
       };
-      setName("");
-      setEmail("");
-      setResume();
-      setPhone("");
-      setInstitution("");
-      setCity("");
-      setReason("");
-      setExperience("");
-      setRemarks("");
-      axios.post(process.env.APPLICATIONS_apiKey, data).then((response) => {
+
+      try {
+        await axios.post(apiKey, data);
+        console.log("Data submitted successfully.");
         setName("");
         setEmail("");
-        setResume();
+        setResume(null);
         setPhone("");
         setInstitution("");
         setCity("");
@@ -69,52 +103,30 @@ const OpportunitiesForm = (props) => {
         setExperience("");
         setRemarks("");
         setIsSubmitted(true);
-      });
+        setIsWrong(false);
+      } catch (error) {
+        console.error("Error submitting data:", error);
+        // Handle error if needed
+      }
     } else {
-      const resumeFileName = email + "_" + v4();
-      const resumeRef = ref(storage, `resumes/${resumeFileName}`);
-      uploadBytes(resumeRef, resume).then(() => {
-        const data = {
-          Name: name,
-          Email: email,
-          ResumeFileName: resumeFileName,
-          PhoneNumber: phone,
-          Institution: institution,
-          CityOfResidence: city,
-          Reason: reason,
-          PreviousExperience: experience,
-          AdditionalRemarks: remarks === "" ? "-" : remarks,
-        };
-        setName("");
-        setEmail("");
-        setResume();
-        setPhone("");
-        setInstitution("");
-        setCity("");
-        setReason("");
-        setExperience("");
-        setRemarks("");
-        axios
-          .post("https://sheet.best/api/sheets/cc278d92-0a6d-4eee-a757-80fef92278bf", data)
-          .then((response) => {
-            setName("");
-            setEmail("");
-            setResume(null);
-            setPhone("");
-            setInstitution("");
-            setCity("");
-            setReason("");
-            setExperience("");
-            setRemarks("");
-            setIsSubmitted(true);
-          });
-      });
+      setIsWrong(true);
+      console.log("Data is invalid. Setting isWrong to true.");
     }
   };
 
+  useEffect(() => {
+    const isEmailValid = emailPattern.test(email.trim());
+    const isPhoneValid = phonePattern.test(phone.trim());
+
+    setEmailIsValid(isEmailValid);
+    setPhoneIsValid(isPhoneValid);
+  }, [email, phone]);
+
   const outsidePopupClickHandler = () => {
-    setIsWrong(false);
-    setIsSubmitted(false);
+    setTimeout(() => {
+      setIsWrong(false);
+      setIsSubmitted(false);
+    }, 1000);
   };
 
   const insidePopupClickHandler = (e) => {
@@ -138,6 +150,7 @@ const OpportunitiesForm = (props) => {
         <div className={styles["field"] + " " + styles["required"]}>
           <label>Name</label>
           <input
+            autoComplete='off'
             type='text'
             required
             onChange={(e) => {
@@ -149,6 +162,7 @@ const OpportunitiesForm = (props) => {
         <div className={styles["field"] + " " + styles["required"]}>
           <label>Phone Number</label>
           <input
+            autoComplete='off'
             type='tel'
             required
             onChange={(e) => {
@@ -160,6 +174,7 @@ const OpportunitiesForm = (props) => {
         <div className={styles["field"] + " " + styles["required"]}>
           <label>Email</label>
           <input
+            autoComplete='off'
             type='text'
             required
             onChange={(e) => {
@@ -171,6 +186,7 @@ const OpportunitiesForm = (props) => {
         <div className={styles["field"] + " " + styles["required"]}>
           <label>What institution do you attend?</label>
           <input
+            autoComplete='off'
             type='text'
             required
             onChange={(e) => {
@@ -182,6 +198,7 @@ const OpportunitiesForm = (props) => {
         <div className={styles["field"] + " " + styles["required"]}>
           <label>City of Residence</label>
           <input
+            autoComplete='off'
             type='text'
             required
             onChange={(e) => {
@@ -193,6 +210,7 @@ const OpportunitiesForm = (props) => {
         <div className={styles["field"] + " " + styles["required"]}>
           <label>Why do you want to join {props.company}?</label>
           <textarea
+            autoComplete='off'
             required
             rows='4'
             onChange={(e) => {
@@ -204,6 +222,7 @@ const OpportunitiesForm = (props) => {
         <div className={styles["field"] + " " + styles["required"]}>
           <label>List any previous experience you have with the related field.</label>
           <textarea
+            autoComplete='off'
             required
             rows='4'
             onChange={(e) => {
@@ -220,6 +239,7 @@ const OpportunitiesForm = (props) => {
               className={styles["file-upload-label"]}
             >
               <input
+                autoComplete='off'
                 type='file'
                 id='resume-upload'
                 onChange={(e) => {
@@ -259,6 +279,7 @@ const OpportunitiesForm = (props) => {
         <div className={styles["field"]}>
           <label>Additional Remarks</label>
           <textarea
+            autoComplete='off'
             rows='3'
             onChange={(e) => {
               setRemarks(e.target.value);
