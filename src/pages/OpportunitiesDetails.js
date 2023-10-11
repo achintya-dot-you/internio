@@ -168,6 +168,8 @@ const OpportunitiesDetails = () => {
   };
 
   return (
+      
+    
     <>
       {loading && (
         <div className={styles["loader-container"]}>
@@ -224,7 +226,9 @@ const OpportunitiesDetails = () => {
                 &lt;&#45; All Opportunities
               </Link>
             </div>
-            <div className={styles["right"]}>
+            
+          
+          <div className={styles["right"]}>
               <OpportunitiesForm
                 company={selectedItem.company}
                 position={selectedItem.position}
