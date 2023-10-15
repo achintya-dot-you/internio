@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://dsc.gg/internio",
+    "iconName": "faDiscord",
+    "name": "Discord"
+  },
+  {
+    "url": "https://www.instagram.com/internio.app/",
+    "iconName": "faInstagram",
+    "name": "Instagram"
+  },
+  {
+    "url": "https://www.linkedin.com/company/internio/",
+    "iconName": "faLinkedin",
+    "name": "LinkedIn"
+  },
+  {
+    "url": "https://github.com/achintya-dot-you/internio",
+    "iconName": "faGithub",
+    "name": "GitHub"
+  }
+]

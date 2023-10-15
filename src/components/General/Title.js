@@ -7,23 +7,21 @@ const Title = () => {
   // Getting link
   const location = useLocation();
 
-  // Setting page title
   useEffect(() => {
     const pathname = location.pathname; // Get the current pathname
-    let title = "internio | Page Not Found"; // Set your default title here
+    const titleMap = {
+      "/": "internio | Home",
+      "/home": "internio | Home",
+      "/opportunities": "internio | Opportunities",
+      "/team": "internio | Team",
+      "/apply": "internio | Apply",
+      "/mission": "internio | Mission",
+    }; // Set up mapping for different pathnames
 
-    // Map the pathname to the desired title for each route
-    if (pathname === "/" || pathname === "/home") {
-      title = "internio | Home";
-    } else if (pathname === "/opportunities") {
-      title = "internio | Opportunities";
-    } else if (pathname === "/team") {
-      title = "internio | Team";
-    } else if (pathname === "/apply") {
-      title = "internio | Apply";
-    }
+    const defaultTitle = "internio | Page Not Found"; // Configuring a default title
+    const title = titleMap[pathname] || defaultTitle; // Setting the title based on pathname
 
-    document.title = title; // Set the document title
+    document.title = title; // Set the document title in the DOM
   }, [location]);
 
   return null; // Render nothing in the component
