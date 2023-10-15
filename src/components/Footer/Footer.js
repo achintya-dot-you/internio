@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 // Importing Styles
 import styles from "./Footer.module.scss";
 
+// Importing Data
+import columnData from "../../data/Footer/Columns.json";
+import socialsData from "../../data/Footer/Socials.json";
+
 // Importing Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faTwitter } from "@fortawesome/free-solid-svg-icons";
@@ -14,8 +18,77 @@ import { faGithub, faDiscord, faInstagram, faLinkedin } from "@fortawesome/free-
 // Importing Images
 import iconImage from "../../assets/images/icon-inverted.png";
 
+// Mapping Icons to Strings
+const icons = {
+  faGithub,
+  faDiscord,
+  faInstagram,
+  faLinkedin,
+};
+
 // ** Main Component **
 const Footer = () => {
+  const columns = (
+    <div className={styles["content"]}>
+      {columnData.map((column) => {
+        return (
+          <div
+            className={styles["column"]}
+            key={column.header}
+          >
+            <div className={styles["column-content"]}>
+              <p className={styles["column-header"]}>{column.header}</p>
+
+              <div className={styles["links"]}>
+                {column.links.map((link) => {
+                  if (link.url.startsWith("internio/")) {
+                    return (
+                      <Link
+                        to={link.url.substring("internio".length)}
+                        className={styles["link"]}
+                        key={link.title}
+                      >
+                        {link.title}
+                      </Link>
+                    );
+                  } else {
+                    return (
+                      <a
+                        href={link.url}
+                        className={styles["link"]}
+                        key={link.title}
+                      >
+                        {link.title}
+                      </a>
+                    );
+                  }
+                })}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+
+  const socials = (
+    <div className={styles["socials"]}>
+      {socialsData.map((link) => {
+        return (
+          <a
+            href={link.url}
+            key={link.name}
+          >
+            <FontAwesomeIcon
+              className={styles["icon"]}
+              icon={icons[link.iconName]}
+            />
+          </a>
+        );
+      })}
+    </div>
+  );
+
   // ** JSX **
   return (
     <div className={styles["footer"]}>
@@ -31,180 +104,21 @@ const Footer = () => {
         ></img>
       </h1>
 
-      {/* Content in footer */}
-      <div className={styles["content"]}>
-        {/* First Column */}
-        <div className={styles["column"]}>
-          <div className={styles["column-content"]}>
-            {/* Column Header */}
-            <p className={styles["column-header"]}>SOCIALS</p>
-
-            {/* Column Links */}
-            <div className={styles["links"]}>
-              <a
-                href='https://discord.gg/Usb95exFEc'
-                className={styles["link"]}
-              >
-                discord
-              </a>
-              <a
-                href='https://www.instagram.com/internio.app/'
-                className={styles["link"]}
-              >
-                instagram
-              </a>
-              <a
-                href='https://www.linkedin.com/company/internio/'
-                className={styles["link"]}
-              >
-                linkedIn
-              </a>
-              <a
-                href='https://github.com/achintya-dot-you/internio'
-                className={styles["link"]}
-              >
-                github
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Second Column */}
-        <div className={styles["column"]}>
-          <div className={styles["column-content"]}>
-            {/* Column Header */}
-            <p className={styles["column-header"]}>ABOUT</p>
-
-            {/* Column Links */}
-            <div className={styles["links"]}>
-              <Link
-                to={"/mission"}
-                className={styles["link"]}
-              >
-                Our Mission
-              </Link>
-              <Link
-                to={"/team"}
-                className={styles["link"]}
-              >
-                team
-              </Link>
-              <a
-                href='https://internio.notion.site/Job-Board-f02cf790ddc944f1ab233c22cf44157e'
-                className={styles["link"]}
-              >
-                careers
-              </a>
-
-              <Link
-                to={"https://www.paypal.me/internio"}
-                className={styles["link"]}
-              >
-                donate
-              </Link>
-
-              <Link
-                to={"https://forms.gle/jNRsqQMZfL7ZFamAA"}
-                className={styles["link"]}
-              >
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* 3rd Column */}
-        <div className={styles["column"]}>
-          <div className={styles["column-content"]}>
-            {/* Column Header */}
-            <p className={styles["column-header"]}>SERVICES</p>
-
-            {/* Column Links */}
-            <div className={styles["links"]}>
-              <Link
-                to={"/opportunities"}
-                className={styles["link"]}
-              >
-                opportunities
-              </Link>
-              <Link
-                to={"/resources"}
-                className={styles["link"]}
-              >
-                Resources
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* 4th Column */}
-        <div className={styles["column"]}>
-          <div className={styles["column-content"]}>
-            {/* Column Header */}
-            <p className={styles["column-header"]}>Partners</p>
-
-            {/* Column Links */}
-            <div className={styles["links"]}>
-              <Link
-                to={"https://www.instagram.com/ayika.foundation/"}
-                className={styles["link"]}
-              >
-                Ayika Foundation
-              </Link>
-              <Link
-                to={"https://www.teenmentalhealthsociety.org/"}
-                className={styles["link"]}
-              >
-                Teen Mental Health Society
-              </Link>
-              <Link
-                to={"https://www.threco.com"}
-                className={styles["link"]}
-              >
-                The Recycling Company
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      {columns}
 
       {/* Ending in footer */}
       <div className={styles["footer-row"]}>
         {/* Copyright text */}
         <p className={styles["copyright"]}>
           <span className={styles["symbol"]}>&copy;</span>
-          <span className={styles["brand"]}>internio.app |&nbsp;
-          <a href="mailto:team@internio.app">team@internio.app</a></span>
-          
+          <span className={styles["brand"]}>
+            internio.app |&nbsp;
+            <a href='mailto:team@internio.app'>team@internio.app</a>
+          </span>
         </p>
 
         {/* Social List */}
-        <div className={styles["socials"]}>
-          <a href='https://discord.com/invite/Usb95exFEc'>
-            <FontAwesomeIcon
-              className={styles["icon"]}
-              icon={faDiscord}
-            />
-          </a>
-          <a href='https://www.instagram.com/internio.app/'>
-            <FontAwesomeIcon
-              className={styles["icon"]}
-              icon={faInstagram}
-            />
-          </a>
-          <a href='https://www.linkedin.com/company/internio/'>
-            <FontAwesomeIcon
-              className={styles["icon"]}
-              icon={faLinkedin}
-            />
-          </a>
-          <a href='https://github.com/achintya-dot-you/internio'>
-            <FontAwesomeIcon
-              className={styles["icon"]}
-              icon={faGithub}
-            />
-          </a>
-        </div>
+        {socials}
       </div>
     </div>
   );
