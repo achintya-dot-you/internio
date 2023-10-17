@@ -126,7 +126,7 @@ const OpportunitiesDetails = () => {
     if (selectedItem) {
       document.title = `Opportunity | ${selectedItem.position}`;
     } else {
-      document.title = "Page Not Found";
+      document.title = "internio | Loading";
     }
   }, [selectedItem]);
 
