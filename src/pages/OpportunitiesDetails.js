@@ -124,7 +124,7 @@ const OpportunitiesDetails = () => {
 
   useEffect(() => {
     if (selectedItem) {
-      document.title = `Opportunity | ${selectedItem.name}`;
+      document.title = `Opportunity | ${selectedItem.position}`;
     } else {
       document.title = "Page Not Found";
     }
