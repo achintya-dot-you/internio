@@ -1,0 +1,8 @@
+// ** For float layouts **
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

@@ -1,205 +1,330 @@
-// ** Importing Base Styles **
+/* Importing base styles from an external SCSS file */
 @import "../../styles/initialization.scss";
 
-// Container
+/* Styling for the footer container */
 .footer {
+  /* Grid display for layout */
   display: grid;
-  background-color: var(--color-smoky-black);
-  height: fit-content;
-  width: 100%;
-  padding: var(--footer-padding);
+
+  /* Grid row gap */
   grid-row-gap: var(--footer-row-gap);
 
-  // Selection styles
+  /* Height and width */
+  height: fit-content;
+  width: 100%;
+
+  /* Padding */
+  padding: var(--footer-padding);
+
+  /* Background color */
+  background-color: var(--color-smoky-black);
+
+  /* Styling for text selection */
   ::selection {
+    /* Setting color */
     color: var(--color-smoky-black);
+
+    /* Setting background color */
     background-color: var(--color-pure-white);
   }
 }
 
-// Icon
+/* Styling for the icon in the footer */
 .heading {
+  /* Flex display for layout */
   display: flex;
-  color: var(--color-pure-white);
+
+  /* Setting height to fit-content so that the icon only takes the required amount of space */
   height: fit-content;
+
+  /* Centering items vertically */
   align-items: center;
+
+  /* Pushing content to the left */
   justify-content: flex-start;
+
+  /* Text color */
+  color: var(--color-pure-white);
+
+  /* Disable text selection since it's an icon */
   user-select: none;
 
-  // Animation
+  /* Animation for fading in */
   animation: fadeIn var(--general-animation-time) ease-out;
   animation-fill-mode: backwards;
 }
 
-// Text part of heading
+/* Styling in the text part of the icon */
 .heading-text {
+  /* Setting a font-size */
   font-size: var(--footer-heading-font-size);
+
+  /* Setting a font-family */
   font-family: Montserrat, sans-serif;
+
+  /* Setting height to fit-content so that the text only takes required amount of space */
   height: fit-content;
 }
 
-// Icon part of heading
+/* Styling for the image in the icon */
 .heading-icon {
+  /* Setting a height for the size of the icon */
   height: var(--footer-heading-icon-height);
+
+  /* Disable text selection since it's an icon */
   user-select: none;
 }
 
-// Bulk of footer
+/* Styling for the container of all the columns */
 .content {
+  /* Giving the container the entire width and height */
   height: 100%;
   width: 100%;
+
+  /* Setting container to flex layout */
   display: flex;
 }
 
-// Each column in footer
+/* Styling for the columns */
 .column {
+  /* Giving the columns the entire part of the width that is shared with each column */
   width: 100%;
+
+  /* Setting flex layout */
+  display: flex;
+
+  /* Setting the column flex for a vertical flex layout */
+  flex-direction: column;
+
+  /* Aliging items to the left of the column */
   align-items: flex-start;
-  display: flex;
-  flex-direction: column;
 }
 
-// Content in column
+/* Styling for the content in the column */
 .column-content {
+  /* Setting a flex layout */
   display: flex;
+
+  /* Setting the column flex for a vertical flex layout */
   flex-direction: column;
+
+  /* Adjusting Vertical Gap */
   gap: var(--footer-column-content-gap);
+
+  /* Giving the column the entire width of the column */
   width: 100%;
 }
 
-// Column Header
+/* Styles for the header of the column */
 .column-header {
+  /* Text Color */
   color: var(--color-pure-white);
+
+  /* Adjusting font size */
   font-size: var(--footer-column-heading-font-size);
+
+  /* Adjusting font weight */
   font-weight: var(--footer-column-heading-font-weight);
+
+  /* Adjusting letter spacing */
   letter-spacing: var(--footer-column-heading-letter-spacing);
-  text-transform: uppercase;
+
+  /* Setting a font family */
   font-family: "proximanova", Helvetica, Arial, sans-serif;
-  cursor: default;
+
+  /* Giving opacity */
   opacity: var(--footer-column-heading-opacity);
-  font-family: "proximanova", Helvetica, Arial, sans-serif;
+
+  /* Setting all font to uppercase */
+  text-transform: uppercase;
+
+  /* Setting the cursor to the default to discourage text selection */
+  cursor: default;
+
+  /* Adjusting the line height */
   line-height: var(--footer-column-heading-line-height);
 
-  // Animation
+  /* Animation for fading in */
   animation: fadeIn var(--general-animation-time) ease-out;
   animation-fill-mode: backwards;
 }
 
-// Links in column
+/* Styling for link container */
 .links {
+  /* Setting a vertical flex layout */
   display: flex;
   flex-direction: column;
+
+  /* Adjusting vertical gap between each link */
   gap: var(--footer-link-gap);
+
+  /* Giving the link container the entire width of the column*/
   width: 100%;
+
+  /* Disabling text slection to promote clicks */
   user-select: none;
 
-  // Animation
+  /* Animation for fading in */
   animation: fadeIn var(--general-animation-time) ease-out;
   animation-fill-mode: backwards;
 }
 
-// Each link
+/* Styling for each link */
 .link {
-  // Normal State
+  /* Styles for normal and visited state */
   &:link,
   &:visited {
-    text-decoration: none;
+    /* Setting text color */
     color: var(--color-pure-white);
-    text-transform: capitalize;
+
+    /* Adjusting Font Size */
     font-size: var(--footer-link-font-size);
+
+    /* Setting Font Family */
     font-family: "proximanova", Helvetica, Arial, sans-serif;
+
+    /* Setting Line Height */
     line-height: var(--footer-link-line-height);
+
+    /* Setting Letter Spacing */
     letter-spacing: var(--footer-link-letter-spacing);
+
+    /* Disabling all text decoration to remove underline */
+    text-decoration: none;
+
+    /* Capitalizing Text */
+    text-transform: capitalize;
     width: 100%;
   }
 
-  // Hover State
+  /* Styling for hovered state */
   &:hover {
+    /* Adding underline on hover */
     text-decoration: underline;
+
+    /* Changing opacity on hover */
     opacity: var(--footer-link-hover-opacity);
   }
 }
 
-// Ending row in footer
+/* Styles for the ending row of the footer */
 .footer-row {
+  /* Setting display to flex */
   display: flex;
+
+  /* Setting items as far apart as possible */
   justify-content: space-between;
 }
 
-// copyright text in footer
+/* Styles for copyright text */
 .copyright {
-  color: var(--color-very-light-gray);
+  /* Adding flex Display */
   display: flex;
+
+  /* Aligning items to the center vertically */
   align-items: center;
+
+  /* Increasing gap between items */
   gap: var(--footer-copyright-text-gap);
+
+  /* Text Color */
+  color: var(--color-very-light-gray);
+
+  /* Adjusting Font Size */
   font-size: var(--footer-copyright-text-font-size);
-  a{
-    text-decoration:underline;
-    color: var(--color-very-light-gray)
+
+  /* Styles for the link in the copyright */
+  a {
+    /* Adding underline */
+    text-decoration: underline;
+
+    /* Setting text color */
+    color: var(--color-very-light-gray);
   }
 
-  // Animations
+  /* Animation for fading in */
   animation: fadeIn var(--general-animation-time) ease-out;
   animation-fill-mode: backwards;
 }
 
-// Socials list
+/* Styling for the icons container in the end row of the footer */
 .socials {
-  user-select: none;
+  /* Setting Display to flex to give a row layout */
   display: flex;
-  flex-direction: row;
+
+  /* Adjusting gap between each icon */
   gap: var(--footer-socials-gap);
 
-  // Animation
+  /* Disabling text selection because they are icons */
+  user-select: none;
+
+  /* Animation for fading in */
   animation: fadeIn var(--general-animation-time) ease-out;
   animation-fill-mode: backwards;
 
-  // Each social
+  /* Styling for the link in each icon */
   a {
+    /* Disabling Text selection because the link is an icon */
     user-select: none;
 
-    // Normal State
+    /* Styles for the normal and visited state  */
     &:link,
     &:visited {
+      /* Text color and outline color */
       color: var(--color-pure-white);
       stroke: var(--color-smoky-black);
+
+      /* Setting opacity  */
       opacity: var(--footer-socials-opcaity);
     }
 
-    // Hover State
+    /* Styles for hover state */
     &:hover {
+      /* Changing opacity on hover */
       opacity: var(--footer-socials-hover-opacity);
     }
   }
 }
 
-// Every icon in social list
+/* Styles for the icon  */
 .icon {
+  /* Giving icon a length for the width and height and making it a square shape */
   width: var(--footer-socials-icon-side-length);
   height: var(--footer-socials-icon-side-length);
 }
 
+/* Code for responsiveness */
 @media only screen and (max-width: 46.875em) {
-  // Changing content to be a column
+  /*/ Changing code for the columns' container */
   .content {
+    /*/ Giving a column layout for smaller screens */
     flex-direction: column;
+
+    /*/ Adjusting vertical gap */
     gap: var(--footer-phone-content-gap);
   }
 
-  .footer-row {
-    flex-direction: column;
-    gap: var(--footer-phone-row-gap);
-  }
-
-  // Adjusting font-size
+  /*/ Styles for the header in each column */
   .column-header {
+    /*/ Changing font size for smaller screens */
     font-size: var(--footer-phone-column-heading-font-size);
   }
 
+  /*/ Styles for the normal and visited state of the link */
   .link {
     &:link,
     &:visited {
+      /*/ Adjusting font-size for smaller screens */
       font-size: var(--footer-phone-link-font-size);
     }
+  }
+
+  /*/ Styling for the end row in the footer */
+  .footer-row {
+    /*/ Changing to column layout for smaller screens */
+    flex-direction: column;
+
+    /*/ Adjusting vertical gap */
+    gap: var(--footer-phone-row-gap);
   }
 }

@@ -66,24 +66,8 @@
 }
 
 .btn {
-  outline: none;
-  border: none;
-  padding: var(--header-button-padding);
-  width: var(--header-button-width);
-  border: var(--header-button-border-width) solid var(--color-smoky-black);
-  border-radius: var(--header-button-border-radius);
-  white-space: no-wrap;
-  text-align: center;
-  user-select: none;
-  font-weight: var(--header-button-font-weight);
-  font-size: var(--header-button-font-size);
-  text-decoration: none;
-  cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-
-  &:hover {
-    transform: translateY(-0.5rem);
-  }
+  @include generalButtonStyles(var(--header-button-width));
+  align-self: center;
 }
 
 .btn-filled {

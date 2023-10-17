@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-import { ref, listAll, getDownloadURL } from "firebase/storage";
-import { storage } from "../firebase_setup/firebase-config";
-import { db } from "../firebase_setup/firebase-config";
-import { collection, getDocs } from "firebase/firestore";
+import useFirebase from "../hooks/useFirebase";
 
 import styles from "./OpportunitiesDetails.module.scss";
 
@@ -15,7 +12,6 @@ import Footer from "../components/Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
 
-import dummy from "../assets/images/opportunities/dummy.jpg";
 import iconImage from "../assets/images/icon.png";
 
 const ListItem = (props) => {
@@ -56,7 +52,7 @@ const ListItem = (props) => {
   );
 };
 
-const ListComponent = (props) => {
+const ListComponent = React.memo((props) => {
   const text = props.text;
   const items = text.split("|");
   return items.map((item, index) => (
@@ -66,10 +62,13 @@ const ListComponent = (props) => {
       category={props.category}
     />
   ));
-};
+});
 
-const LinkDetectedText = (props) => {
-  const textParts = props.text.split(/(<a.*?<\/a>|\bhttps?:\/\/\S+\b)/); // Split text by existing <a> tags and links
+const LinkDetectedText = React.memo((props) => {
+  const textParts = useMemo(
+    () => props.text.split(/(<a.*?<\/a>|\bhttps?:\/\/\S+\b)/),
+    [props.text]
+  );
 
   return (
     <span className={styles[`${props.category}-text`]}>
@@ -102,15 +101,13 @@ const LinkDetectedText = (props) => {
       })}
     </span>
   );
-};
+});
 
 const OpportunitiesDetails = () => {
   const { id } = useParams();
-  const [imageList, setImageList] = useState([]);
-  const [opportunitiesList, setOpportunitiesList] = useState([]);
-  const [combinedData, setCombinedData] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const { combinedData } = useFirebase();
 
   const selectedItem = useMemo(() => {
     if (id && combinedData.length > 0) {
@@ -120,55 +117,19 @@ const OpportunitiesDetails = () => {
     return null;
   }, [id, combinedData]);
 
-  useEffect(() => {
-    const fetchOpportunitiesAndImages = async () => {
-      // Fetch opportunities data only once
-      const opportunitiesData = await getDocs(collection(db, "opportunities"));
-      setOpportunitiesList(opportunitiesData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-
-      // Fetch image URLs only once
-      const imageRefs = await listAll(ref(storage, "opportunities/"));
-      const urls = await Promise.all(imageRefs.items.map(async (item) => getDownloadURL(item)));
-      setImageList(urls);
-
-      if (selectedItem) {
-        document.title = `Opportunity | ${selectedItem.position}`;
-      } else {
-        document.title = "Page Not Found";
-      }
-    };
-
-    fetchOpportunitiesAndImages();
-  }, [selectedItem]);
+  const logoClickHandler = useCallback(
+    (e) => {
+      e.preventDefault();
+      document.location.href = selectedItem.link;
+    },
+    [selectedItem]
+  );
 
   useEffect(() => {
     if (loading === false && !selectedItem) {
       navigate("/404");
     }
   }, [loading, navigate, selectedItem]);
-
-  useEffect(() => {
-    // Combine opportunities and image data
-    if (imageList.length > 0 && opportunitiesList.length > 0) {
-      const combinedData = opportunitiesList.map((opportunity) => {
-        const selectedImage = imageList.find((url) => {
-          const imageNameFromURL = url.match(/%2F(.*?)\?/)[1];
-          return imageNameFromURL === opportunity.imagename;
-        });
-
-        return { ...opportunity, imageURL: selectedImage || dummy };
-      });
-
-      setCombinedData(combinedData);
-
-      setLoading(false);
-    }
-  }, [imageList, opportunitiesList]);
-
-  const logoClickHandler = (e) => {
-    e.preventDefault();
-    document.location.href = selectedItem.link;
-  };
 
   return (
     <>
