@@ -1,0 +1,66 @@
+//! All Navbar Variables
+
+:root {
+  // Navbar Size and Layout
+  --navbar-horizontal-padding: 3rem;
+  --navbar-link-gap: 3.8rem;
+  --navbar-phone-gap: 4px; // On Smaller Screens
+  --navbar-phone-width: 75vw; // On Smaller Screens
+
+  // Navbar Height
+  --navbar-height: 9vh;
+  --navbar-height-medium: 11vh;
+  --navbar-height-large: 13vh;
+
+  // Navbar Header
+  --navbar-header-font-size: 3.3rem;
+  --navbar-header-icon-size: 3.3rem;
+  --navbar-header-font-weight: 700;
+  --navbar-header-line-height: 5.8rem;
+  --navbar-header-gap: 5.5rem;
+
+  // Navbar Links
+  --navbar-navlink-font-weight: 600;
+  --navbar-navlink-font-size: 1.8rem;
+  --navbar-navlink-font-size-small: 1.6rem;
+  --navbar-navlink-font-size-big: 2.5rem;
+  --navbar-navlink-line-height: 1.2;
+  --navbar-navlink-phone-font-size: 2.4rem; // On Smaller Screens
+  --navbar-navlink-phone-padding: 2rem; // On Smaller Screens
+
+  // Navbar Dropdown
+  --navbar-dropdown-border-radius: 1rem;
+  --navbar-dropdown-icon-gap: 0.5rem;
+  --navbar-dropdown-icon-height: 1.8rem;
+  --navbar-dropdown-icon-offset-top: 3px;
+  --navbar-dropdown-border-width: 2px;
+  --navbar-dropdown-side-offset: -8%;
+
+  // Navbar Dropdown Links
+  --navbar-dropdown-link-gap: 0.5rem;
+  --navbar-dropdown-link-side-padding: 2rem;
+  --navbar-dropdown-navlink-padding: 1rem 3.5rem;
+
+  // Navbar Toggler
+  --navbar-toggler-font-size-large: 3rem;
+
+  // Animation
+  --navbar-animation-time: 0.4s;
+  --navbar-dropdown-animation-time: 0.4s;
+
+  // Miscellaneous
+  --navbar-border-width: 0.2vw;
+}
+
+// ** Responsive Functionality **
+@media only screen and (max-width: 62.5em) {
+  :root {
+    --navbar-navlink-font-size: 2.1rem;
+  }
+}
+
+@media only screen and (max-width: 46.875em) {
+  :root {
+    --navbar-header-gap: 0;
+  }
+}

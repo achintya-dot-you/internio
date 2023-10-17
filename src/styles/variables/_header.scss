@@ -1,0 +1,32 @@
+//! All Header Variables
+
+:root {
+  // Main Heading
+  --header-heading-font-size: 5rem;
+  --header-heading-small-font-size: 4rem; // On Smaller Screens
+  --header-heading-x-small-font-size: 3.5rem; // On Smaller Screens
+  --header-heading-x-x-small-font-size: 3.2rem; // On Smaller Screens
+  --header-heading-line-height: 1.2;
+  --header-heading-font-weight: 800;
+
+  // Description / Subheading
+  --header-subheading-font-size: 2.9rem;
+  --header-subheading-small-font-size: 2.6rem; // On Smaller Screens
+  --header-subheading-x-small-font-size: 2.2rem; // On Smaller Screens
+  --header-subheading-x-x-small-font-size: 2rem; // On Smaller Screens
+  --header-subheading-font-weight: 500;
+
+  // Header Buttons
+  --header-button-width: 20rem;
+  --header-button-padding: 0.6rem 1.8rem;
+  --header-button-border-width: 0.35rem;
+  --header-button-border-radius: 1rem;
+  --header-button-font-size: 2rem;
+  --header-button-font-weight: 700;
+
+  // Header Whitespace
+  --header-container-gap: 2rem;
+  --header-text-gap: 1rem;
+  --header-cta-gap: 2rem;
+  --header-smaller-screen-margin: 1rem; // On Smaller Screens
+}

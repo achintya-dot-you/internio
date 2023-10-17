@@ -1,0 +1,7 @@
+// ** Quickly make something positioned absolutely, go to the center **
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
