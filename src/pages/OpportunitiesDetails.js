@@ -124,10 +124,18 @@ const OpportunitiesDetails = () => {
     },
     [selectedItem]
   );
+  
+  useEffect(() => {
+    if (selectedItem) {
+      document.title = `Opportunity | ${selectedItem.name}`;
+    } else {
+      document.title = "Page Not Found";
+    }
+  }, [selectedItem]);
 
   useEffect(() => {
     if (loading === false && !selectedItem) {
-      navigate("/404");
+      navigate("/404"); // Redirect to the 404 page or any other URL
     }
   }, [loading, navigate, selectedItem]);
 
@@ -185,11 +193,7 @@ const OpportunitiesDetails = () => {
                 className={styles["button"] + " " + styles["hide-phone"]}
                 to='/opportunities'
               >
-                <FontAwesomeIcon
-                  icon={faLeftLong}
-                  className={styles["button-icon"]}
-                />
-                All Opportunities
+                &lt;&#45; All Opportunities
               </Link>
             </div>
             <div className={styles["right"]}>
