@@ -9,9 +9,6 @@ import OpportunitiesForm from "../components/Opportunities/OpportunitiesForm";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
-
 import iconImage from "../assets/images/icon.png";
 
 const ListItem = (props) => {
@@ -124,7 +121,7 @@ const OpportunitiesDetails = () => {
     },
     [selectedItem]
   );
-  
+
   useEffect(() => {
     if (selectedItem) {
       document.title = `Opportunity | ${selectedItem.name}`;
