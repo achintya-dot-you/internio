@@ -5,7 +5,6 @@ import useFirebase from "../hooks/useFirebase";
 
 import styles from "./OpportunitiesDetails.module.scss";
 
-import OpportunitiesForm from "../components/Opportunities/OpportunitiesForm";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
@@ -194,10 +193,6 @@ const OpportunitiesDetails = () => {
               </Link>
             </div>
             <div className={styles["right"]}>
-              <OpportunitiesForm
-                company={selectedItem.company}
-                position={selectedItem.position}
-              />
             </div>
           </div>
           <Footer />
