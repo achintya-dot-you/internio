@@ -6,6 +6,8 @@ import useFirebase from "../hooks/useFirebase";
 import styles from "./OpportunitiesDetails.module.scss";
 
 import OpportunitiesForm from "../components/Opportunities/OpportunitiesForm";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 import iconImage from "../assets/images/icon.png";
 
@@ -53,13 +55,16 @@ const OpportunitiesDetails = () => {
       )}
       {selectedItem && !loading && (
         <>
+          <Navbar />
           <div className={styles["container"]}>
-            <div className={styles["right"]}><OpportunitiesForm
+            <div className={styles["right"]}>
+              <OpportunitiesForm
                 company={selectedItem.company}
                 position={selectedItem.position}
               />
             </div>
           </div>
+          <Footer />
         </>
       )}
     </>
