@@ -1,0 +1,42 @@
+[
+  {
+    "header": "socials",
+    "links": [
+      { "url": "https://dsc.gg/internio", "title": "discord" },
+      { "url": "https://www.instagram.com/internio.app/", "title": "instagram" },
+      { "url": "https://www.linkedin.com/company/internio/", "title": "linkedIn" },
+      { "url": "https://github.com/achintya-dot-you/internio", "title": "github" }
+    ]
+  },
+  {
+    "header": "about",
+    "links": [
+      { "url": "internio/mission", "title": "our mission" },
+      { "url": "internio/team", "title": "team" },
+      {
+        "url": "https://internio.notion.site/Job-Board-f02cf790ddc944f1ab233c22cf44157e",
+        "title": "careers"
+      },
+      { "url": "https://www.paypal.me/internio", "title": "donate" },
+      { "url": "https://forms.gle/jNRsqQMZfL7ZFamAA", "title": "contact" }
+    ]
+  },
+  {
+    "header": "services",
+    "links": [
+      { "url": "internio/opportunities", "title": "opportunities" },
+      {
+        "url": "internio/resources",
+        "title": "resources"
+      }
+    ]
+  },
+  {
+    "header": "partners",
+    "links": [
+      { "url": "https://www.instagram.com/ayika.foundation/", "title": "ayika foundation" },
+      { "url": "https://www.teenmentalhealthsociety.org/", "title": "teen mental health society" },
+      { "url": "https://www.threco.com", "title": "the recycling company" }
+    ]
+  }
+]

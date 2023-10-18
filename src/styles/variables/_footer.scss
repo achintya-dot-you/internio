@@ -1,0 +1,40 @@
+//! All Footer Variables
+
+:root {
+  // Gap and Padding
+  --footer-padding: 6.4rem 6.7rem 8rem 6.7rem;
+  --footer-row-gap: 6.4rem;
+  --footer-phone-content-gap: 4.8rem; // On Smaller Screens
+  --footer-phone-row-gap: 1.6rem; // On Smaller Screens
+
+  // Heading
+  --footer-heading-font-size: 3rem;
+  --footer-heading-icon-height: 3rem;
+
+  // Columns
+  --footer-column-content-gap: 1.6rem;
+  --footer-column-heading-font-size: 1.4rem;
+  --footer-column-heading-font-weight: 500;
+  --footer-column-heading-letter-spacing: 0.1rem;
+  --footer-column-heading-opacity: 0.85;
+  --footer-column-heading-line-height: 1.5;
+  --footer-phone-column-heading-font-size: 1.8rem; // On Smaller Screens
+
+  // Links
+  --footer-link-gap: 1.6rem;
+  --footer-link-font-size: 1.6rem;
+  --footer-link-line-height: 1.5;
+  --footer-link-letter-spacing: 1px;
+  --footer-link-hover-opacity: 0.8;
+  --footer-phone-link-font-size: 1.8rem; // On Smaller Screens
+
+  // Copyright Text
+  --footer-copyright-text-gap: 0.2rem;
+  --footer-copyright-text-font-size: 1.65rem;
+
+  // Socials
+  --footer-socials-gap: 1rem;
+  --footer-socials-opcaity: 0.85;
+  --footer-socials-hover-opacity: 0.6;
+  --footer-socials-icon-side-length: 2.3rem;
+}

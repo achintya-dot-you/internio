@@ -51,6 +51,7 @@ const Header = () => {
 
         {/* Buttons */}
         <div className={styles["cta"]}>
+          {/* Opportunities Button */}
           <button
             type='link'
             className={`${styles["btn"]} ${styles["btn-filled"]}`}
@@ -58,6 +59,7 @@ const Header = () => {
           >
             opportunities
           </button>
+          {/* Resources Button */}
           <button
             type='link'
             className={`${styles["btn"]} ${styles["btn-outline"]}`}
