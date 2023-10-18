@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect, useMemo } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import useFirebase from "../hooks/useFirebase";
 
