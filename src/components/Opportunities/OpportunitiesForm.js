@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { db, storage } from "../../firebase_setup/firebase-config";
 import { ref, uploadBytes } from "firebase/storage";
@@ -25,7 +25,8 @@ const OpportunitiesForm = ({ company, position }) => {
   const [remarks, setRemarks] = useState("");
   const [isWrong, setIsWrong] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadingText, setLoadingText] = useState("Loading");
   const collectionRef = collection(db, "formResponses");
 
   const isValid = () => {
@@ -43,10 +44,27 @@ const OpportunitiesForm = ({ company, position }) => {
     return true;
   };
 
+  const resetStates = () => {
+    setName("");
+    setEmail("");
+    setResume(null);
+    setPhone("");
+    setInstitution("");
+    setCity("");
+    setReason("");
+    setExperience("");
+    setRemarks("");
+    setIsSubmitted(true);
+    setIsWrong(false);
+    setLoadingText("Loading");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (isValid()) {
+      setIsLoading(true);
+      setLoadingText("Loading");
       setIsWrong(false);
 
       let resumeFileName = "-";
@@ -72,19 +90,10 @@ const OpportunitiesForm = ({ company, position }) => {
 
       try {
         await addDoc(collectionRef, data);
-        setName("");
-        setEmail("");
-        setResume(null);
-        setPhone("");
-        setInstitution("");
-        setCity("");
-        setReason("");
-        setExperience("");
-        setRemarks("");
-        setIsSubmitted(true);
-        setIsWrong(false);
+        resetStates();
       } catch (error) {
-        console.error("Error submitting data:", error);
+      } finally {
+        setIsLoading(false);
       }
     } else {
       setIsWrong(true);
@@ -102,11 +111,20 @@ const OpportunitiesForm = ({ company, position }) => {
     e.stopPropagation();
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-    }
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLoadingText((prevText) => {
+        if (prevText === "Loading...") {
+          return "Loading";
+        } else {
+          return prevText + ".";
+        }
+      });
+    }, 500);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -114,7 +132,6 @@ const OpportunitiesForm = ({ company, position }) => {
       <form
         autoComplete='off'
         className={styles["form"]}
-        onKeyDown={handleKeyPress}
       >
         <div className={styles["field"] + " " + styles["required"]}>
           <label>Name</label>
@@ -256,13 +273,15 @@ const OpportunitiesForm = ({ company, position }) => {
             value={remarks}
           />
         </div>
-        <button
-          type='submit'
-          className={styles["button"]}
-          onClick={handleSubmit}
-        >
-          Apply Now
-        </button>
+        {!isLoading && (
+          <button
+            className={styles["button"]}
+            onClick={handleSubmit}
+          >
+            Apply Now
+          </button>
+        )}
+        {isLoading && <button className={styles["button"]}>{loadingText}</button>}
       </form>
       {isSubmitted && (
         <>
