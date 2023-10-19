@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { db, storage } from "../../firebase_setup/firebase-config";
 import { ref, uploadBytes } from "firebase/storage";
@@ -10,8 +10,8 @@ import { v4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTrash, faX } from "@fortawesome/free-solid-svg-icons";
 
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const phonePattern = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]{8,14}$/g;
+// const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// const phonePattern = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]{8,14}$/g;
 
 const OpportunitiesForm = ({ company, position }) => {
   const [name, setName] = useState("");
