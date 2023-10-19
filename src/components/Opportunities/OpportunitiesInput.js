@@ -1,67 +1,49 @@
 import React from "react";
 
-const OpportunitiesInput = ({ label, type, value, onChange, required, styling, textarea }) => {
+import styles from "./OpportunitiesForm.module.scss";
+
+const OpportunitiesInput = ({ label, type, value, onChange, required }) => {
+  const handleBlur = () => {
+    document.documentElement.style.zoom = "1";
+  };
+
   return (
     <>
-      {!textarea && (
-        <>
-          {required && (
-            <div className={styling["field"] + " " + styling["required"]}>
-              <label>{label}</label>
-              <input
-                autoComplete='off'
-                type={type}
-                required
-                onChange={onChange}
-                value={value}
-              />
-            </div>
-          )}
-
-          {!required && (
-            <div className={styling["field"]}>
-              <label>{label}</label>
-              <input
-                autoComplete='off'
-                type={type}
-                onChange={onChange}
-                value={value}
-              />
-            </div>
-          )}
-        </>
+      {required && (
+        <div className={styles["field"] + " " + styles["required"]}>
+          <label>{label}</label>
+          <input
+            autoComplete='off'
+            type={type}
+            required
+            onChange={onChange}
+            value={value}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+              }
+            }}
+            onBlur={handleBlur}
+          />
+        </div>
       )}
-      {textarea && (
-        <>
-          {" "}
-          {required && (
-            <>
-              <div className={styling["field"] + " " + styling["required"]}>
-                <label>{label}</label>
-                <textarea
-                  autoComplete='off'
-                  required
-                  rows='4'
-                  onChange={onChange}
-                  value={value}
-                />
-              </div>
-            </>
-          )}{" "}
-          {!required && (
-            <>
-              <div className={styling["field"]}>
-                <label>Additional Remarks</label>
-                <textarea
-                  autoComplete='off'
-                  rows='4'
-                  onChange={onChange}
-                  value={value}
-                />
-              </div>
-            </>
-          )}
-        </>
+
+      {!required && (
+        <div className={styles["field"]}>
+          <label>{label}</label>
+          <input
+            autoComplete='off'
+            type={type}
+            onChange={onChange}
+            value={value}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+              }
+            }}
+            onBlur={handleBlur}
+          />
+        </div>
       )}
     </>
   );

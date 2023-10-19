@@ -9,9 +9,10 @@ import { v4 } from "uuid";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTrash, faX } from "@fortawesome/free-solid-svg-icons";
+import OpportunitiesInput from "./OpportunitiesInput";
 
-// const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// const phonePattern = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]{8,14}$/g;
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phonePattern = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]{8,14}$/g;
 
 const OpportunitiesForm = ({ company, position }) => {
   const [name, setName] = useState("");
@@ -37,7 +38,9 @@ const OpportunitiesForm = ({ company, position }) => {
       institution.trim() === "" ||
       city.trim() === "" ||
       reason.trim() === "" ||
-      experience.trim() === ""
+      experience.trim() === "" ||
+      !emailPattern.test(email) ||
+      !phonePattern.test(phone)
     ) {
       return false;
     }
@@ -133,66 +136,51 @@ const OpportunitiesForm = ({ company, position }) => {
         autoComplete='off'
         className={styles["form"]}
       >
-        <div className={styles["field"] + " " + styles["required"]}>
-          <label>Name</label>
-          <input
-            autoComplete='off'
-            type='text'
-            required
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-            value={name}
-          />
-        </div>
-        <div className={styles["field"] + " " + styles["required"]}>
-          <label>Phone Number</label>
-          <input
-            autoComplete='off'
-            type='tel'
-            required
-            onChange={(e) => {
-              setPhone(e.target.value);
-            }}
-            value={phone}
-          />
-        </div>
-        <div className={styles["field"] + " " + styles["required"]}>
-          <label>Email</label>
-          <input
-            autoComplete='off'
-            type='text'
-            required
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            value={email}
-          />
-        </div>
-        <div className={styles["field"] + " " + styles["required"]}>
-          <label>What institution do you attend?</label>
-          <input
-            autoComplete='off'
-            type='text'
-            required
-            onChange={(e) => {
-              setInstitution(e.target.value);
-            }}
-            value={institution}
-          />
-        </div>
-        <div className={styles["field"] + " " + styles["required"]}>
-          <label>City of Residence</label>
-          <input
-            autoComplete='off'
-            type='text'
-            required
-            onChange={(e) => {
-              setCity(e.target.value);
-            }}
-            value={city}
-          />
-        </div>
+        <OpportunitiesInput
+          label='Name'
+          type='text'
+          required={true}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+          value={name}
+        />
+        <OpportunitiesInput
+          label='Phone Number'
+          type='tel'
+          required={true}
+          onChange={(e) => {
+            setPhone(e.target.value);
+          }}
+          value={phone}
+        />
+        <OpportunitiesInput
+          label='Email'
+          type='text'
+          required={true}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+          value={email}
+        />
+        <OpportunitiesInput
+          label='What institution do you attend?'
+          type='text'
+          required={true}
+          onChange={(e) => {
+            setInstitution(e.target.value);
+          }}
+          value={institution}
+        />
+        <OpportunitiesInput
+          label='City of Residence'
+          type='text'
+          required={true}
+          onChange={(e) => {
+            setCity(e.target.value);
+          }}
+          value={city}
+        />
         <div className={styles["field"] + " " + styles["required"]}>
           <label>Why do you want to join {company}?</label>
           <textarea
@@ -203,6 +191,11 @@ const OpportunitiesForm = ({ company, position }) => {
               setReason(e.target.value);
             }}
             value={reason}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+              }
+            }}
           />
         </div>
         <div className={styles["field"] + " " + styles["required"]}>
