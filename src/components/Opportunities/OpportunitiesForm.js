@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import axios from "axios";
-import { storage } from "../../firebase_setup/firebase-config";
+import { db, storage } from "../../firebase_setup/firebase-config";
 import { ref, uploadBytes } from "firebase/storage";
+import { collection, addDoc } from "firebase/firestore";
 
 import styles from "./OpportunitiesForm.module.scss";
 import { v4 } from "uuid";
@@ -10,12 +10,10 @@ import { v4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTrash, faX } from "@fortawesome/free-solid-svg-icons";
 
-const apiKey = "https://sheet.best/api/sheets/" + process.env.REACT_APP_Sheets_apiKey;
-
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phonePattern = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]{8,14}$/g;
 
-const OpportunitiesForm = (props) => {
+const OpportunitiesForm = ({ company, position }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -30,43 +28,27 @@ const OpportunitiesForm = (props) => {
   const [isWrong, setIsWrong] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("handleSubmit called");
+  const collectionRef = collection(db, "formResponses");
 
-    let isDataValid = true;
-
+  const isValid = () => {
     if (
       name.trim() === "" ||
       email.trim() === "" ||
-      !emailIsValid ||
       phone.trim() === "" ||
-      !phoneIsValid ||
       institution.trim() === "" ||
       city.trim() === "" ||
       reason.trim() === "" ||
       experience.trim() === ""
     ) {
-      isDataValid = false;
-      console.log({
-        Name: name.trim(),
-        Email: email.trim(),
-        PhoneNumber: "no: " + phone.trim(),
-        Institution: institution.trim(),
-        CityOfResidence: city.trim(),
-        phone: !phonePattern.test(phone.trim()),
-        email: !emailPattern.test(email.trim()),
-        Reason: reason.trim(),
-        PreviousExperience: experience.trim(),
-        AdditionalRemarks: remarks === "" ? "-" : remarks.trim(),
-        Position: props.position,
-        Company: props.company,
-      });
-      console.log("Data is invalid. Setting isWrong to true.");
+      return false;
     }
+    return true;
+  };
 
-    if (isDataValid) {
-      console.log("Data is valid. Setting isSubmitted to true and isWrong to false.");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (isValid()) {
       setIsWrong(false);
 
       let resumeFileName = "-";
@@ -86,13 +68,12 @@ const OpportunitiesForm = (props) => {
         Reason: reason.trim(),
         PreviousExperience: experience.trim(),
         AdditionalRemarks: remarks === "" ? "-" : remarks.trim(),
-        Position: props.position,
-        Company: props.company,
+        Position: position,
+        Company: company,
       };
 
       try {
-        await axios.post(apiKey, data);
-        console.log("Data submitted successfully.");
+        await addDoc(collectionRef, data);
         setName("");
         setEmail("");
         setResume(null);
@@ -106,11 +87,9 @@ const OpportunitiesForm = (props) => {
         setIsWrong(false);
       } catch (error) {
         console.error("Error submitting data:", error);
-        // Handle error if needed
       }
     } else {
       setIsWrong(true);
-      console.log("Data is invalid. Setting isWrong to true.");
     }
   };
 
@@ -208,7 +187,7 @@ const OpportunitiesForm = (props) => {
           />
         </div>
         <div className={styles["field"] + " " + styles["required"]}>
-          <label>Why do you want to join {props.company}?</label>
+          <label>Why do you want to join {company}?</label>
           <textarea
             autoComplete='off'
             required
