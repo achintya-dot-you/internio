@@ -17,8 +17,6 @@ const OpportunitiesForm = ({ company, position }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [emailIsValid, setEmailIsValid] = useState(true);
-  const [phoneIsValid, setPhoneIsValid] = useState(true);
   const [institution, setInstitution] = useState("");
   const [city, setCity] = useState("");
   const [reason, setReason] = useState("");
@@ -92,14 +90,6 @@ const OpportunitiesForm = ({ company, position }) => {
       setIsWrong(true);
     }
   };
-
-  useEffect(() => {
-    const isEmailValid = emailPattern.test(email.trim());
-    const isPhoneValid = phonePattern.test(phone.trim());
-
-    setEmailIsValid(isEmailValid);
-    setPhoneIsValid(isPhoneValid);
-  }, [email, phone]);
 
   const outsidePopupClickHandler = () => {
     setTimeout(() => {
