@@ -16,7 +16,11 @@ import { faUpload, faTrash, faX } from "@fortawesome/free-solid-svg-icons";
 import iconImage from "../../assets/images/icon.png";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const phonePattern = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]{8,14}$/g;
+const phonePattern = /^(\d{10}|\d{11}|\d{12}|\d{13})$/;
+
+const checkPhone = (string) => {
+  return phonePattern.test(string.replace(/[+.\-() ]/g, ""));
+};
 
 const OpportunitiesForm = ({ company, position }) => {
   const [name, setName] = useState("");
@@ -46,7 +50,7 @@ const OpportunitiesForm = ({ company, position }) => {
       reason.trim() === "" ||
       experience.trim() === "" ||
       !emailPattern.test(email) ||
-      !phonePattern.test(phone)
+      !checkPhone(phone)
     ) {
       return false;
     }
@@ -56,15 +60,17 @@ const OpportunitiesForm = ({ company, position }) => {
   const validateEmail = () => {
     if (!emailPattern.test(email)) {
       setIsEmailWrong(true);
-    } else {
+    }
+    if (emailPattern.test(email)) {
       setIsEmailWrong(false);
     }
   };
 
   const validatePhone = () => {
-    if (!phonePattern.test(phone)) {
+    if (!checkPhone(phone)) {
       setIsPhoneWrong(true);
-    } else {
+    }
+    if (checkPhone(phone)) {
       setIsPhoneWrong(false);
     }
   };
@@ -188,7 +194,7 @@ const OpportunitiesForm = ({ company, position }) => {
               onChange={(e) => {
                 setPhone(e.target.value);
                 if (isPhoneWrong) {
-                  if (phonePattern.test(phone)) {
+                  if (checkPhone(phone)) {
                     setIsPhoneWrong(false);
                   }
                 }
