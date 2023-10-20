@@ -257,7 +257,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 48em) {
   .submission-confirmation {
     padding: 1.5rem 2.5rem;
     font-size: 1.8rem;
@@ -275,5 +275,13 @@
       font-weight: bold;
       padding: var(--navbar-button-padding-large);
     }
+  }
+}
+
+@media only screen and (max-width: 23.75em) {
+  .close-button,
+  .popup button {
+    min-width: fit-content;
+    padding: 0 1rem;
   }
 }
