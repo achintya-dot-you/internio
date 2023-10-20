@@ -2,11 +2,7 @@ import React from "react";
 
 import styles from "./OpportunitiesForm.module.scss";
 
-const OpportunitiesInput = ({ label, type, value, onChange, required }) => {
-  const handleBlur = () => {
-    document.documentElement.style.zoom = "1";
-  };
-
+const OpportunitiesInput = ({ label, type, value, onChange, required, onBlur, children }) => {
   return (
     <>
       {required && (
@@ -23,8 +19,9 @@ const OpportunitiesInput = ({ label, type, value, onChange, required }) => {
                 e.preventDefault();
               }
             }}
-            onBlur={handleBlur}
+            onBlur={onBlur}
           />
+          {children}
         </div>
       )}
 
@@ -41,8 +38,9 @@ const OpportunitiesInput = ({ label, type, value, onChange, required }) => {
                 e.preventDefault();
               }
             }}
-            onBlur={handleBlur}
+            onBlur={onBlur}
           />
+          {children}
         </div>
       )}
     </>
