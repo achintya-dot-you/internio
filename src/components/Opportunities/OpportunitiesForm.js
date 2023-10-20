@@ -243,11 +243,6 @@ const OpportunitiesForm = ({ company, position }) => {
                   setReason(e.target.value);
                 }}
                 value={reason}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    e.preventDefault();
-                  }
-                }}
               />
             </div>
             <div className={styles["field"] + " " + styles["required"]}>
@@ -260,11 +255,6 @@ const OpportunitiesForm = ({ company, position }) => {
                   setExperience(e.target.value);
                 }}
                 value={experience}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    e.preventDefault();
-                  }
-                }}
               />
             </div>
             <div className={styles["field"]}>
