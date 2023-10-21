@@ -64,6 +64,9 @@ const OpportunitiesForm = ({ company, position }) => {
     if (emailPattern.test(email)) {
       setIsEmailWrong(false);
     }
+    if (email.trim() === "") {
+      setIsEmailWrong(false);
+    }
   };
 
   const validatePhone = () => {
@@ -71,6 +74,9 @@ const OpportunitiesForm = ({ company, position }) => {
       setIsPhoneWrong(true);
     }
     if (checkPhone(phone)) {
+      setIsPhoneWrong(false);
+    }
+    if (phone.trim() === "") {
       setIsPhoneWrong(false);
     }
   };
@@ -214,7 +220,9 @@ const OpportunitiesForm = ({ company, position }) => {
               required={true}
               onChange={(e) => {
                 setEmail(e.target.value);
-                setIsEmailWrong(!emailPattern.test(email));
+                if (emailPattern.test(email)) {
+                  setIsEmailWrong(false);
+                }
               }}
               value={email}
               onBlur={validateEmail}
