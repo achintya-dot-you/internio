@@ -66,8 +66,8 @@ const Team = () => {
             <h2 className={styles["founders-name"]}>Arnav Bhola</h2>
             <p className={styles["founders-desc"]}>
               Arnav is passionate about all things tech: whether it is coding websites or developing
-              bots. He is innovative and thrives on intellectual challenges! He has participated in
-              and won various hackathons. ! He is charismatic, determined, resourceful, and a person
+              bots. He is innovative and has participated in and won various hackathons. He thrives
+              on intellectual challenges! He is charismatic, determined, resourceful, and a person
               you can always rely on. His unwavering dedication is evident through his mission to
               build a platform to empower future leaders.
             </p>
