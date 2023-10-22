@@ -1,6 +1,7 @@
 // ** Imports **
 // Importing React
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Importing Styles
 import styles from "./Introduction.module.scss";
@@ -33,6 +34,14 @@ const Introduction = () => {
           We are a team of high school and college students from across the world who are passionate
           about making a difference.
         </p>
+
+        {/* Button */}
+        <Link
+          to={"/mission"}
+          className={styles["button"]}
+        >
+          Our Mission
+        </Link>
       </div>
 
       {/* Right side - graphics sides */}
