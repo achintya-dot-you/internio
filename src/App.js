@@ -9,8 +9,11 @@ import Opportunities from "./pages/Opportunities";
 import Team from "./pages/Team";
 import Mission from "./pages/Mission";
 import NotFound from "./pages/NotFound";
-import Title from "./components/General/Title";
 import OpportunitiesDetails from "./pages/OpportunitiesDetails";
+
+// Importing general components
+import Title from "./components/General/Title";
+import ScrollToTop from "./components/General/ScrollToTop";
 
 // Importing Styles
 import "./styles/initialization.scss";
@@ -48,6 +51,7 @@ function App() {
     // Routing every page link
     <>
       <Router>
+        <ScrollToTop />
         <Title />
         <Routes>
           <Route
