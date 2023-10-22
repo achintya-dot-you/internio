@@ -17,6 +17,7 @@ import ScrollToTop from "./components/General/ScrollToTop";
 
 // Importing Styles
 import "./styles/initialization.scss";
+import Setup from "./components/General/Setup";
 
 function App() {
   // Redirecting to job board in /careers link
@@ -51,8 +52,7 @@ function App() {
     // Routing every page link
     <>
       <Router>
-        <ScrollToTop />
-        <Title />
+        <Setup />
         <Routes>
           <Route
             path='/'
