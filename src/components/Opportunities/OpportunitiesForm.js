@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 
 import { db, storage } from "../../firebase_setup/firebase-config";
 import { ref, uploadBytes } from "firebase/storage";
@@ -22,19 +22,6 @@ const checkPhone = (string) => {
   return phonePattern.test(string.replace(/[+.\-() ]/g, ""));
 };
 
-export const LOADINGACTIONS = {
-  RESET_TEXT: "reset-text",
-};
-
-const loadingReducer = (state, action) => {
-  switch (action.type) {
-    case LOADINGACTIONS.RESET_TEXT:
-      return { ...state, loadingText: "LoadingText" };
-    default:
-      return state;
-  }
-};
-
 const OpportunitiesForm = ({ company, position }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -51,11 +38,6 @@ const OpportunitiesForm = ({ company, position }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("Loading");
-  const [loadingState, dispatchLoading] = useReducer(loadingReducer, {
-    isLoading: false,
-    loadingText: "Loading",
-  });
-
   const collectionRef = collection(db, "formResponses");
 
   const isValid = () => {
@@ -112,7 +94,6 @@ const OpportunitiesForm = ({ company, position }) => {
     setIsSubmitted(true);
     setIsWrong(false);
     setLoadingText("Loading");
-    dispatchLoading({ type: LOADINGACTIONS.RESET_TEXT });
   };
 
   const handleSubmit = async (e) => {
