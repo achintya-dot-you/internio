@@ -35,6 +35,7 @@ const Introduction = () => {
           about making a difference.
         </p>
 
+        {/* Button */}
         <Link
           to={"/mission"}
           className={styles["button"]}
