@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useEffect, useMemo, useCallback, useReducer } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 import useFirebase from "../hooks/useFirebase";
@@ -100,15 +100,31 @@ const LinkDetectedText = React.memo((props) => {
   );
 });
 
+const LOADING_ACTIONS = {
+  TOGGLE_LOADING: "toggle-loading",
+  SET_LOADING: "set-loading",
+};
+
+const loadingReducer = (state, action) => {
+  switch (action.type) {
+    case LOADING_ACTIONS.TOGGLE_LOADING:
+      return { loading: !state.loading };
+    case LOADING_ACTIONS.SET_LOADING:
+      return { loading: action.payload };
+    default:
+      return state;
+  }
+};
+
 const OpportunitiesDetails = () => {
   const { id } = useParams();
-  const [loading, setLoading] = useState(true);
+  const [loadingState, dispatchLoading] = useReducer(loadingReducer, { loading: true });
   const navigate = useNavigate();
   const { combinedData } = useFirebase();
 
   const selectedItem = useMemo(() => {
     if (id && combinedData.length > 0) {
-      setLoading(false);
+      dispatchLoading({ type: LOADING_ACTIONS.SET_LOADING, payload: false });
       return combinedData.find((item) => item.name === id);
     }
     return null;
@@ -131,16 +147,14 @@ const OpportunitiesDetails = () => {
   }, [selectedItem]);
 
   useEffect(() => {
-    if (loading === false && !selectedItem) {
+    if (loadingState.loading === false && !selectedItem) {
       navigate("/404"); // Redirect to the 404 page or any other URL
     }
-  }, [loading, navigate, selectedItem]);
+  }, [loadingState.loading, navigate, selectedItem]);
 
   return (
-      
-    
     <>
-      {loading && (
+      {loadingState.loading && (
         <div className={styles["loader-container"]}>
           <picture>
             <img
@@ -152,7 +166,7 @@ const OpportunitiesDetails = () => {
           </picture>
         </div>
       )}
-      {selectedItem && !loading && (
+      {selectedItem && !loadingState.loading && (
         <>
           <Navbar />
           <div className={styles["container"]}>
@@ -195,9 +209,8 @@ const OpportunitiesDetails = () => {
                 &lt;&#45; All Opportunities
               </Link>
             </div>
-            
-          
-          <div className={styles["right"]}>
+
+            <div className={styles["right"]}>
               <OpportunitiesForm
                 company={selectedItem.company}
                 position={selectedItem.position}
