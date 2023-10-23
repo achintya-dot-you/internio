@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 
 import { db, storage } from "../../firebase_setup/firebase-config";
 import { ref, uploadBytes } from "firebase/storage";
@@ -22,16 +22,63 @@ const checkPhone = (string) => {
   return phonePattern.test(string.replace(/[+.\-() ]/g, ""));
 };
 
+const FORM_ACTIONS = {
+  CHANGE_NAME: "change-name",
+  CHANGE_EMAIL: "change-email",
+  CHANGE_PHONE: "change-phone",
+  CHANGE_INSTITUTION: "change-institution",
+  CHANGE_CITY: "change-city",
+  CHANGE_REASON: "change-reason",
+  CHANGE_EXPERIENCE: "change-experience",
+  CHANGE_RESUME: "change-resume",
+  CLEAR_RESUME: "clear-resume",
+  CHANGE_REMARKS: "change-remarks",
+  RESET_FIELDS: "reset-fields",
+};
+
+const formDefaultState = {
+  name: "",
+  email: "",
+  phone: "",
+  institution: "",
+  city: "",
+  reason: "",
+  experience: "",
+  resume: null,
+  remarks: "",
+};
+
+const formReducer = (state, action) => {
+  switch (action.type) {
+    case FORM_ACTIONS.CHANGE_NAME:
+      return { ...state, name: action.payload };
+    case FORM_ACTIONS.CHANGE_PHONE:
+      return { ...state, phone: action.payload };
+    case FORM_ACTIONS.CHANGE_EMAIL:
+      return { ...state, email: action.payload };
+    case FORM_ACTIONS.CHANGE_INSTITUTION:
+      return { ...state, institution: action.payload };
+    case FORM_ACTIONS.CHANGE_CITY:
+      return { ...state, city: action.payload };
+    case FORM_ACTIONS.CHANGE_REASON:
+      return { ...state, reason: action.payload };
+    case FORM_ACTIONS.CHANGE_EXPERIENCE:
+      return { ...state, experience: action.payload };
+    case FORM_ACTIONS.CHANGE_RESUME:
+      return { ...state, resume: action.payload };
+    case FORM_ACTIONS.CLEAR_RESUME:
+      return { ...state, resume: null };
+    case FORM_ACTIONS.CHANGE_REMARKS:
+      return { ...state, remarks: action.payload };
+    case FORM_ACTIONS.RESET_FIELDS:
+      return formDefaultState;
+    default:
+      return state;
+  }
+};
+
 const OpportunitiesForm = ({ company, position }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [institution, setInstitution] = useState("");
-  const [city, setCity] = useState("");
-  const [reason, setReason] = useState("");
-  const [experience, setExperience] = useState("");
-  const [resume, setResume] = useState();
-  const [remarks, setRemarks] = useState("");
+  const [formState, dispatchForm] = useReducer(formReducer, formDefaultState);
   const [isWrong, setIsWrong] = useState(false);
   const [isEmailWrong, setIsEmailWrong] = useState(false);
   const [isPhoneWrong, setIsPhoneWrong] = useState(false);
@@ -42,15 +89,13 @@ const OpportunitiesForm = ({ company, position }) => {
 
   const isValid = () => {
     if (
-      name.trim() === "" ||
-      email.trim() === "" ||
-      phone.trim() === "" ||
-      institution.trim() === "" ||
-      city.trim() === "" ||
-      reason.trim() === "" ||
-      experience.trim() === "" ||
-      !emailPattern.test(email) ||
-      !checkPhone(phone)
+      formState.name.trim() === "" ||
+      formState.institution.trim() === "" ||
+      formState.city.trim() === "" ||
+      formState.reason.trim() === "" ||
+      formState.experience.trim() === "" ||
+      !emailPattern.test(formState.email) ||
+      !checkPhone(formState.phone)
     ) {
       return false;
     }
@@ -58,39 +103,31 @@ const OpportunitiesForm = ({ company, position }) => {
   };
 
   const validateEmail = () => {
-    if (!emailPattern.test(email)) {
+    if (!emailPattern.test(formState.email)) {
       setIsEmailWrong(true);
     }
-    if (emailPattern.test(email)) {
+    if (emailPattern.test(formState.email)) {
       setIsEmailWrong(false);
     }
-    if (email.trim() === "") {
+    if (formState.email.trim() === "") {
       setIsEmailWrong(false);
     }
   };
 
   const validatePhone = () => {
-    if (!checkPhone(phone)) {
+    if (!checkPhone(formState.phone)) {
       setIsPhoneWrong(true);
     }
-    if (checkPhone(phone)) {
+    if (checkPhone(formState.phone)) {
       setIsPhoneWrong(false);
     }
-    if (phone.trim() === "") {
+    if (formState.phone.trim() === "") {
       setIsPhoneWrong(false);
     }
   };
 
   const resetStates = () => {
-    setName("");
-    setEmail("");
-    setResume(null);
-    setPhone("");
-    setInstitution("");
-    setCity("");
-    setReason("");
-    setExperience("");
-    setRemarks("");
+    dispatchForm({ type: FORM_ACTIONS.RESET_FIELDS });
     setIsSubmitted(true);
     setIsWrong(false);
     setLoadingText("Loading");
@@ -105,24 +142,40 @@ const OpportunitiesForm = ({ company, position }) => {
       setIsWrong(false);
 
       let resumeFileName = "-";
-      if (resume) {
-        resumeFileName = email + "_" + v4();
+      if (formState.resume) {
+        resumeFileName = formState.email + "_" + v4();
         const resumeRef = ref(storage, `resumes/${resumeFileName}`);
-        await uploadBytes(resumeRef, resume);
+        await uploadBytes(resumeRef, formState.resume);
       }
 
+      const currentDate = new Date();
+      const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        timeZoneName: "short",
+        timeZone: "America/New_York",
+      };
+      const formatter = new Intl.DateTimeFormat("en-US", options);
+      const formattedDate = formatter.format(currentDate);
+
       const data = {
-        Name: name.trim(),
-        Email: email.trim(),
+        Name: formState.name.trim(),
+        Email: formState.email.trim(),
         ResumeFileName: resumeFileName.trim(),
-        PhoneNumber: "no: " + phone.trim(),
-        Institution: institution.trim(),
-        CityOfResidence: city.trim(),
-        Reason: reason.trim(),
-        PreviousExperience: experience.trim(),
-        AdditionalRemarks: remarks === "" ? "-" : remarks.trim(),
+        PhoneNumber: "no: " + formState.phone.trim(),
+        Institution: formState.institution.trim(),
+        CityOfResidence: formState.city.trim(),
+        Reason: formState.reason.trim(),
+        PreviousExperience: formState.experience.trim(),
+        AdditionalRemarks: formState.remarks === "" ? "-" : formState.remarks.trim(),
         Position: position,
         Company: company,
+        DateAndTime: formattedDate,
       };
 
       try {
@@ -189,23 +242,23 @@ const OpportunitiesForm = ({ company, position }) => {
               type='text'
               required={true}
               onChange={(e) => {
-                setName(e.target.value);
+                dispatchForm({ type: FORM_ACTIONS.CHANGE_NAME, payload: e.target.value });
               }}
-              value={name}
+              value={formState.name}
             />
             <OpportunitiesInput
               label='Phone Number'
               type='tel'
               required={true}
               onChange={(e) => {
-                setPhone(e.target.value);
+                dispatchForm({ type: FORM_ACTIONS.CHANGE_PHONE, payload: e.target.value });
                 if (isPhoneWrong) {
-                  if (checkPhone(phone)) {
+                  if (checkPhone(formState.phone)) {
                     setIsPhoneWrong(false);
                   }
                 }
               }}
-              value={phone}
+              value={formState.phone}
               onBlur={validatePhone}
             >
               <>
@@ -219,12 +272,12 @@ const OpportunitiesForm = ({ company, position }) => {
               type='text'
               required={true}
               onChange={(e) => {
-                setEmail(e.target.value);
-                if (emailPattern.test(email)) {
+                dispatchForm({ type: FORM_ACTIONS.CHANGE_EMAIL, payload: e.target.value });
+                if (emailPattern.test(formState.email)) {
                   setIsEmailWrong(false);
                 }
               }}
-              value={email}
+              value={formState.email}
               onBlur={validateEmail}
             >
               <>{isEmailWrong && <p className={styles["error-text"]}>Invalid Email Entered</p>}</>
@@ -234,18 +287,18 @@ const OpportunitiesForm = ({ company, position }) => {
               type='text'
               required={true}
               onChange={(e) => {
-                setInstitution(e.target.value);
+                dispatchForm({ type: FORM_ACTIONS.CHANGE_INSTITUTION, payload: e.target.value });
               }}
-              value={institution}
+              value={formState.institution}
             />
             <OpportunitiesInput
               label='City of Residence'
               type='text'
               required={true}
               onChange={(e) => {
-                setCity(e.target.value);
+                dispatchForm({ type: FORM_ACTIONS.CHANGE_CITY, payload: e.target.value });
               }}
-              value={city}
+              value={formState.city}
             />
             <div className={styles["field"] + " " + styles["required"]}>
               <label>Why do you want to join {company}?</label>
@@ -254,9 +307,9 @@ const OpportunitiesForm = ({ company, position }) => {
                 required
                 rows='4'
                 onChange={(e) => {
-                  setReason(e.target.value);
+                  dispatchForm({ type: FORM_ACTIONS.CHANGE_REASON, payload: e.target.value });
                 }}
-                value={reason}
+                value={formState.reason}
               />
             </div>
             <div className={styles["field"] + " " + styles["required"]}>
@@ -266,9 +319,9 @@ const OpportunitiesForm = ({ company, position }) => {
                 required
                 rows='4'
                 onChange={(e) => {
-                  setExperience(e.target.value);
+                  dispatchForm({ type: FORM_ACTIONS.CHANGE_EXPERIENCE, payload: e.target.value });
                 }}
-                value={experience}
+                value={formState.experience}
               />
             </div>
             <div className={styles["field"]}>
@@ -283,7 +336,10 @@ const OpportunitiesForm = ({ company, position }) => {
                     type='file'
                     id='resume-upload'
                     onChange={(e) => {
-                      setResume(e.target.files[0]);
+                      dispatchForm({
+                        type: FORM_ACTIONS.CHANGE_RESUME,
+                        payload: e.target.files[0],
+                      });
                     }}
                   />
                   <div className={styles["file-upload-content"]}>
@@ -301,7 +357,7 @@ const OpportunitiesForm = ({ company, position }) => {
                   <div
                     className={styles["file-upload-content"]}
                     onClick={() => {
-                      setResume();
+                      dispatchForm({ type: FORM_ACTIONS.CLEAR_RESUME });
                     }}
                   >
                     Clear
@@ -312,8 +368,8 @@ const OpportunitiesForm = ({ company, position }) => {
                   </div>
                 </label>
               </div>
-              {resume !== null && resume !== undefined && (
-                <span className={styles["resume-display"]}>{resume.name}</span>
+              {formState.resume !== null && formState.resume !== undefined && (
+                <span className={styles["resume-display"]}>{formState.resume.name}</span>
               )}
             </div>
             <div className={styles["field"]}>
@@ -322,9 +378,9 @@ const OpportunitiesForm = ({ company, position }) => {
                 autoComplete='off'
                 rows='3'
                 onChange={(e) => {
-                  setRemarks(e.target.value);
+                  dispatchForm({ type: FORM_ACTIONS.CHANGE_REMARKS, payload: e.target.value });
                 }}
-                value={remarks}
+                value={formState.remarks}
               />
             </div>
             {!isLoading && (
