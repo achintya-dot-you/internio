@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { db, storage } from "../../firebase_setup/firebase-config";
 import { ref, uploadBytes } from "firebase/storage";
@@ -12,8 +12,6 @@ import { v4 } from "uuid";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTrash, faX } from "@fortawesome/free-solid-svg-icons";
-
-import iconImage from "../../assets/images/icon.png";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phonePattern = /^(\d{10}|\d{11}|\d{12}|\d{13})$/;
@@ -37,7 +35,6 @@ const OpportunitiesForm = ({ company, position }) => {
   const [isPhoneWrong, setIsPhoneWrong] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [loadingText, setLoadingText] = useState("Loading");
   const collectionRef = collection(db, "formResponses");
 
   const isValid = () => {
@@ -93,7 +90,6 @@ const OpportunitiesForm = ({ company, position }) => {
     setRemarks("");
     setIsSubmitted(true);
     setIsWrong(false);
-    setLoadingText("Loading");
   };
 
   const handleSubmit = async (e) => {
@@ -101,7 +97,6 @@ const OpportunitiesForm = ({ company, position }) => {
 
     if (isValid()) {
       setIsLoading(true);
-      setLoadingText("Loading");
       setIsWrong(false);
 
       let resumeFileName = "-";
@@ -148,197 +143,166 @@ const OpportunitiesForm = ({ company, position }) => {
     e.stopPropagation();
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLoadingText((prevText) => {
-        if (prevText === "Loading...") {
-          return "Loading";
-        } else {
-          return prevText + ".";
-        }
-      });
-    }, 500);
-
-    // Clean up the interval when the component unmounts
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <>
-      {isLoading && (
-        <div className={styles["loader-container"]}>
-          <picture>
-            <img
-              srcSet={iconImage}
-              alt=''
-              loading='lazy'
-              className={styles["loader"]}
-            ></img>
-          </picture>
-        </div>
-      )}
-      {!isLoading && (
-        <>
-          <h2 className={styles["heading"]}>Fill out the details to apply</h2>
-          <form
-            autoComplete='off'
-            className={styles["form"]}
+      <>
+        <h2 className={styles["heading"]}>Fill out the details to apply</h2>
+        <form
+          autoComplete='off'
+          className={styles["form"]}
+        >
+          <OpportunitiesInput
+            label='Name'
+            type='text'
+            required={true}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            value={name}
+          />
+          <OpportunitiesInput
+            label='Phone Number'
+            type='tel'
+            required={true}
+            onChange={(e) => {
+              setPhone(e.target.value);
+              if (isPhoneWrong) {
+                if (checkPhone(phone)) {
+                  setIsPhoneWrong(false);
+                }
+              }
+            }}
+            value={phone}
+            onBlur={validatePhone}
           >
-            <OpportunitiesInput
-              label='Name'
-              type='text'
-              required={true}
+            <>
+              {isPhoneWrong && <p className={styles["error-text"]}>Invalid Phone Number Entered</p>}
+            </>
+          </OpportunitiesInput>
+          <OpportunitiesInput
+            label='Email'
+            type='text'
+            required={true}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (emailPattern.test(email)) {
+                setIsEmailWrong(false);
+              }
+            }}
+            value={email}
+            onBlur={validateEmail}
+          >
+            <>{isEmailWrong && <p className={styles["error-text"]}>Invalid Email Entered</p>}</>
+          </OpportunitiesInput>
+          <OpportunitiesInput
+            label='What institution do you attend?'
+            type='text'
+            required={true}
+            onChange={(e) => {
+              setInstitution(e.target.value);
+            }}
+            value={institution}
+          />
+          <OpportunitiesInput
+            label='City of Residence'
+            type='text'
+            required={true}
+            onChange={(e) => {
+              setCity(e.target.value);
+            }}
+            value={city}
+          />
+          <div className={styles["field"] + " " + styles["required"]}>
+            <label>Why do you want to join {company}?</label>
+            <textarea
+              autoComplete='off'
+              required
+              rows='4'
               onChange={(e) => {
-                setName(e.target.value);
+                setReason(e.target.value);
               }}
-              value={name}
+              value={reason}
             />
-            <OpportunitiesInput
-              label='Phone Number'
-              type='tel'
-              required={true}
+          </div>
+          <div className={styles["field"] + " " + styles["required"]}>
+            <label>List any previous experience you have with the related field.</label>
+            <textarea
+              autoComplete='off'
+              required
+              rows='4'
               onChange={(e) => {
-                setPhone(e.target.value);
-                if (isPhoneWrong) {
-                  if (checkPhone(phone)) {
-                    setIsPhoneWrong(false);
-                  }
-                }
+                setExperience(e.target.value);
               }}
-              value={phone}
-              onBlur={validatePhone}
-            >
-              <>
-                {isPhoneWrong && (
-                  <p className={styles["error-text"]}>Invalid Phone Number Entered</p>
-                )}
-              </>
-            </OpportunitiesInput>
-            <OpportunitiesInput
-              label='Email'
-              type='text'
-              required={true}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                if (emailPattern.test(email)) {
-                  setIsEmailWrong(false);
-                }
-              }}
-              value={email}
-              onBlur={validateEmail}
-            >
-              <>{isEmailWrong && <p className={styles["error-text"]}>Invalid Email Entered</p>}</>
-            </OpportunitiesInput>
-            <OpportunitiesInput
-              label='What institution do you attend?'
-              type='text'
-              required={true}
-              onChange={(e) => {
-                setInstitution(e.target.value);
-              }}
-              value={institution}
+              value={experience}
             />
-            <OpportunitiesInput
-              label='City of Residence'
-              type='text'
-              required={true}
-              onChange={(e) => {
-                setCity(e.target.value);
-              }}
-              value={city}
-            />
-            <div className={styles["field"] + " " + styles["required"]}>
-              <label>Why do you want to join {company}?</label>
-              <textarea
-                autoComplete='off'
-                required
-                rows='4'
-                onChange={(e) => {
-                  setReason(e.target.value);
-                }}
-                value={reason}
-              />
-            </div>
-            <div className={styles["field"] + " " + styles["required"]}>
-              <label>List any previous experience you have with the related field.</label>
-              <textarea
-                autoComplete='off'
-                required
-                rows='4'
-                onChange={(e) => {
-                  setExperience(e.target.value);
-                }}
-                value={experience}
-              />
-            </div>
-            <div className={styles["field"]}>
-              <label>Resume</label>
-              <div className={styles["file-upload-actions"]}>
-                <label
-                  for='resume-upload'
-                  className={styles["file-upload-label"]}
-                >
-                  <input
-                    autoComplete='off'
-                    type='file'
-                    id='resume-upload'
-                    onChange={(e) => {
-                      setResume(e.target.files[0]);
-                    }}
-                  />
-                  <div className={styles["file-upload-content"]}>
-                    Upload Resume
-                    <FontAwesomeIcon
-                      icon={faUpload}
-                      className={styles["file-upload-icon"]}
-                    />
-                  </div>
-                </label>
-                <label
-                  for='resume-clear'
-                  className={styles["file-upload-label"]}
-                >
-                  <div
-                    className={styles["file-upload-content"]}
-                    onClick={() => {
-                      setResume();
-                    }}
-                  >
-                    Clear
-                    <FontAwesomeIcon
-                      icon={faTrash}
-                      className={styles["file-upload-delete"]}
-                    />
-                  </div>
-                </label>
-              </div>
-              {resume !== null && resume !== undefined && (
-                <span className={styles["resume-display"]}>{resume.name}</span>
-              )}
-            </div>
-            <div className={styles["field"]}>
-              <label>Additional Remarks</label>
-              <textarea
-                autoComplete='off'
-                rows='3'
-                onChange={(e) => {
-                  setRemarks(e.target.value);
-                }}
-                value={remarks}
-              />
-            </div>
-            {!isLoading && (
-              <button
-                className={styles["button"]}
-                onClick={handleSubmit}
+          </div>
+          <div className={styles["field"]}>
+            <label>Resume</label>
+            <div className={styles["file-upload-actions"]}>
+              <label
+                for='resume-upload'
+                className={styles["file-upload-label"]}
               >
-                Apply Now
-              </button>
+                <input
+                  autoComplete='off'
+                  type='file'
+                  id='resume-upload'
+                  onChange={(e) => {
+                    setResume(e.target.files[0]);
+                  }}
+                />
+                <div className={styles["file-upload-content"]}>
+                  Upload Resume
+                  <FontAwesomeIcon
+                    icon={faUpload}
+                    className={styles["file-upload-icon"]}
+                  />
+                </div>
+              </label>
+              <label
+                for='resume-clear'
+                className={styles["file-upload-label"]}
+              >
+                <div
+                  className={styles["file-upload-content"]}
+                  onClick={() => {
+                    setResume();
+                  }}
+                >
+                  Clear
+                  <FontAwesomeIcon
+                    icon={faTrash}
+                    className={styles["file-upload-delete"]}
+                  />
+                </div>
+              </label>
+            </div>
+            {resume !== null && resume !== undefined && (
+              <span className={styles["resume-display"]}>{resume.name}</span>
             )}
-            {isLoading && <button className={styles["button"]}>{loadingText}</button>}
-          </form>
-        </>
-      )}
+          </div>
+          <div className={styles["field"]}>
+            <label>Additional Remarks</label>
+            <textarea
+              autoComplete='off'
+              rows='3'
+              onChange={(e) => {
+                setRemarks(e.target.value);
+              }}
+              value={remarks}
+            />
+          </div>
+          {!isLoading && (
+            <button
+              className={styles["button"]}
+              onClick={handleSubmit}
+            >
+              Apply Now
+            </button>
+          )}
+          {isLoading && <div className={styles["spin"]}></div>}
+        </form>
+      </>
       {isSubmitted && (
         <>
           <div
