@@ -10,14 +10,16 @@ import Footer from "../components/Footer/Footer";
 import arnav from "../assets/images/team/arnav.jpg";
 import achintya from "../assets/images/team/achintya.jpg";
 
-const getImageSrc = (imagesrc) => {
-  try {
-    return require("../assets/images/team/" + imagesrc);
-  } catch (error) {
-    console.log(`Error loading image at path: ${imagesrc}`);
-    return null;
-  }
-};
+// const getImageSrc = (imagesrc) => {
+//   try {
+//     const image = require(`../assets/images/team/${imagesrc}.jpg`);
+//     return image.default;
+//   } catch (error) {
+//     console.log(`Error loading image at path: ${imagesrc}`);
+//     console.error(error);
+//     return null;
+//   }
+// };
 
 const Team = () => {
   return (
@@ -31,7 +33,7 @@ const Team = () => {
           <div className={styles["founders-picture-container"]}>
             <picture>
               <img
-                srcSet={achintya}
+                src={achintya}
                 alt='achintya'
                 loading='lazy'
                 className={styles["founders-picture"] + " " + styles["arnav-pic"]}
@@ -54,7 +56,7 @@ const Team = () => {
           <div className={styles["founders-picture-container"]}>
             <picture>
               <img
-                srcSet={arnav}
+                src={arnav}
                 alt='arnav'
                 loading='lazy'
                 className={styles["founders-picture"]}
@@ -83,7 +85,7 @@ const Team = () => {
             <div className={styles["members-picture-container"]}>
               <picture>
                 <img
-                  srcSet={getImageSrc(member.image)}
+                  src={"team/" + member.image + ".jpg"}
                   alt={member.name}
                   loading='lazy'
                   className={styles["members-picture"]}
