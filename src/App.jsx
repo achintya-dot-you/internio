@@ -12,8 +12,7 @@ import NotFound from "./pages/NotFound";
 import OpportunitiesDetails from "./pages/OpportunitiesDetails";
 
 // Importing general components
-import Title from "./components/General/Title";
-import ScrollToTop from "./components/General/ScrollToTop";
+import General from "./components/General/General";
 
 // Importing Styles
 import "./styles/initialization.scss";
@@ -51,8 +50,7 @@ function App() {
     // Routing every page link
     <>
       <Router>
-        <ScrollToTop />
-        <Title />
+        <General />
         <Routes>
           <Route
             path='/'
