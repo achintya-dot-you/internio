@@ -61,7 +61,6 @@
 
       .container {
         width: 100%;
-        table-layout: fixed;
         background-color: #f9f9f9;
         display: flex;
         align-items: center;
@@ -79,21 +78,30 @@
         color: #12100e;
         letter-spacing: 0em;
         line-height: 3.625;
+
+        font-size: 3rem;
       }
 
       header h1 img {
-        height: 2.0625rem;
+        height: 3.3rem;
       }
 
       main {
         background-color: #fff;
-        border-radius: 20px;
+        border-radius: 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 4rem 2rem;
-        padding-top: 3rem;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        padding: 6.4rem 3.2rem;
+        padding-top: 4.8rem;
+        filter: drop-shadow(0 0.4rem 0.4rem rgba(0, 0, 0, 0.25));
+        width: 50%;
+      }
+
+      @media only screen and (max-width: 56.25em) {
+        main {
+          width: 80%;
+        }
       }
 
       h2 {
@@ -106,30 +114,35 @@
 
       h2 span.h2-up {
         font-weight: 700;
-        font-size: 2.3125rem;
+        font-size: 3.7rem;
         color: #12100e;
       }
 
       h2 span.h2-down {
         font-weight: 800;
         color: #4c7bf4;
-        font-size: 2.875rem;
+        font-size: 3.7rem;
+      }
+
+      main img {
+        width: 100%;
+        margin: 6.4rem 0;
       }
 
       .button {
         text-decoration: none;
         background-color: #4c7bf4;
         color: #f7fff7;
-        border-radius: 6px;
-        padding: 10px;
+        border-radius: 0.6rem;
+        padding: 1rem;
         font-family: montserrat, sans-serif;
-        font-size: 1.25rem;
+        font-size: 2rem;
         font-weight: 700;
       }
 
       h3 {
         font-family: inter;
-        font-size: 1.5rem;
+        font-size: 2.4rem;
         font-weight: 400;
       }
 
@@ -143,29 +156,29 @@
         font-weight: 700;
         font-family: inter, sans-serif;
         letter-spacing: 3%;
-        font-size: 1.5rem;
+        font-size: 2.4rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
+        gap: 1.6rem;
       }
 
       .link svg {
-        height: 1.5rem;
-        width: 1.5rem;
+        height: 2.4rem;
+        width: 2.4rem;
         fill: #4c7bf4;
       }
 
       footer {
         display: flex;
         flex-direction: row;
-        gap: 1rem;
-        padding: 4rem 0;
+        gap: 1.6rem;
+        padding: 6.4rem 0;
       }
 
       footer svg {
-        width: 2rem;
-        height: 2rem;
+        width: 3.2rem;
+        height: 3.2rem;
       }
     </style>
   </head>
